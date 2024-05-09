@@ -8,6 +8,7 @@ import 'package:untitled1/Screens/HomePage/My%20Resumes/show_all_my_resume.dart'
 import 'package:untitled1/Screens/HomePage/Top%20Jobs/top_job_list_view.dart';
 import 'package:untitled1/Screens/HomePage/search.dart';
 import 'package:untitled1/Screens/HomePage/show_all_top_job.dart';
+import 'package:untitled1/Screens/PaymentPage/payment_details.dart';
 import 'package:untitled1/Screens/PaymentPage/payment_method_bottom_sheet.dart';
 
 class HomePage extends StatefulWidget {
@@ -104,14 +105,23 @@ class _HomePageState extends State<HomePage> {
             IconButton(
               icon: const Icon(Icons.payment, size: 30, color: Colors.white),
               onPressed: () {
-                showModalBottomSheet(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Sizer(
+                      builder: (context, orientation, deviceType) =>
+                          const PaymentDetailsView(),
                     ),
-                    context: context,
-                    builder: (context) {
-                      return const PaymentMethodBotttomSheet();
-                    });
+                  ),
+                );
+                // showModalBottomSheet(
+                //     shape: RoundedRectangleBorder(
+                //       borderRadius: BorderRadius.circular(16),
+                //     ),
+                //     context: context,
+                //     builder: (context) {
+                //       return const PaymentMethodBotttomSheet();
+                //     });
               },
             ),
             const Icon(Icons.account_circle, size: 30, color: Colors.white),
