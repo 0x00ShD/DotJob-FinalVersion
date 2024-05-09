@@ -16,6 +16,8 @@ With its emphasis on user experience and functionality, DotJob aims to revolutio
 ![Screenshot_20240509_075228_com example untitled1](https://github.com/Shady19-design/UserDotJob/assets/90114980/1a5f210b-80d3-4726-a754-e2516879d402)
 ![Screenshot_20240509_075234_com example untitled1](https://github.com/Shady19-design/UserDotJob/assets/90114980/31a0a275-b10e-46a8-8515-fdb5d98dc493)
 ![Screenshot_20240509_075245_com example untitled1](https://github.com/Shady19-design/UserDotJob/assets/90114980/99b5529a-f87e-4aa7-8c71-3fd738c8b5fc)
+![Screenshot_20240509_084024_com example untitled1](https://github.com/Shady19-design/UserDotJob/assets/90114980/d0938b43-0df1-4aee-91b5-981783440e56)
+![Screenshot_20240509_084030_com example untitled1](https://github.com/Shady19-design/UserDotJob/assets/90114980/586e8114-9488-44e6-ba76-bbd822202130)
 ![Screenshot_20240509_075251_com example untitled1](https://github.com/Shady19-design/UserDotJob/assets/90114980/4d4b327b-4fac-4279-a419-fe184c910936)
 ![Screenshot_20240509_075255_com example untitled1](https://github.com/Shady19-design/UserDotJob/assets/90114980/ad4d758b-f6ad-4758-b776-bc7ebb6f5488)
 ![Screenshot_20240509_075258_com example untitled1](https://github.com/Shady19-design/UserDotJob/assets/90114980/f15bafc2-3db4-4ec9-a373-79d19895092a)
