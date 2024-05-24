@@ -20,7 +20,7 @@ class _ShowAllUsersState extends State<ShowAllUsers> {
           delay: const Duration(milliseconds: 600),
           duration: const Duration(milliseconds: 700),
           child: const Text(
-            "Companies",
+            "Users",
             style: TextStyle(fontFamily: 'Arimo'),
           ),
         ),
