@@ -1,13 +1,13 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-import 'package:untitled1/Screens/UserDirection/HomePage/home_page.dart';
-import 'package:untitled1/Screens/UserDirection/ForgetPassword/forget_password.dart';
-import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up.dart';
+import 'package:untitled1/Screens/CompanyDirection/ForgetPasswordCompany/forget_password_company.dart';
+import 'package:untitled1/Screens/CompanyDirection/HomePageCompany/home_page_company.dart';
+import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_company.dart';
 import 'package:untitled1/Screens/UserDirection/user_direction.dart';
 
-class LoginUSerPage extends StatelessWidget {
-  const LoginUSerPage({super.key});
+class LoginCompanyPage extends StatelessWidget {
+  const LoginCompanyPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -92,10 +92,21 @@ class LoginUSerPage extends StatelessWidget {
                             height: 20,
                           ),
                           FadeInDown(
-                              delay: const Duration(milliseconds: 600),
-                              duration: const Duration(milliseconds: 700),
-                              child: inputFile(
-                                  label: "Password", obscureText: true))
+                            delay: const Duration(milliseconds: 600),
+                            duration: const Duration(milliseconds: 700),
+                            child:
+                                inputFile(label: "Password", obscureText: true),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          FadeInDown(
+                            delay: const Duration(milliseconds: 600),
+                            duration: const Duration(milliseconds: 700),
+                            child: inputFile(
+                                label: "Tax Identification Number",
+                                obscureText: true),
+                          ),
                         ],
                       ),
                     ),
@@ -115,7 +126,7 @@ class LoginUSerPage extends StatelessWidget {
                                     builder: (context) => Sizer(
                                       builder:
                                           (context, orientation, deviceType) =>
-                                              const ForgetPassword(),
+                                              const ForgetPasswordCompany(),
                                     ),
                                   ),
                                 );
@@ -160,7 +171,7 @@ class LoginUSerPage extends StatelessWidget {
                                       builder: (context) => Sizer(
                                         builder: (context, orientation,
                                                 deviceType) =>
-                                            const HomePage(),
+                                            const HomePageCompany(),
                                       ),
                                     ),
                                   );
@@ -208,7 +219,7 @@ class LoginUSerPage extends StatelessWidget {
                                     builder: (context) => Sizer(
                                       builder:
                                           (context, orientation, deviceType) =>
-                                              const SignUp(),
+                                              const SignUpCompany(),
                                     ),
                                   ),
                                 );
@@ -223,110 +234,6 @@ class LoginUSerPage extends StatelessWidget {
                               ),
                             ),
                           ]),
-                    ),
-                    SizedBox(
-                      height: 2.h,
-                    ),
-                    FadeInLeft(
-                      delay: const Duration(milliseconds: 600),
-                      duration: const Duration(milliseconds: 700),
-                      child: Expanded(
-                        child: Row(
-                          children: <Widget>[
-                            Expanded(
-                              child: Container(
-                                padding: const EdgeInsets.only(left: 20),
-                                child: const Divider(
-                                  thickness: 1,
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 3.h,
-                            ),
-                            const Text("OR"),
-                            SizedBox(
-                              width: 3.h,
-                            ),
-                            Expanded(
-                              child: Container(
-                                padding: const EdgeInsets.only(right: 20),
-                                child: const Divider(
-                                  thickness: 1,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 3.h,
-                    ),
-                    FadeInUp(
-                      delay: const Duration(milliseconds: 600),
-                      duration: const Duration(milliseconds: 700),
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: 2.h,
-                          ),
-                          Expanded(
-                            child: MaterialButton(
-                              minWidth: double.infinity,
-                              height: 60,
-                              onPressed: () {},
-                              color: Colors.white,
-                              elevation: 0,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(50),
-                              ),
-                              child: Image.asset(
-                                'assets/Images/5296499_fb_facebook_facebook logo_icon.png',
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 3.h,
-                          ),
-                          Expanded(
-                            child: MaterialButton(
-                              minWidth: double.infinity,
-                              height: 60,
-                              onPressed: () {},
-                              color: Colors.white,
-                              elevation: 0,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(50),
-                              ),
-                              child: Image.asset(
-                                'assets/Images/11244080_x_twitter_elon musk_twitter new logo_icon.png',
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 2.h,
-                          ),
-                          Expanded(
-                            child: MaterialButton(
-                              minWidth: double.infinity,
-                              height: 60,
-                              onPressed: () {},
-                              color: Colors.white,
-                              elevation: 0,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(50),
-                              ),
-                              child: Image.asset(
-                                'assets/Images/pngwing.com.png',
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 2.h,
-                          ),
-                        ],
-                      ),
                     ),
                   ],
                 ),

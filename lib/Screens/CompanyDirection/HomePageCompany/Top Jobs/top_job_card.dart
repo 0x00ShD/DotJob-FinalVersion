@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled1/Screens/HomePage/Top%20Jobs/top_job_model.dart';
+import 'package:untitled1/Screens/CompanyDirection/HomePageCompany/Top%20Jobs/top_job_model.dart';
 
 class TopJobCard extends StatelessWidget {
   const TopJobCard({super.key, required this.topjob});

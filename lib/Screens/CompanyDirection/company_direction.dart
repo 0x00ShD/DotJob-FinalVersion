@@ -1,6 +1,8 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'package:untitled1/Screens/CompanyDirection/LogInCompany/log_in_company.dart';
+import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_company.dart';
 
 class CompanyDirection extends StatefulWidget {
   const CompanyDirection({super.key});
@@ -91,7 +93,18 @@ class _CompanyDirectionState extends State<CompanyDirection> {
                       children: [
                         Expanded(
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Sizer(
+                                    builder:
+                                        (context, orientation, deviceType) =>
+                                            const LoginCompanyPage(),
+                                  ),
+                                ),
+                              );
+                            },
                             style: ElevatedButton.styleFrom(
                                 elevation: 0,
                                 textStyle: const TextStyle(
@@ -138,7 +151,18 @@ class _CompanyDirectionState extends State<CompanyDirection> {
                       children: [
                         Expanded(
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Sizer(
+                                    builder:
+                                        (context, orientation, deviceType) =>
+                                            const SignUpCompany(),
+                                  ),
+                                ),
+                              );
+                            },
                             style: ElevatedButton.styleFrom(
                                 elevation: 0,
                                 textStyle: const TextStyle(

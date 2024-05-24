@@ -3,7 +3,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:untitled1/Screens/CV/build_options_page.dart';
-import 'package:untitled1/Screens/HomePage/home_page.dart';
+import 'package:untitled1/Screens/UserDirection/HomePage/home_page.dart';
 import 'package:untitled1/Screens/PaymentPage/payment_details_view_body.dart';
 
 class PaymentDetailsView extends StatelessWidget {

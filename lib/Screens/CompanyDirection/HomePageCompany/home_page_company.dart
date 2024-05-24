@@ -2,23 +2,20 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:sizer/sizer.dart';
-import 'package:untitled1/Screens/CV/build_options_page.dart';
-import 'package:untitled1/Screens/HomePage/Companies/show_all_companies.dart';
-import 'package:untitled1/Screens/HomePage/My%20Resumes/show_all_my_resume.dart';
-import 'package:untitled1/Screens/HomePage/Top%20Jobs/top_job_list_view.dart';
-import 'package:untitled1/Screens/HomePage/search.dart';
-import 'package:untitled1/Screens/HomePage/show_all_top_job.dart';
+import 'package:untitled1/Screens/CompanyDirection/HomePageCompany/Users/show_all_users.dart';
+import 'package:untitled1/Screens/CompanyDirection/HomePageCompany/Top%20Jobs/top_job_list_view.dart';
+import 'package:untitled1/Screens/CompanyDirection/HomePageCompany/search.dart';
+import 'package:untitled1/Screens/CompanyDirection/HomePageCompany/show_all_top_job.dart';
 import 'package:untitled1/Screens/PaymentPage/payment_details.dart';
-import 'package:untitled1/Screens/PaymentPage/payment_method_bottom_sheet.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class HomePageCompany extends StatefulWidget {
+  const HomePageCompany({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomePageCompany> createState() => _HomePageCompanyState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageCompanyState extends State<HomePageCompany> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +39,7 @@ class _HomePageState extends State<HomePage> {
                       Container(
                         padding: const EdgeInsets.only(top: 10),
                         child: Text(
-                          'Hi, Shady Mohamed',
+                          'Hi, "Company Name"',
                           style: TextStyle(
                               fontFamily: 'Satoshi',
                               fontSize: 15.sp,
@@ -80,26 +77,11 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       bottomNavigationBar: CurvedNavigationBar(
-          index: 2,
+          index: 1,
           backgroundColor: const Color(0xFF139487).withOpacity(0.5),
           color: const Color(0xFF139487),
           animationDuration: const Duration(milliseconds: 300),
           items: [
-            MaterialButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Sizer(
-                      builder: (context, orientation, deviceType) =>
-                          const BuildOptionsPage(),
-                    ),
-                  ),
-                );
-              },
-              child: const Icon(Icons.switch_account_outlined,
-                  size: 30, color: Colors.white),
-            ),
             const Icon(Icons.dashboard, size: 30, color: Colors.white),
             const Icon(Icons.home, size: 30, color: Colors.white),
             IconButton(
@@ -270,7 +252,7 @@ class _HomePageState extends State<HomePage> {
                             delay: const Duration(milliseconds: 800),
                             duration: const Duration(milliseconds: 900),
                             child: Text(
-                              "Companies",
+                              "Users",
                               style: TextStyle(
                                 fontFamily: 'Satoshi',
                                 fontWeight: FontWeight.w900,
@@ -287,7 +269,7 @@ class _HomePageState extends State<HomePage> {
                                   builder: (context) => Sizer(
                                     builder:
                                         (context, orientation, deviceType) =>
-                                            const ShowAllCompanies(),
+                                            const ShowAllUsers(),
                                   ),
                                 ),
                               );
@@ -340,95 +322,6 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               );
                             }),
-                          ),
-                        ),
-                      ),
-                      Row(
-                        children: [
-                          FadeInLeft(
-                            delay: const Duration(milliseconds: 800),
-                            duration: const Duration(milliseconds: 900),
-                            child: Text(
-                              "My Resumes",
-                              style: TextStyle(
-                                fontFamily: 'Satoshi',
-                                fontWeight: FontWeight.w900,
-                                fontSize: 15.sp,
-                              ),
-                            ),
-                          ),
-                          const Spacer(),
-                          MaterialButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => Sizer(
-                                    builder:
-                                        (context, orientation, deviceType) =>
-                                            const ShowAllMyResumes(),
-                                  ),
-                                ),
-                              );
-                            },
-                            color: Colors.white,
-                            elevation: 0,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                            // ignore: prefer_const_constructors
-                            child: FadeInRight(
-                              delay: const Duration(milliseconds: 800),
-                              duration: const Duration(milliseconds: 900),
-                              child: const Row(
-                                children: [
-                                  Text(
-                                    "SHOW ALL",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 15,
-                                      color: Color(0xFF139487),
-                                    ),
-                                  ),
-                                  Icon(
-                                    Icons.arrow_forward_ios,
-                                    color: Color(0xFF139487),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Container(
-                        height: 100,
-                        width: 150,
-                        padding: const EdgeInsets.only(top: 3, left: 3),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(50),
-                            border: const Border(
-                              bottom: BorderSide(color: Colors.black),
-                              top: BorderSide(color: Colors.black),
-                              left: BorderSide(color: Colors.black),
-                              right: BorderSide(color: Colors.black),
-                            )),
-                        child: MaterialButton(
-                          minWidth: double.infinity,
-                          height: 5,
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Sizer(
-                                  builder: (context, orientation, deviceType) =>
-                                      const BuildOptionsPage(),
-                                ),
-                              ),
-                            );
-                          },
-                          child: const Icon(
-                            Icons.add,
-                            color: Color(0xFF139487),
                           ),
                         ),
                       ),

@@ -1,11 +1,11 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-import 'package:untitled1/Screens/UserDirection/ForgetPassword/verfication_email.dart';
+import 'package:untitled1/Screens/CompanyDirection/ForgetPasswordCompany/verfication_email_company.dart';
 import 'package:untitled1/Screens/UserDirection/LoginView/login_user.dart';
 
-class CreateNewPassword extends StatelessWidget {
-  const CreateNewPassword({super.key});
+class ForgetPasswordCompany extends StatelessWidget {
+  const ForgetPasswordCompany({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +15,19 @@ class CreateNewPassword extends StatelessWidget {
       // appBar: AppBar(
       //   elevation: 0,
       //   backgroundColor: Colors.white,
+      //   leading: IconButton(
+      //     onPressed: () {
+      //       Navigator.push(
+      //         context,
+      //         MaterialPageRoute(builder: (context) => const LoginUSerPage()),
+      //       );
+      //     },
+      //     icon: const Icon(
+      //       Icons.arrow_back_ios,
+      //       size: 20,
+      //       color: Colors.black,
+      //     ),
+      //   ),
       // ),
       body: PopScope(
         canPop: false,
@@ -24,7 +37,7 @@ class CreateNewPassword extends StatelessWidget {
             MaterialPageRoute(
               builder: (context) => Sizer(
                 builder: (context, orientation, deviceType) =>
-                    const VerficationEmail(),
+                    const LoginUSerPage(),
               ),
             ),
           );
@@ -55,9 +68,9 @@ class CreateNewPassword extends StatelessWidget {
                                   delay: const Duration(milliseconds: 600),
                                   duration: const Duration(milliseconds: 700),
                                   child: Container(
-                                    padding: const EdgeInsets.only(left: 10),
+                                    padding: const EdgeInsets.only(left: 40),
                                     child: const Text(
-                                      "Create New Password",
+                                      "Forget Password",
                                       style: TextStyle(
                                           color: Color(0xFF139487),
                                           fontFamily: 'Arimo',
@@ -77,18 +90,18 @@ class CreateNewPassword extends StatelessWidget {
                           delay: const Duration(milliseconds: 600),
                           duration: const Duration(milliseconds: 700),
                           child: Text(
-                            "Your new password must be different",
+                            "Please enter your email address to",
                             style: TextStyle(
-                                fontSize: 18, color: Colors.grey[700]),
+                                fontSize: 20, color: Colors.grey[700]),
                           ),
                         ),
                         FadeInDown(
                           delay: const Duration(milliseconds: 600),
                           duration: const Duration(milliseconds: 700),
                           child: Text(
-                            "from previous used passwords.",
+                            "Recieve a vertication code.",
                             style: TextStyle(
-                                fontSize: 18, color: Colors.grey[700]),
+                                fontSize: 20, color: Colors.grey[700]),
                           ),
                         )
                       ],
@@ -101,8 +114,8 @@ class CreateNewPassword extends StatelessWidget {
                         height: 200,
                         decoration: const BoxDecoration(
                           image: DecorationImage(
-                              image:
-                                  AssetImage("assets/Images/Security On.gif"),
+                              image: AssetImage(
+                                  "assets/Images/Forgot password.gif"),
                               fit: BoxFit.fitHeight),
                         ),
                       ),
@@ -114,13 +127,7 @@ class CreateNewPassword extends StatelessWidget {
                           FadeInDown(
                               delay: const Duration(milliseconds: 600),
                               duration: const Duration(milliseconds: 700),
-                              child: inputFile(
-                                  label: "New Password", obscureText: true)),
-                          FadeInDown(
-                              delay: const Duration(milliseconds: 600),
-                              duration: const Duration(milliseconds: 700),
-                              child: inputFile(
-                                  label: "Confirm Password", obscureText: true))
+                              child: inputFile(label: "Email")),
                         ],
                       ),
                     ),
@@ -151,7 +158,7 @@ class CreateNewPassword extends StatelessWidget {
                                       builder: (context) => Sizer(
                                         builder: (context, orientation,
                                                 deviceType) =>
-                                            const LoginUSerPage(),
+                                            const VerficationEmailCompany(),
                                       ),
                                     ),
                                   );
@@ -162,7 +169,7 @@ class CreateNewPassword extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(50),
                                 ),
                                 child: const Text(
-                                  "Submit",
+                                  "Send Resent Link",
                                   style: TextStyle(
                                     fontWeight: FontWeight.w600,
                                     fontSize: 18,

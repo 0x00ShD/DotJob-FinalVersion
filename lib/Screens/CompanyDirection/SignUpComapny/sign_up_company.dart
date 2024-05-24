@@ -3,19 +3,19 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';
+import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_2_company.dart';
 import 'package:untitled1/Screens/UserDirection/LoginView/login_user.dart';
 import 'package:untitled1/Components/pick_image_component.dart';
-import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up_2.dart';
 import 'package:untitled1/Screens/UserDirection/user_direction.dart';
 
-class SignUp extends StatefulWidget {
-  const SignUp({super.key});
+class SignUpCompany extends StatefulWidget {
+  const SignUpCompany({super.key});
 
   @override
-  State<SignUp> createState() => _SignUpState();
+  State<SignUpCompany> createState() => _SignUpCompanyState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _SignUpCompanyState extends State<SignUpCompany> {
   final phonenumber = TextEditingController();
   final fullname = TextEditingController();
   final password = TextEditingController();
@@ -163,7 +163,7 @@ class _SignUpState extends State<SignUp> {
                                     builder: (context) => Sizer(
                                       builder:
                                           (context, orientation, deviceType) =>
-                                              const SignUp2(),
+                                              const SignUpCompany2(),
                                     ),
                                   ),
                                 );

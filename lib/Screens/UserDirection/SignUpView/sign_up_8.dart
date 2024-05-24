@@ -5,17 +5,17 @@ import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';
 import 'package:untitled1/Screens/UserDirection/LoginView/login_user.dart';
 import 'package:untitled1/Components/pick_image_component.dart';
-import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up_2.dart';
+import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up_9.dart';
 import 'package:untitled1/Screens/UserDirection/user_direction.dart';
 
-class SignUp extends StatefulWidget {
-  const SignUp({super.key});
+class SignUp8 extends StatefulWidget {
+  const SignUp8({super.key});
 
   @override
-  State<SignUp> createState() => _SignUpState();
+  State<SignUp8> createState() => _SignUp8State();
 }
 
-class _SignUpState extends State<SignUp> {
+class _SignUp8State extends State<SignUp8> {
   final phonenumber = TextEditingController();
   final fullname = TextEditingController();
   final password = TextEditingController();
@@ -118,15 +118,15 @@ class _SignUpState extends State<SignUp> {
                                   : const CircleAvatar(
                                       radius: 100,
                                       backgroundImage: NetworkImage(
-                                          'https://t4.ftcdn.net/jpg/05/49/98/39/360_F_549983970_bRCkYfk0P6PP5fKbMhZMIb07mCJ6esXL.jpg'),
+                                          'https://static.vecteezy.com/system/resources/previews/028/143/051/original/id-card-icon-id-card-badge-icon-identification-card-driver-s-license-icon-illustration-vector.jpg'),
                                     ),
                               Positioned(
-                                bottom: -10,
-                                right: 35,
+                                top: 60,
+                                right: 70,
                                 child: IconButton(
                                   onPressed: selectImage,
                                   icon: const Icon(
-                                    Icons.add_a_photo,
+                                    Icons.add,
                                     size: 40,
                                   ),
                                 ),
@@ -163,7 +163,7 @@ class _SignUpState extends State<SignUp> {
                                     builder: (context) => Sizer(
                                       builder:
                                           (context, orientation, deviceType) =>
-                                              const SignUp2(),
+                                              const SignUp9(),
                                     ),
                                   ),
                                 );

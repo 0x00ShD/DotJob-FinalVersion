@@ -1,21 +1,18 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';
+import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_3_company.dart';
 import 'package:untitled1/Screens/UserDirection/LoginView/login_user.dart';
-import 'package:untitled1/Components/pick_image_component.dart';
-import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up_2.dart';
 import 'package:untitled1/Screens/UserDirection/user_direction.dart';
 
-class SignUp extends StatefulWidget {
-  const SignUp({super.key});
+class SignUpCompany2 extends StatefulWidget {
+  const SignUpCompany2({super.key});
 
   @override
-  State<SignUp> createState() => _SignUpState();
+  State<SignUpCompany2> createState() => _SignUpCompany2State();
 }
 
-class _SignUpState extends State<SignUp> {
+class _SignUpCompany2State extends State<SignUpCompany2> {
   final phonenumber = TextEditingController();
   final fullname = TextEditingController();
   final password = TextEditingController();
@@ -25,15 +22,6 @@ class _SignUpState extends State<SignUp> {
   final formKey = GlobalKey<FormState>();
 
   bool isVisible = false;
-
-  Uint8List? _image;
-
-  void selectImage() async {
-    Uint8List? ima = await pickImage(ImageSource.gallery);
-    setState(() {
-      _image = ima;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +45,7 @@ class _SignUpState extends State<SignUp> {
                 child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               child: Container(
-                height: 120.h,
+                height: 110.h,
                 decoration: const BoxDecoration(color: Colors.white),
                 padding: EdgeInsets.symmetric(horizontal: 7.w, vertical: 2.h),
                 child: Column(
@@ -103,39 +91,57 @@ class _SignUpState extends State<SignUp> {
                       ],
                     ),
                     SizedBox(
-                      height: 5.h,
+                      height: 8.h,
                     ),
-                    FadeInDown(
-                        delay: const Duration(milliseconds: 900),
-                        duration: const Duration(milliseconds: 1000),
-                        child: Center(
-                          child: Stack(
-                            children: [
-                              _image != null
-                                  ? CircleAvatar(
-                                      radius: 100,
-                                      backgroundImage: MemoryImage(_image!))
-                                  : const CircleAvatar(
-                                      radius: 100,
-                                      backgroundImage: NetworkImage(
-                                          'https://t4.ftcdn.net/jpg/05/49/98/39/360_F_549983970_bRCkYfk0P6PP5fKbMhZMIb07mCJ6esXL.jpg'),
+                    FadeInUp(
+                      delay: const Duration(milliseconds: 600),
+                      duration: const Duration(milliseconds: 700),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: FadeInUp(
+                              delay: const Duration(milliseconds: 700),
+                              duration: const Duration(milliseconds: 800),
+                              child: Form(
+                                key: formKey,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      height: 50,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(30),
+                                          color: const Color(0xFF139487)
+                                              .withOpacity(.2)),
+                                      child: TextFormField(
+                                        controller: fullname,
+                                        validator: (value) {
+                                          if (value!.isEmpty) {
+                                            return "fullname is required";
+                                          }
+                                          return null;
+                                        },
+                                        decoration: const InputDecoration(
+                                          icon: Padding(
+                                            padding: EdgeInsets.only(left: 30),
+                                            child: Icon(Icons.person),
+                                          ),
+                                          border: InputBorder.none,
+                                          hintText: "Company Name",
+                                        ),
+                                      ),
                                     ),
-                              Positioned(
-                                bottom: -10,
-                                right: 35,
-                                child: IconButton(
-                                  onPressed: selectImage,
-                                  icon: const Icon(
-                                    Icons.add_a_photo,
-                                    size: 40,
-                                  ),
+                                  ],
                                 ),
-                              )
-                            ],
-                          ),
-                        )),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
                     SizedBox(
-                      height: 20.h,
+                      height: 40.h,
                     ),
                     FadeInLeft(
                       delay: const Duration(milliseconds: 600),
@@ -163,7 +169,7 @@ class _SignUpState extends State<SignUp> {
                                     builder: (context) => Sizer(
                                       builder:
                                           (context, orientation, deviceType) =>
-                                              const SignUp2(),
+                                              const SignUpCompany3(),
                                     ),
                                   ),
                                 );

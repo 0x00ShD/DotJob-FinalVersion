@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:untitled1/Screens/HomePage/Top%20Jobs/top_job_card.dart';
-import 'package:untitled1/Screens/HomePage/Top%20Jobs/top_job_model.dart';
+import 'package:untitled1/Screens/UserDirection/HomePage/Top%20Jobs/top_job_card.dart';
+import 'package:untitled1/Screens/UserDirection/HomePage/Top%20Jobs/top_job_model.dart';
 
 class TopJobListView extends StatelessWidget {
   const TopJobListView({

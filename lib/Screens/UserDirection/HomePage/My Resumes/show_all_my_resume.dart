@@ -1,7 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-import 'package:untitled1/Screens/HomePage/Companies/Show_all_companies_list.dart';
+import 'package:untitled1/Screens/UserDirection/HomePage/Companies/Show_all_companies_list.dart';
 
 class ShowAllMyResumes extends StatefulWidget {
   const ShowAllMyResumes({super.key});

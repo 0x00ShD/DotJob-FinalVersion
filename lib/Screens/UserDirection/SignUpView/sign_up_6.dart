@@ -1,39 +1,27 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';
 import 'package:untitled1/Screens/UserDirection/LoginView/login_user.dart';
-import 'package:untitled1/Components/pick_image_component.dart';
-import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up_2.dart';
-import 'package:untitled1/Screens/UserDirection/user_direction.dart';
+import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up.dart';
+import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up_7.dart';
 
-class SignUp extends StatefulWidget {
-  const SignUp({super.key});
+class SignUp6 extends StatefulWidget {
+  const SignUp6({super.key});
 
   @override
-  State<SignUp> createState() => _SignUpState();
+  State<SignUp6> createState() => _SignUp6State();
 }
 
-class _SignUpState extends State<SignUp> {
+class _SignUp6State extends State<SignUp6> {
   final phonenumber = TextEditingController();
-  final fullname = TextEditingController();
-  final password = TextEditingController();
-  final confirmPassword = TextEditingController();
-  final email = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
 
+  final TextEditingController _dataController = TextEditingController();
+
+  String dropdownValue = "Male";
+
   bool isVisible = false;
-
-  Uint8List? _image;
-
-  void selectImage() async {
-    Uint8List? ima = await pickImage(ImageSource.gallery);
-    setState(() {
-      _image = ima;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,8 +32,7 @@ class _SignUpState extends State<SignUp> {
           context,
           MaterialPageRoute(
             builder: (context) => Sizer(
-              builder: (context, orientation, deviceType) =>
-                  const UserDirection(),
+              builder: (context, orientation, deviceType) => const SignUp(),
             ),
           ),
         );
@@ -57,19 +44,25 @@ class _SignUpState extends State<SignUp> {
                 child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               child: Container(
-                height: 120.h,
+                height: 110.h,
                 decoration: const BoxDecoration(color: Colors.white),
                 padding: EdgeInsets.symmetric(horizontal: 7.w, vertical: 2.h),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    SizedBox(
+                      height: 1.h,
+                    ),
                     FadeInDown(
                       delay: const Duration(milliseconds: 900),
                       duration: const Duration(milliseconds: 1000),
                       child: Center(
                           child: Image.asset('assets/Images/Logo.png',
                               height: 10.h)),
+                    ),
+                    SizedBox(
+                      height: 1.h,
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -87,6 +80,9 @@ class _SignUpState extends State<SignUp> {
                             ),
                           ),
                         ),
+                        SizedBox(
+                          height: 1.h,
+                        ),
                         FadeInDown(
                           delay: const Duration(milliseconds: 700),
                           duration: const Duration(milliseconds: 800),
@@ -103,39 +99,48 @@ class _SignUpState extends State<SignUp> {
                       ],
                     ),
                     SizedBox(
-                      height: 5.h,
+                      height: 8.h,
                     ),
-                    FadeInDown(
-                        delay: const Duration(milliseconds: 900),
-                        duration: const Duration(milliseconds: 1000),
-                        child: Center(
-                          child: Stack(
-                            children: [
-                              _image != null
-                                  ? CircleAvatar(
-                                      radius: 100,
-                                      backgroundImage: MemoryImage(_image!))
-                                  : const CircleAvatar(
-                                      radius: 100,
-                                      backgroundImage: NetworkImage(
-                                          'https://t4.ftcdn.net/jpg/05/49/98/39/360_F_549983970_bRCkYfk0P6PP5fKbMhZMIb07mCJ6esXL.jpg'),
-                                    ),
-                              Positioned(
-                                bottom: -10,
-                                right: 35,
-                                child: IconButton(
-                                  onPressed: selectImage,
-                                  icon: const Icon(
-                                    Icons.add_a_photo,
-                                    size: 40,
-                                  ),
+                    FadeInUp(
+                      delay: const Duration(milliseconds: 600),
+                      duration: const Duration(milliseconds: 700),
+                      child: Container(
+                        height: 60,
+                        width: 310,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: const Color(0xFF139487).withOpacity(.2)),
+                        child: Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: TextField(
+                            controller: _dataController,
+                            decoration: InputDecoration(
+                              fillColor:
+                                  const Color(0xFF139487).withOpacity(0.5),
+                              labelText: 'Birthday',
+                              labelStyle: TextStyle(
+                                color: Colors.black.withOpacity(0.6),
+                              ),
+                              prefixIcon: const Icon(Icons.calendar_today),
+                              enabledBorder: const OutlineInputBorder(
+                                  borderSide: BorderSide.none),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color:
+                                      const Color(0xFF139487).withOpacity(0.0),
                                 ),
-                              )
-                            ],
+                              ),
+                            ),
+                            readOnly: true,
+                            onTap: () {
+                              _selectData();
+                            },
                           ),
-                        )),
+                        ),
+                      ),
+                    ),
                     SizedBox(
-                      height: 20.h,
+                      height: 40.h,
                     ),
                     FadeInLeft(
                       delay: const Duration(milliseconds: 600),
@@ -163,7 +168,7 @@ class _SignUpState extends State<SignUp> {
                                     builder: (context) => Sizer(
                                       builder:
                                           (context, orientation, deviceType) =>
-                                              const SignUp2(),
+                                              const SignUp7(),
                                     ),
                                   ),
                                 );
@@ -236,5 +241,19 @@ class _SignUpState extends State<SignUp> {
         ),
       ),
     );
+  }
+
+  Future<void> _selectData() async {
+    DateTime? picked = await showDatePicker(
+      initialDate: DateTime.now(),
+      context: context,
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2100),
+    );
+    if (picked != null) {
+      setState(() {
+        _dataController.text = picked.toString().split(" ")[0];
+      });
+    }
   }
 }

@@ -1,11 +1,11 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'package:untitled1/Screens/CompanyDirection/LogInCompany/log_in_company.dart';
 import 'package:untitled1/Screens/UserDirection/ForgetPassword/verfication_email.dart';
-import 'package:untitled1/Screens/UserDirection/LoginView/login_user.dart';
 
-class CreateNewPassword extends StatelessWidget {
-  const CreateNewPassword({super.key});
+class CreateNewPasswordCompany extends StatelessWidget {
+  const CreateNewPasswordCompany({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -151,7 +151,7 @@ class CreateNewPassword extends StatelessWidget {
                                       builder: (context) => Sizer(
                                         builder: (context, orientation,
                                                 deviceType) =>
-                                            const LoginUSerPage(),
+                                            const LoginCompanyPage(),
                                       ),
                                     ),
                                   );
