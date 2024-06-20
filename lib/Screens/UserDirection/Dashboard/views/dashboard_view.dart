@@ -2,14 +2,27 @@ import 'package:animate_do/animate_do.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-import 'package:untitled1/Screens/CompanyDirection/HomePageCompany/home_page_company.dart';
-import 'package:untitled1/Screens/PaymentPage/payment_details_view_body.dart';
+import 'package:untitled1/Screens/CV/build_options_page.dart';
+import 'package:untitled1/Screens/UserDirection/Dashboard/utils/size_config.dart';
+import 'package:untitled1/Screens/UserDirection/Dashboard/widgets/adaptive_layout_widget.dart';
+import 'package:untitled1/Screens/UserDirection/Dashboard/widgets/custom_drawer.dart';
+import 'package:untitled1/Screens/UserDirection/Dashboard/widgets/dashboard_desktop_layout.dart';
+import 'package:untitled1/Screens/UserDirection/Dashboard/widgets/dashboard_mobile_layout.dart';
+import 'package:untitled1/Screens/UserDirection/Dashboard/widgets/dashboard_tablet_layout.dart';
+import 'package:untitled1/Screens/UserDirection/HomePage/home_page.dart';
 
-class PaymentDetailsView extends StatelessWidget {
-  const PaymentDetailsView({super.key});
+class DashBoradView extends StatefulWidget {
+  const DashBoradView({super.key});
 
   @override
+  State<DashBoradView> createState() => _DashBoradViewState();
+}
+
+class _DashBoradViewState extends State<DashBoradView> {
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
+  @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60.0),
@@ -21,7 +34,7 @@ class PaymentDetailsView extends StatelessWidget {
               child: Image.asset('assets/Images/Logo.png')),
           actions: <Widget>[
             SizedBox(
-              width: 75.w,
+              width: 80.w,
               child: Center(
                 child: FadeInRight(
                   delay: const Duration(milliseconds: 800),
@@ -31,12 +44,19 @@ class PaymentDetailsView extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.only(top: 10),
                         child: Text(
-                          'Payment Details',
+                          'Hi, Shady Mohamed',
                           style: TextStyle(
                               fontFamily: 'Satoshi',
                               fontSize: 15.sp,
-                              fontWeight: FontWeight.w900),
+                              fontWeight: FontWeight.w400),
                         ),
+                      ),
+                      Text(
+                        'Let\'s start your career life',
+                        style: TextStyle(
+                            fontFamily: 'Satoshi',
+                            fontSize: 10.sp,
+                            fontWeight: FontWeight.w400),
                       ),
                     ],
                   ),
@@ -62,12 +82,40 @@ class PaymentDetailsView extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: CurvedNavigationBar(
-          index: 2,
+          index: 1,
           backgroundColor: const Color(0xFF139487).withOpacity(0.5),
           color: const Color(0xFF139487),
           animationDuration: const Duration(milliseconds: 300),
           items: [
-            const Icon(Icons.dashboard, size: 30, color: Colors.white),
+            MaterialButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Sizer(
+                      builder: (context, orientation, deviceType) =>
+                          const BuildOptionsPage(),
+                    ),
+                  ),
+                );
+              },
+              child: const Icon(Icons.switch_account_outlined,
+                  size: 30, color: Colors.white),
+            ),
+            MaterialButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Sizer(
+                      builder: (context, orientation, deviceType) =>
+                          const DashBoradView(),
+                    ),
+                  ),
+                );
+              },
+              child: const Icon(Icons.dashboard, size: 30, color: Colors.white),
+            ),
             IconButton(
               icon: const Icon(Icons.home, size: 30, color: Colors.white),
               onPressed: () {
@@ -76,21 +124,7 @@ class PaymentDetailsView extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => Sizer(
                       builder: (context, orientation, deviceType) =>
-                          const HomePageCompany(),
-                    ),
-                  ),
-                );
-              },
-            ),
-            IconButton(
-              icon: const Icon(Icons.payment, size: 30, color: Colors.white),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Sizer(
-                      builder: (context, orientation, deviceType) =>
-                          const PaymentDetailsView(),
+                          const HomePage(),
                     ),
                   ),
                 );
@@ -98,15 +132,18 @@ class PaymentDetailsView extends StatelessWidget {
             ),
             const Icon(Icons.account_circle, size: 30, color: Colors.white),
           ]),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 2.h,
-            ),
-            const PaymentDetailsViewBody(),
-          ],
-        ),
+      key: scaffoldKey,
+      backgroundColor: const Color(0xFFF7F9FA),
+      drawer: MediaQuery.sizeOf(context).width < SizeConfig.tablet
+          ? const CustomDrawer()
+          : null,
+      body: AdaptiveLayout(
+        mobileLayout: (context) => FadeInRight(
+            delay: const Duration(milliseconds: 800),
+            duration: const Duration(milliseconds: 900),
+            child: const DashBoardMobileLayout()),
+        tabletLayout: (context) => const DashBoardTabletLayout(),
+        desktopLayout: (context) => const DashboardDesktopLayout(),
       ),
     );
   }

@@ -192,92 +192,94 @@ class _PDF_PageState extends State<PDF_Page> {
           ),
         ],
       ),
-      body: Row(
-        children: [
-          Expanded(
-            flex: 6,
-            child: Container(
-              padding: const EdgeInsets.only(left: 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(height: 10),
-                  education(),
-                  const Spacer(),
-                  technicalSkills(),
-                  const Spacer(),
-                  achievement(),
-                  const Spacer(),
-                  carrierObjective(),
-                  const Spacer(),
-                  projects(),
-                  const Spacer(),
-                  experience(),
-                  const Spacer(),
-                  reference(),
-                  const SizedBox(height: 12),
-                ],
+      body: SingleChildScrollView(
+        child: Row(
+          children: [
+            Expanded(
+              flex: 6,
+              child: Container(
+                padding: const EdgeInsets.only(left: 10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(height: 10),
+                    education(),
+                    const Spacer(),
+                    technicalSkills(),
+                    const Spacer(),
+                    achievement(),
+                    const Spacer(),
+                    carrierObjective(),
+                    const Spacer(),
+                    projects(),
+                    const Spacer(),
+                    experience(),
+                    const Spacer(),
+                    reference(),
+                    const SizedBox(height: 12),
+                  ],
+                ),
               ),
             ),
-          ),
-          Expanded(
-            flex: 4,
-            child: Column(
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      CircleAvatar(
-                        backgroundImage: image2,
-                        radius: 55,
-                      ),
-                      (Global.name != null)
-                          ? Text(
-                              "${Global.name}",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: 17,
-                                color: const Color(0xFF139487),
-                                fontWeight: FontWeight.w600,
-                              ),
-                            )
-                          : Container(),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  flex: 5,
-                  child: Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF139487),
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                      ),
-                    ),
-                    padding: const EdgeInsets.only(left: 10),
+            Expanded(
+              flex: 4,
+              child: Column(
+                children: [
+                  Expanded(
+                    flex: 2,
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        const SizedBox(height: 10),
-                        contactInFo(),
-                        const Spacer(),
-                        personalDetails(),
-                        const Spacer(),
-                        interestHobbies(),
-                        const Spacer(),
-                        declaration(),
-                        const SizedBox(height: 12),
+                        CircleAvatar(
+                          backgroundImage: image2,
+                          radius: 55,
+                        ),
+                        (Global.name != null)
+                            ? Text(
+                                "${Global.name}",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: const Color(0xFF139487),
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              )
+                            : Container(),
                       ],
                     ),
                   ),
-                ),
-              ],
+                  Expanded(
+                    flex: 5,
+                    child: Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF139487),
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                        ),
+                      ),
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(height: 10),
+                          contactInFo(),
+                          const Spacer(),
+                          personalDetails(),
+                          const Spacer(),
+                          interestHobbies(),
+                          const Spacer(),
+                          declaration(),
+                          const SizedBox(height: 12),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -39,6 +39,7 @@ dependencies:
   flutter_svg: ^2.0.10+1
   flutter_credit_card: ^4.0.1
   font_awesome_flutter: ^10.7.0
+  fl_chart: ^0.68.0
   
 flutter_icons:
   android: true

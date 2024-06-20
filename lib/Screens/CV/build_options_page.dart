@@ -3,8 +3,8 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:untitled1/Screens/CV/globals.dart';
+import 'package:untitled1/Screens/UserDirection/Dashboard/views/dashboard_view.dart';
 import 'package:untitled1/Screens/UserDirection/HomePage/home_page.dart';
-import 'package:untitled1/Screens/PaymentPage/payment_method_bottom_sheet.dart';
 
 class BuildOptionsPage extends StatefulWidget {
   const BuildOptionsPage({Key? key}) : super(key: key);
@@ -226,7 +226,20 @@ class _BuildOptionsPageState extends State<BuildOptionsPage> {
                 );
               },
             ),
-            const Icon(Icons.dashboard, size: 30, color: Colors.white),
+            MaterialButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Sizer(
+                      builder: (context, orientation, deviceType) =>
+                          const DashBoradView(),
+                    ),
+                  ),
+                );
+              },
+              child: const Icon(Icons.dashboard, size: 30, color: Colors.white),
+            ),
             IconButton(
               icon: const Icon(Icons.home, size: 30, color: Colors.white),
               onPressed: () {
@@ -239,19 +252,6 @@ class _BuildOptionsPageState extends State<BuildOptionsPage> {
                     ),
                   ),
                 );
-              },
-            ),
-            IconButton(
-              icon: const Icon(Icons.payment, size: 30, color: Colors.white),
-              onPressed: () {
-                showModalBottomSheet(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    context: context,
-                    builder: (context) {
-                      return const PaymentMethodBotttomSheet();
-                    });
               },
             ),
             const Icon(Icons.account_circle, size: 30, color: Colors.white),

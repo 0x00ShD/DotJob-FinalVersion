@@ -96,14 +96,6 @@ class _HomePageCompanyState extends State<HomePageCompany> {
                     ),
                   ),
                 );
-                // showModalBottomSheet(
-                //     shape: RoundedRectangleBorder(
-                //       borderRadius: BorderRadius.circular(16),
-                //     ),
-                //     context: context,
-                //     builder: (context) {
-                //       return const PaymentMethodBotttomSheet();
-                //     });
               },
             ),
             const Icon(Icons.account_circle, size: 30, color: Colors.white),

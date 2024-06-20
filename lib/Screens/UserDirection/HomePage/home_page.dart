@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:sizer/sizer.dart';
 import 'package:untitled1/Screens/CV/build_options_page.dart';
+import 'package:untitled1/Screens/UserDirection/Dashboard/views/dashboard_view.dart';
 import 'package:untitled1/Screens/UserDirection/HomePage/Companies/show_all_companies.dart';
 import 'package:untitled1/Screens/UserDirection/HomePage/My%20Resumes/show_all_my_resume.dart';
 import 'package:untitled1/Screens/UserDirection/HomePage/Top%20Jobs/top_job_list_view.dart';
 import 'package:untitled1/Screens/UserDirection/HomePage/search.dart';
 import 'package:untitled1/Screens/UserDirection/HomePage/show_all_top_job.dart';
-import 'package:untitled1/Screens/PaymentPage/payment_details.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -99,30 +99,21 @@ class _HomePageState extends State<HomePage> {
               child: const Icon(Icons.switch_account_outlined,
                   size: 30, color: Colors.white),
             ),
-            const Icon(Icons.dashboard, size: 30, color: Colors.white),
-            const Icon(Icons.home, size: 30, color: Colors.white),
-            IconButton(
-              icon: const Icon(Icons.payment, size: 30, color: Colors.white),
+            MaterialButton(
               onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => Sizer(
                       builder: (context, orientation, deviceType) =>
-                          const PaymentDetailsView(),
+                          const DashBoradView(),
                     ),
                   ),
                 );
-                // showModalBottomSheet(
-                //     shape: RoundedRectangleBorder(
-                //       borderRadius: BorderRadius.circular(16),
-                //     ),
-                //     context: context,
-                //     builder: (context) {
-                //       return const PaymentMethodBotttomSheet();
-                //     });
               },
+              child: const Icon(Icons.dashboard, size: 30, color: Colors.white),
             ),
+            const Icon(Icons.home, size: 30, color: Colors.white),
             const Icon(Icons.account_circle, size: 30, color: Colors.white),
           ]),
       body: Column(
