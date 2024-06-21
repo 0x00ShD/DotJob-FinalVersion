@@ -10,7 +10,7 @@ class AllExpensessHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        FadeInDown(
+        FadeInLeft(
           delay: const Duration(milliseconds: 800),
           duration: const Duration(milliseconds: 900),
           child: Text(

@@ -9,6 +9,7 @@ import 'package:untitled1/Screens/UserDirection/HomePage/My%20Resumes/show_all_m
 import 'package:untitled1/Screens/UserDirection/HomePage/Top%20Jobs/top_job_list_view.dart';
 import 'package:untitled1/Screens/UserDirection/HomePage/search.dart';
 import 'package:untitled1/Screens/UserDirection/HomePage/show_all_top_job.dart';
+import 'package:untitled1/Screens/UserDirection/Profile/profile_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -114,7 +115,21 @@ class _HomePageState extends State<HomePage> {
               child: const Icon(Icons.dashboard, size: 30, color: Colors.white),
             ),
             const Icon(Icons.home, size: 30, color: Colors.white),
-            const Icon(Icons.account_circle, size: 30, color: Colors.white),
+            MaterialButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Sizer(
+                      builder: (context, orientation, deviceType) =>
+                          const ProfileScreen(),
+                    ),
+                  ),
+                );
+              },
+              child: const Icon(Icons.account_circle,
+                  size: 30, color: Colors.white),
+            ),
           ]),
       body: Column(
         children: [

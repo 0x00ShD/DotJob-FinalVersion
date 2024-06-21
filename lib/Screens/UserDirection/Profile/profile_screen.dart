@@ -3,27 +3,18 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:untitled1/Screens/CV/build_options_page.dart';
-import 'package:untitled1/Screens/UserDirection/Dashboard/utils/size_config.dart';
-import 'package:untitled1/Screens/UserDirection/Dashboard/widgets/adaptive_layout_widget.dart';
-import 'package:untitled1/Screens/UserDirection/Dashboard/widgets/custom_drawer.dart';
-import 'package:untitled1/Screens/UserDirection/Dashboard/widgets/dashboard_desktop_layout.dart';
-import 'package:untitled1/Screens/UserDirection/Dashboard/widgets/dashboard_mobile_layout.dart';
-import 'package:untitled1/Screens/UserDirection/Dashboard/widgets/dashboard_tablet_layout.dart';
+import 'package:untitled1/Screens/UserDirection/Dashboard/views/dashboard_view.dart';
 import 'package:untitled1/Screens/UserDirection/HomePage/home_page.dart';
-import 'package:untitled1/Screens/UserDirection/Profile/profile_screen.dart';
 
-class DashBoradView extends StatefulWidget {
-  const DashBoradView({super.key});
+import 'components/profile_menu.dart';
+import 'components/profile_pic.dart';
 
-  @override
-  State<DashBoradView> createState() => _DashBoradViewState();
-}
+class ProfileScreen extends StatelessWidget {
+  static String routeName = "/profile";
 
-class _DashBoradViewState extends State<DashBoradView> {
-  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
+  const ProfileScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    SizeConfig.init(context);
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60.0),
@@ -83,7 +74,7 @@ class _DashBoradViewState extends State<DashBoradView> {
         ),
       ),
       bottomNavigationBar: CurvedNavigationBar(
-          index: 1,
+          index: 3,
           backgroundColor: const Color(0xFF139487).withOpacity(0.5),
           color: const Color(0xFF139487),
           animationDuration: const Duration(milliseconds: 300),
@@ -117,8 +108,7 @@ class _DashBoradViewState extends State<DashBoradView> {
               },
               child: const Icon(Icons.dashboard, size: 30, color: Colors.white),
             ),
-            IconButton(
-              icon: const Icon(Icons.home, size: 30, color: Colors.white),
+            MaterialButton(
               onPressed: () {
                 Navigator.push(
                   context,
@@ -130,6 +120,7 @@ class _DashBoradViewState extends State<DashBoradView> {
                   ),
                 );
               },
+              child: const Icon(Icons.home, size: 30, color: Colors.white),
             ),
             MaterialButton(
               onPressed: () {
@@ -147,15 +138,39 @@ class _DashBoradViewState extends State<DashBoradView> {
                   size: 30, color: Colors.white),
             ),
           ]),
-      key: scaffoldKey,
-      backgroundColor: const Color(0xFFF7F9FA),
-      drawer: MediaQuery.sizeOf(context).width < SizeConfig.tablet
-          ? const CustomDrawer()
-          : null,
-      body: AdaptiveLayout(
-        mobileLayout: (context) => const DashBoardMobileLayout(),
-        tabletLayout: (context) => const DashBoardTabletLayout(),
-        desktopLayout: (context) => const DashboardDesktopLayout(),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(vertical: 20),
+        child: Column(
+          children: [
+            const ProfilePic(),
+            const SizedBox(height: 20),
+            ProfileMenu(
+              text: "My Account",
+              icon: "assets/icons/User Icon.svg",
+              press: () => {},
+            ),
+            ProfileMenu(
+              text: "Notifications",
+              icon: "assets/icons/Bell.svg",
+              press: () {},
+            ),
+            ProfileMenu(
+              text: "Settings",
+              icon: "assets/icons/Settings.svg",
+              press: () {},
+            ),
+            ProfileMenu(
+              text: "Help Center",
+              icon: "assets/icons/Question mark.svg",
+              press: () {},
+            ),
+            ProfileMenu(
+              text: "Log Out",
+              icon: "assets/icons/Log out.svg",
+              press: () {},
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -13,14 +13,17 @@ class UserInfoDesign extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          FadeInDown(
+          FadeInRight(
               delay: const Duration(milliseconds: 800),
               duration: const Duration(milliseconds: 900),
               child: const UserInfoHeader()),
           const SizedBox(
             height: 16,
           ),
-          const UserInfoItemsListView(),
+          FadeInLeft(
+              delay: const Duration(milliseconds: 800),
+              duration: const Duration(milliseconds: 900),
+              child: const UserInfoItemsListView()),
         ],
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled1/Screens/UserDirection/Dashboard/utils/app_styles.dart';
 

@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled1/Screens/UserDirection/Dashboard/models/all_expensess_item_model.dart';
 import 'package:untitled1/Screens/UserDirection/Dashboard/widgets/all_expenssess_item.dart';
@@ -23,48 +24,52 @@ class _AllExpensessItemsListViewState extends State<AllExpensessItemsListView> {
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: GestureDetector(
-            onTap: () {
-              updateIndex(0);
-            },
-            child: AllExpensessItem(
-              isSelected: selectedIndex == 0,
-              itemModel: items[0],
+    return FadeInRight(
+      delay: const Duration(milliseconds: 800),
+      duration: const Duration(milliseconds: 900),
+      child: Row(
+        children: [
+          Expanded(
+            child: GestureDetector(
+              onTap: () {
+                updateIndex(0);
+              },
+              child: AllExpensessItem(
+                isSelected: selectedIndex == 0,
+                itemModel: items[0],
+              ),
             ),
           ),
-        ),
-        const SizedBox(
-          width: 8,
-        ),
-        Expanded(
-          child: GestureDetector(
-            onTap: () {
-              updateIndex(1);
-            },
-            child: AllExpensessItem(
-              isSelected: selectedIndex == 1,
-              itemModel: items[1],
+          const SizedBox(
+            width: 8,
+          ),
+          Expanded(
+            child: GestureDetector(
+              onTap: () {
+                updateIndex(1);
+              },
+              child: AllExpensessItem(
+                isSelected: selectedIndex == 1,
+                itemModel: items[1],
+              ),
             ),
           ),
-        ),
-        const SizedBox(
-          width: 8,
-        ),
-        Expanded(
-          child: GestureDetector(
-            onTap: () {
-              updateIndex(2);
-            },
-            child: AllExpensessItem(
-              isSelected: selectedIndex == 2,
-              itemModel: items[2],
-            ),
+          const SizedBox(
+            width: 8,
           ),
-        )
-      ],
+          Expanded(
+            child: GestureDetector(
+              onTap: () {
+                updateIndex(2);
+              },
+              child: AllExpensessItem(
+                isSelected: selectedIndex == 2,
+                itemModel: items[2],
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 

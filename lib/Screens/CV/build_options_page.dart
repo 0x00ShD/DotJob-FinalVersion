@@ -5,6 +5,7 @@ import 'package:sizer/sizer.dart';
 import 'package:untitled1/Screens/CV/globals.dart';
 import 'package:untitled1/Screens/UserDirection/Dashboard/views/dashboard_view.dart';
 import 'package:untitled1/Screens/UserDirection/HomePage/home_page.dart';
+import 'package:untitled1/Screens/UserDirection/Profile/profile_screen.dart';
 
 class BuildOptionsPage extends StatefulWidget {
   const BuildOptionsPage({Key? key}) : super(key: key);
@@ -254,7 +255,21 @@ class _BuildOptionsPageState extends State<BuildOptionsPage> {
                 );
               },
             ),
-            const Icon(Icons.account_circle, size: 30, color: Colors.white),
+            MaterialButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Sizer(
+                      builder: (context, orientation, deviceType) =>
+                          const ProfileScreen(),
+                    ),
+                  ),
+                );
+              },
+              child: const Icon(Icons.account_circle,
+                  size: 30, color: Colors.white),
+            ),
           ]),
     );
   }

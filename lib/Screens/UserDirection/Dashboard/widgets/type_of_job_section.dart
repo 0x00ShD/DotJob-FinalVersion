@@ -12,11 +12,14 @@ class IncomeSection extends StatelessWidget {
     return CustomBackgroundContainer(
         child: Column(
       children: [
-        FadeInDown(
+        FadeInLeft(
             delay: const Duration(milliseconds: 800),
             duration: const Duration(milliseconds: 900),
             child: const IncomeSectionHeader()),
-        const IncomSectionBody()
+        FadeInRight(
+            delay: const Duration(milliseconds: 800),
+            duration: const Duration(milliseconds: 900),
+            child: const IncomSectionBody())
       ],
     ));
   }

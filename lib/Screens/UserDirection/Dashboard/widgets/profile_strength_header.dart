@@ -12,7 +12,7 @@ class ProfileStrengthHeader extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          'Profile Strength',
+          'CV Strength',
           style: AppStyles.styleSemiBold20(context),
         ),
       ],

@@ -12,11 +12,14 @@ class ProfileStrengthSection extends StatelessWidget {
     return CustomBackgroundContainer(
         child: Column(
       children: [
-        FadeInDown(
+        FadeInLeft(
             delay: const Duration(milliseconds: 800),
             duration: const Duration(milliseconds: 900),
             child: const ProfileStrengthHeader()),
-        const ProfileStrengthBody()
+        FadeInRight(
+            delay: const Duration(milliseconds: 800),
+            duration: const Duration(milliseconds: 900),
+            child: const ProfileStrengthBody())
       ],
     ));
   }
