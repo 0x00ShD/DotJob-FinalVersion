@@ -5,6 +5,11 @@ import 'package:sizer/sizer.dart';
 import 'package:untitled1/Screens/CV/build_options_page.dart';
 import 'package:untitled1/Screens/UserDirection/Dashboard/views/dashboard_view.dart';
 import 'package:untitled1/Screens/UserDirection/HomePage/home_page.dart';
+import 'package:untitled1/Screens/UserDirection/LoginView/login_user.dart';
+import 'package:untitled1/Screens/UserDirection/Profile/MyAccount/my_account.dart';
+import 'package:untitled1/Screens/UserDirection/Profile/Notification/notifiction.dart';
+import 'package:untitled1/Screens/UserDirection/Profile/Security/security.dart';
+import 'package:untitled1/Screens/UserDirection/Profile/Terms&Conditions/terms_conditions.dart';
 
 import 'components/profile_menu.dart';
 import 'components/profile_pic.dart';
@@ -142,32 +147,114 @@ class ProfileScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 20),
         child: Column(
           children: [
-            const ProfilePic(),
+            FadeInDown(
+                delay: const Duration(milliseconds: 800),
+                duration: const Duration(milliseconds: 900),
+                child: const ProfilePic()),
             const SizedBox(height: 20),
-            ProfileMenu(
-              text: "My Account",
-              icon: "assets/icons/User Icon.svg",
-              press: () => {},
+            FadeInRight(
+              delay: const Duration(milliseconds: 800),
+              duration: const Duration(milliseconds: 900),
+              child: ProfileMenu(
+                text: "My Account",
+                icon: "assets/icons/User Icon.svg",
+                press: () => {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Sizer(
+                        builder: (context, orientation, deviceType) =>
+                            const MyAccountPage(),
+                      ),
+                    ),
+                  ),
+                },
+              ),
             ),
-            ProfileMenu(
-              text: "Notifications",
-              icon: "assets/icons/Bell.svg",
-              press: () {},
+            FadeInLeft(
+              delay: const Duration(milliseconds: 800),
+              duration: const Duration(milliseconds: 900),
+              child: ProfileMenu(
+                text: "Notifications",
+                icon: "assets/icons/Bell.svg",
+                press: () => {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Sizer(
+                        builder: (context, orientation, deviceType) =>
+                            const NotificationPage(),
+                      ),
+                    ),
+                  ),
+                },
+              ),
             ),
-            ProfileMenu(
-              text: "Settings",
-              icon: "assets/icons/Settings.svg",
-              press: () {},
+            FadeInRight(
+              delay: const Duration(milliseconds: 800),
+              duration: const Duration(milliseconds: 900),
+              child: ProfileMenu(
+                text: "Security",
+                icon: "assets/icons/security-svgrepo-com.svg",
+                press: () => {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Sizer(
+                        builder: (context, orientation, deviceType) =>
+                            const SecurityPage(),
+                      ),
+                    ),
+                  ),
+                },
+              ),
             ),
-            ProfileMenu(
-              text: "Help Center",
-              icon: "assets/icons/Question mark.svg",
-              press: () {},
+            FadeInLeft(
+              delay: const Duration(milliseconds: 800),
+              duration: const Duration(milliseconds: 900),
+              child: ProfileMenu(
+                text: "Dark mode",
+                icon: "assets/icons/dark-mode-6682.svg",
+                press: () {},
+              ),
             ),
-            ProfileMenu(
-              text: "Log Out",
-              icon: "assets/icons/Log out.svg",
-              press: () {},
+            FadeInRight(
+              delay: const Duration(milliseconds: 800),
+              duration: const Duration(milliseconds: 900),
+              child: ProfileMenu(
+                text: "Terms & Conditions",
+                icon: "assets/icons/terms-and-conditions-icon.svg",
+                press: () => {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Sizer(
+                        builder: (context, orientation, deviceType) =>
+                            const TermsCoditions(),
+                      ),
+                    ),
+                  ),
+                },
+              ),
+            ),
+            FadeInLeft(
+              delay: const Duration(milliseconds: 800),
+              duration: const Duration(milliseconds: 900),
+              child: ProfileMenu(
+                text: "Log Out",
+                icon: "assets/icons/Log out.svg",
+                press: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Sizer(
+                        builder: (context, orientation, deviceType) =>
+                            const LoginUSerPage(),
+                      ),
+                    ),
+                  );
+                },
+              ),
             ),
           ],
         ),

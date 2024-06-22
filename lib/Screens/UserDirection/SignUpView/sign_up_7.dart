@@ -103,48 +103,49 @@ class _SignUp7State extends State<SignUp7> {
                       delay: const Duration(milliseconds: 600),
                       duration: const Duration(milliseconds: 700),
                       child: Container(
-                          height: 60,
-                          width: 310,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: const Color(0xFF139487).withOpacity(.2)),
-                          child: DropdownButtonHideUnderline(
-                            child: Center(
-                              child: Directionality(
-                                textDirection: TextDirection.rtl,
-                                child: DropdownButton<String>(
-                                  iconEnabledColor: Colors.black,
-                                  padding: const EdgeInsets.only(right: 220),
-                                  icon: const Icon(Icons.arrow_back_ios),
-                                  value: dropdownValue,
-                                  style: const TextStyle(color: Colors.white),
-                                  onChanged: (String? newValue) {
-                                    setState(() {
-                                      dropdownValue = newValue!;
-                                    });
-                                  },
-                                  items: [
-                                    DropdownMenuItem<String>(
-                                      value: 'Male',
-                                      child: Text('Male',
-                                          style: TextStyle(
-                                              color:
-                                                  Colors.black.withOpacity(0.6),
-                                              fontWeight: FontWeight.bold)),
-                                    ),
-                                    DropdownMenuItem<String>(
-                                      value: ' Female',
-                                      child: Text(' Female',
-                                          style: TextStyle(
-                                              color:
-                                                  Colors.black.withOpacity(0.6),
-                                              fontWeight: FontWeight.bold)),
-                                    ),
-                                  ],
-                                ),
+                        height: 60,
+                        width: 310,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: const Color(0xFF139487).withOpacity(.2)),
+                        child: DropdownButtonHideUnderline(
+                          child: Center(
+                            child: Directionality(
+                              textDirection: TextDirection.rtl,
+                              child: DropdownButton<String>(
+                                iconEnabledColor: Colors.black,
+                                padding: const EdgeInsets.only(right: 220),
+                                icon: const Icon(Icons.arrow_back_ios),
+                                value: dropdownValue,
+                                style: const TextStyle(color: Colors.white),
+                                onChanged: (String? newValue) {
+                                  setState(() {
+                                    dropdownValue = newValue!;
+                                  });
+                                },
+                                items: [
+                                  DropdownMenuItem<String>(
+                                    value: 'Male',
+                                    child: Text('Male',
+                                        style: TextStyle(
+                                            color:
+                                                Colors.black.withOpacity(0.6),
+                                            fontWeight: FontWeight.bold)),
+                                  ),
+                                  DropdownMenuItem<String>(
+                                    value: ' Female',
+                                    child: Text(' Female',
+                                        style: TextStyle(
+                                            color:
+                                                Colors.black.withOpacity(0.6),
+                                            fontWeight: FontWeight.bold)),
+                                  ),
+                                ],
                               ),
                             ),
-                          )),
+                          ),
+                        ),
+                      ),
                     ),
                     SizedBox(
                       height: 40.h,

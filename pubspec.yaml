@@ -73,6 +73,7 @@ flutter:
   assets:
     -  assets/Images/
     -  assets/icons/
+    -  assets/text/ 
 
   fonts:
     - family: Arimo
