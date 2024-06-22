@@ -6,6 +6,7 @@ import 'package:untitled1/Screens/CV/build_options_page.dart';
 import 'package:untitled1/Screens/UserDirection/Dashboard/views/dashboard_view.dart';
 import 'package:untitled1/Screens/UserDirection/HomePage/home_page.dart';
 import 'package:untitled1/Screens/UserDirection/LoginView/login_user.dart';
+import 'package:untitled1/Screens/UserDirection/Profile/DarkMode/dark_mode.dart';
 import 'package:untitled1/Screens/UserDirection/Profile/MyAccount/my_account.dart';
 import 'package:untitled1/Screens/UserDirection/Profile/Notification/notifiction.dart';
 import 'package:untitled1/Screens/UserDirection/Profile/Security/security.dart';
@@ -215,7 +216,17 @@ class ProfileScreen extends StatelessWidget {
               child: ProfileMenu(
                 text: "Dark mode",
                 icon: "assets/icons/dark-mode-6682.svg",
-                press: () {},
+                press: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Sizer(
+                        builder: (context, orientation, deviceType) =>
+                            const DarkModePage(),
+                      ),
+                    ),
+                  );
+                },
               ),
             ),
             FadeInRight(

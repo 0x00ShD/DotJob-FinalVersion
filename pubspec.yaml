@@ -40,6 +40,10 @@ dependencies:
   flutter_credit_card: ^4.0.1
   font_awesome_flutter: ^10.7.0
   fl_chart: ^0.68.0
+  flutter_hooks: any
+  hooks_riverpod: any
+  day_night_switch: ^1.0.4
+  provider: ^6.0.0
   
 flutter_icons:
   android: true
