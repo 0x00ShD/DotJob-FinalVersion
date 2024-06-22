@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
 import '../globals.dart';
-import '../backButton.dart';
+import '../back_button.dart';
 
-class personal_details_page extends StatefulWidget {
-  const personal_details_page({Key? key}) : super(key: key);
+class PersonalDetailsPage extends StatefulWidget {
+  const PersonalDetailsPage({Key? key}) : super(key: key);
 
   @override
-  State<personal_details_page> createState() => _personal_details_pageState();
+  State<PersonalDetailsPage> createState() => _PersonalDetailsPageState();
 }
 
-class _personal_details_pageState extends State<personal_details_page> {
-  Color MyColor = const Color(0xFF139487);
-  var MyTextStyle = TextStyle(
+class _PersonalDetailsPageState extends State<PersonalDetailsPage> {
+  Color myColor = const Color(0xFF139487);
+  var myTextStyle = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.bold,
     color: const Color(0xFF139487).withOpacity(0.8),
@@ -63,7 +63,7 @@ class _personal_details_pageState extends State<personal_details_page> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("DOB", style: MyTextStyle),
+                            Text("DOB", style: myTextStyle),
                             SizedBox(height: height * 0.015),
                             TextFormField(
                               validator: (val) {
@@ -86,7 +86,7 @@ class _personal_details_pageState extends State<personal_details_page> {
                               ),
                             ),
                             SizedBox(height: height * 0.015),
-                            Text("Marital Status", style: MyTextStyle),
+                            Text("Marital Status", style: myTextStyle),
                             RadioListTile(
                               title: const Text("Single"),
                               value: "Single",
@@ -109,7 +109,7 @@ class _personal_details_pageState extends State<personal_details_page> {
                                 });
                               },
                             ),
-                            Text("Languages Known", style: MyTextStyle),
+                            Text("Languages Known", style: myTextStyle),
                             SizedBox(height: height * 0.01),
                             //Check Box
                             Row(
@@ -152,7 +152,7 @@ class _personal_details_pageState extends State<personal_details_page> {
                               ],
                             ),
                             SizedBox(height: height * 0.015),
-                            Text("Nationality", style: MyTextStyle),
+                            Text("Nationality", style: myTextStyle),
                             SizedBox(height: height * 0.015),
                             TextFormField(
                               validator: (val) {
@@ -192,7 +192,7 @@ class _personal_details_pageState extends State<personal_details_page> {
                             print("${Global.gujratiCheckBox}");
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: MyColor,
+                            backgroundColor: myColor,
                           ),
                           child: const Text(
                             "Save",
@@ -212,7 +212,7 @@ class _personal_details_pageState extends State<personal_details_page> {
                             });
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: MyColor,
+                            backgroundColor: myColor,
                           ),
                           child: const Text(
                             "Clear",

@@ -25,7 +25,7 @@ class PaymentMethodItem extends StatelessWidget {
             color: isActive ? const Color(0xFF34A853) : Colors.white,
             blurRadius: 4,
             spreadRadius: 0,
-            offset: Offset(0.0, 0.0),
+            offset: const Offset(0.0, 0.0),
           ),
         ],
       ),

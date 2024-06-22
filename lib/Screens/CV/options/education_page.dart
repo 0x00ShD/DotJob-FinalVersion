@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
 import '../globals.dart';
-import '../backButton.dart';
+import '../back_button.dart';
 
-class education_page extends StatefulWidget {
-  const education_page({Key? key}) : super(key: key);
+class EducationPage extends StatefulWidget {
+  const EducationPage({Key? key}) : super(key: key);
 
   @override
-  State<education_page> createState() => _education_pageState();
+  State<EducationPage> createState() => _EducationPageState();
 }
 
-class _education_pageState extends State<education_page> {
-  Color MyColor = const Color(0xFF139487);
-  var MyTextStyle = TextStyle(
+class _EducationPageState extends State<EducationPage> {
+  Color myColor = const Color(0xFF139487);
+  var myTextStyle = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.bold,
     color: const Color(0xFF139487).withOpacity(0.8),
@@ -26,7 +26,7 @@ class _education_pageState extends State<education_page> {
   final TextEditingController passYearController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    Color MyColor = const Color(0xFF139487);
+    Color myColor = const Color(0xFF139487);
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
@@ -37,7 +37,7 @@ class _education_pageState extends State<education_page> {
           ),
         ),
         leading: backButton(context),
-        backgroundColor: MyColor,
+        backgroundColor: myColor,
         title: const Text("Education"),
         centerTitle: true,
         elevation: 0,
@@ -62,7 +62,7 @@ class _education_pageState extends State<education_page> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Course/Degree", style: MyTextStyle),
+                            Text("Course/Degree", style: myTextStyle),
                             SizedBox(height: height * 0.015),
                             TextFormField(
                               validator: (val) {
@@ -84,7 +84,7 @@ class _education_pageState extends State<education_page> {
                             ),
                             SizedBox(height: height * 0.015),
                             Text("School/Collage/Institute",
-                                style: MyTextStyle),
+                                style: myTextStyle),
                             SizedBox(height: height * 0.015),
                             TextFormField(
                               validator: (val) {
@@ -106,7 +106,7 @@ class _education_pageState extends State<education_page> {
                             ),
                             SizedBox(height: height * 0.015),
                             Text("School/Collage/Institute",
-                                style: MyTextStyle),
+                                style: myTextStyle),
                             SizedBox(height: height * 0.015),
                             TextFormField(
                               validator: (val) {
@@ -127,7 +127,7 @@ class _education_pageState extends State<education_page> {
                               ),
                             ),
                             SizedBox(height: height * 0.015),
-                            Text("Year Of Pass", style: MyTextStyle),
+                            Text("Year Of Pass", style: myTextStyle),
                             SizedBox(height: height * 0.015),
                             TextFormField(
                               validator: (val) {
@@ -164,7 +164,7 @@ class _education_pageState extends State<education_page> {
                             }
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: MyColor,
+                            backgroundColor: myColor,
                           ),
                           child: const Text(
                             "Save",
@@ -187,7 +187,7 @@ class _education_pageState extends State<education_page> {
                             });
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: MyColor,
+                            backgroundColor: myColor,
                           ),
                           child: const Text(
                             "Clear",

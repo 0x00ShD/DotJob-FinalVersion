@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';
 import 'package:untitled1/Components/pick_image_component.dart';
-import 'package:untitled1/Screens/UserDirection/Profile/MyAccount/Component/InputFile.dart';
+import 'package:untitled1/Screens/UserDirection/Profile/MyAccount/Component/inputFile.dart';
 import 'package:untitled1/Screens/UserDirection/Profile/MyAccount/Component/date_of_birth.dart';
 import 'package:untitled1/Screens/UserDirection/Profile/MyAccount/Component/gender.dart';
 import 'package:untitled1/Screens/UserDirection/Profile/profile_screen.dart';

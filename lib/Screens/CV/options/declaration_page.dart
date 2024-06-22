@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
 import '../globals.dart';
-import '../backButton.dart';
+import '../back_button.dart';
 
-class declaration_page extends StatefulWidget {
-  const declaration_page({Key? key}) : super(key: key);
+class DeclarationPage extends StatefulWidget {
+  const DeclarationPage({Key? key}) : super(key: key);
 
   @override
-  State<declaration_page> createState() => _declaration_pageState();
+  State<DeclarationPage> createState() => _DeclarationPageState();
 }
 
-class _declaration_pageState extends State<declaration_page> {
-  Color MyColor = const Color(0xFF139487);
-  var MyTextStyle = TextStyle(
+class _DeclarationPageState extends State<DeclarationPage> {
+  Color myColor = const Color(0xFF139487);
+  var myTextStyle = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.bold,
     color: const Color(0xFF139487).withOpacity(0.8),
@@ -30,8 +30,8 @@ class _declaration_pageState extends State<declaration_page> {
       TextEditingController();
   @override
   Widget build(BuildContext context) {
-    double _width = MediaQuery.of(context).size.width;
-    double _height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         shape: const RoundedRectangleBorder(
@@ -41,7 +41,7 @@ class _declaration_pageState extends State<declaration_page> {
           ),
         ),
         leading: backButton(context),
-        backgroundColor: MyColor,
+        backgroundColor: myColor,
         title: const Text("Declaration"),
         centerTitle: true,
         elevation: 0,
@@ -68,7 +68,7 @@ class _declaration_pageState extends State<declaration_page> {
                           children: [
                             Row(
                               children: [
-                                Text("Declaration", style: MyTextStyle),
+                                Text("Declaration", style: myTextStyle),
                                 const Spacer(),
                                 Switch(
                                   value: switchVal,
@@ -87,9 +87,9 @@ class _declaration_pageState extends State<declaration_page> {
                                     children: [
                                       Image.asset(
                                         "assets/icons/target.png",
-                                        height: _height * 0.06,
+                                        height: height * 0.06,
                                       ),
-                                      SizedBox(height: _height * 0.025),
+                                      SizedBox(height: height * 0.025),
                                       TextFormField(
                                         validator: (val) {
                                           if (val!.isEmpty) {
@@ -110,9 +110,9 @@ class _declaration_pageState extends State<declaration_page> {
                                           border: OutlineInputBorder(),
                                         ),
                                       ),
-                                      SizedBox(height: _height * 0.025),
+                                      SizedBox(height: height * 0.025),
                                       Container(color: Colors.grey, height: 1),
-                                      SizedBox(height: _height * 0.025),
+                                      SizedBox(height: height * 0.025),
                                       Row(
                                         children: [
                                           Expanded(
@@ -128,8 +128,7 @@ class _declaration_pageState extends State<declaration_page> {
                                                     fontWeight: FontWeight.w500,
                                                   ),
                                                 ),
-                                                SizedBox(
-                                                    height: _height * 0.04),
+                                                SizedBox(height: height * 0.04),
                                                 TextFormField(
                                                   validator: (val) {
                                                     if (val!.isEmpty) {
@@ -158,7 +157,7 @@ class _declaration_pageState extends State<declaration_page> {
                                               ],
                                             ),
                                           ),
-                                          SizedBox(width: _width * 0.05),
+                                          SizedBox(width: width * 0.05),
                                           Expanded(
                                             child: Column(
                                               children: [
@@ -170,8 +169,7 @@ class _declaration_pageState extends State<declaration_page> {
                                                     fontWeight: FontWeight.w500,
                                                   ),
                                                 ),
-                                                SizedBox(
-                                                    height: _height * 0.01),
+                                                SizedBox(height: height * 0.01),
                                                 TextFormField(
                                                   validator: (val) {
                                                     if (val!.isEmpty) {
@@ -269,7 +267,7 @@ class _declaration_pageState extends State<declaration_page> {
                                   print(Global.achievement);
                                 },
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: MyColor,
+                                  backgroundColor: myColor,
                                 ),
                                 child: const Text(
                                   "Save",
@@ -290,7 +288,7 @@ class _declaration_pageState extends State<declaration_page> {
                                   });
                                 },
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: MyColor,
+                                  backgroundColor: myColor,
                                 ),
                                 child: const Text(
                                   "Clear",

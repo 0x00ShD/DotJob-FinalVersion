@@ -2,16 +2,16 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 
 import '../globals.dart';
-import '../backButton.dart';
+import '../back_button.dart';
 
-class achievement_page extends StatefulWidget {
-  const achievement_page({Key? key}) : super(key: key);
+class AchievementPage extends StatefulWidget {
+  const AchievementPage({Key? key}) : super(key: key);
 
   @override
-  State<achievement_page> createState() => _achievement_pageState();
+  State<AchievementPage> createState() => _AchievementPageState();
 }
 
-class _achievement_pageState extends State<achievement_page> {
+class _AchievementPageState extends State<AchievementPage> {
   List allTextFildList = [];
   List<TextEditingController> allControllers = [];
   @override
@@ -21,14 +21,14 @@ class _achievement_pageState extends State<achievement_page> {
     allControllers.add(TextEditingController());
     allControllers.add(TextEditingController());
 
-    allTextFildList.add(getTextFild(i: 0, row: Row()));
-    allTextFildList.add(getTextFild(i: 1, row: Row()));
+    allTextFildList.add(getTextFild(i: 0, row: const Row()));
+    allTextFildList.add(getTextFild(i: 1, row: const Row()));
   }
 
   @override
   Widget build(BuildContext context) {
-    double _width = MediaQuery.of(context).size.width;
-    double _height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         shape: const RoundedRectangleBorder(
@@ -65,7 +65,7 @@ class _achievement_pageState extends State<achievement_page> {
                       duration: const Duration(milliseconds: 700),
                       child: Column(
                         children: [
-                          SizedBox(height: _height * 0.02),
+                          SizedBox(height: height * 0.02),
                           FadeInLeft(
                             delay: const Duration(milliseconds: 600),
                             duration: const Duration(milliseconds: 700),
@@ -81,39 +81,40 @@ class _achievement_pageState extends State<achievement_page> {
                           FadeInRight(
                               delay: const Duration(milliseconds: 600),
                               duration: const Duration(milliseconds: 700),
-                              child: SizedBox(height: _height * 0.02)),
+                              child: SizedBox(height: height * 0.02)),
                           ...allTextFildList
                               .map((e) => getTextFild(
                                   i: allTextFildList.indexOf(e), row: e))
                               .toList(),
-                          SizedBox(height: _height * 0.06),
+                          SizedBox(height: height * 0.06),
                           FadeInDown(
                             delay: const Duration(milliseconds: 600),
                             duration: const Duration(milliseconds: 700),
                             child: SizedBox(
-                              height: _height * 0.055,
-                              width: _width,
+                              height: height * 0.055,
+                              width: width,
                               child: OutlinedButton(
                                 child: const Icon(Icons.add),
                                 onPressed: () {
                                   setState(() {
                                     allControllers.add(TextEditingController());
                                     allTextFildList.add(getTextFild(
-                                        i: allTextFildList.length, row: Row()));
+                                        i: allTextFildList.length,
+                                        row: const Row()));
                                   });
                                 },
                               ),
                             ),
                           ),
-                          SizedBox(height: _height * 0.03),
+                          SizedBox(height: height * 0.03),
                           ElevatedButton(
                             onPressed: () {
                               setState(() {
                                 Navigator.pop(context);
                               });
-                              allControllers.forEach((element) {
+                              for (var element in allControllers) {
                                 Global.achievement.add(element.text.toString());
-                              });
+                              }
                               print(Global.achievement);
                             },
                             style: ElevatedButton.styleFrom(

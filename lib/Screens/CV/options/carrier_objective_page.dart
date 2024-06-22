@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
 import '../globals.dart';
-import '../backButton.dart';
+import '../back_button.dart';
 
-class carrier_objective_page extends StatefulWidget {
-  const carrier_objective_page({Key? key}) : super(key: key);
+class CarrierObjectivePage extends StatefulWidget {
+  const CarrierObjectivePage({Key? key}) : super(key: key);
 
   @override
-  State<carrier_objective_page> createState() => _carrier_objective_pageState();
+  State<CarrierObjectivePage> createState() => _CarrierObjectivePageState();
 }
 
-class _carrier_objective_pageState extends State<carrier_objective_page> {
+class _CarrierObjectivePageState extends State<CarrierObjectivePage> {
   final GlobalKey<FormState> careerObjectiveFormKey = GlobalKey<FormState>();
 
   final TextEditingController descriptionController = TextEditingController();
@@ -18,8 +18,8 @@ class _carrier_objective_pageState extends State<carrier_objective_page> {
 
   @override
   Widget build(BuildContext context) {
-    double _width = MediaQuery.of(context).size.width;
-    double _height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         shape: const RoundedRectangleBorder(
@@ -53,8 +53,8 @@ class _carrier_objective_pageState extends State<carrier_objective_page> {
                             color: Colors.white,
                             margin: const EdgeInsets.all(20),
                             padding: const EdgeInsets.all(20),
-                            height: _height * 0.35,
-                            width: _width,
+                            height: height * 0.35,
+                            width: width,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -99,8 +99,8 @@ class _carrier_objective_pageState extends State<carrier_objective_page> {
                             color: Colors.white,
                             margin: const EdgeInsets.all(20),
                             padding: const EdgeInsets.all(20),
-                            height: _height * 0.2,
-                            width: _width,
+                            height: height * 0.2,
+                            width: width,
                             child: Column(
                               children: [
                                 Expanded(

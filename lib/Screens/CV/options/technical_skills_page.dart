@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
 import '../globals.dart';
-import '../backButton.dart';
+import '../back_button.dart';
 
-class technical_skills_page extends StatefulWidget {
-  const technical_skills_page({Key? key}) : super(key: key);
+class TechnicalSkillsPage extends StatefulWidget {
+  const TechnicalSkillsPage({Key? key}) : super(key: key);
 
   @override
-  State<technical_skills_page> createState() => _technical_skills_pageState();
+  State<TechnicalSkillsPage> createState() => _TechnicalSkillsPageState();
 }
 
-class _technical_skills_pageState extends State<technical_skills_page> {
+class _TechnicalSkillsPageState extends State<TechnicalSkillsPage> {
   List allTextFildList = [];
   List<TextEditingController> allControllers = [];
   int counter = 1;
@@ -21,15 +21,15 @@ class _technical_skills_pageState extends State<technical_skills_page> {
     allControllers.add(TextEditingController());
     allControllers.add(TextEditingController());
 
-    allTextFildList.add(getTextFild(i: 0, row: Row()));
-    allTextFildList.add(getTextFild(i: 1, row: Row()));
+    allTextFildList.add(getTextFild(i: 0, row: const Row()));
+    allTextFildList.add(getTextFild(i: 1, row: const Row()));
   }
 
   @override
   Widget build(BuildContext context) {
-    Color MyColor = const Color(0xFF139487);
-    double _width = MediaQuery.of(context).size.width;
-    double _height = MediaQuery.of(context).size.height;
+    Color myColor = const Color(0xFF139487);
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         shape: const RoundedRectangleBorder(
@@ -39,7 +39,7 @@ class _technical_skills_pageState extends State<technical_skills_page> {
           ),
         ),
         leading: backButton(context),
-        backgroundColor: MyColor,
+        backgroundColor: myColor,
         title: const Text("Technical Skills"),
         centerTitle: true,
         elevation: 0,
@@ -60,7 +60,7 @@ class _technical_skills_pageState extends State<technical_skills_page> {
                   physics: const BouncingScrollPhysics(),
                   child: Column(
                     children: [
-                      SizedBox(height: _height * 0.02),
+                      SizedBox(height: height * 0.02),
                       Text(
                         "Enter Your Skills",
                         style: TextStyle(
@@ -69,39 +69,39 @@ class _technical_skills_pageState extends State<technical_skills_page> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: _height * 0.02),
+                      SizedBox(height: height * 0.02),
                       ...allTextFildList
                           .map((e) => getTextFild(
                               i: allTextFildList.indexOf(e), row: e))
                           .toList(),
-                      SizedBox(height: _height * 0.06),
-                      Container(
-                        height: _height * 0.055,
-                        width: _width,
+                      SizedBox(height: height * 0.06),
+                      SizedBox(
+                        height: height * 0.055,
+                        width: width,
                         child: OutlinedButton(
                           child: const Icon(Icons.add),
                           onPressed: () {
                             setState(() {
                               allControllers.add(TextEditingController());
                               allTextFildList.add(getTextFild(
-                                  i: allTextFildList.length, row: Row()));
+                                  i: allTextFildList.length, row: const Row()));
                             });
                           },
                         ),
                       ),
-                      SizedBox(height: _height * 0.03),
+                      SizedBox(height: height * 0.03),
                       ElevatedButton(
                         onPressed: () {
                           setState(() {
                             Navigator.pop(context);
                           });
-                          allControllers.forEach((element) {
+                          for (var element in allControllers) {
                             Global.technicalSkills.add(element.text.toString());
-                          });
+                          }
                           print(Global.technicalSkills);
                         },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: MyColor,
+                          backgroundColor: myColor,
                         ),
                         child: const Text(
                           "Save",

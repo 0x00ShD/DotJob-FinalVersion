@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
 import '../globals.dart';
-import '../backButton.dart';
+import '../back_button.dart';
 
-class reference_page extends StatefulWidget {
-  const reference_page({Key? key}) : super(key: key);
+class ReferencePage extends StatefulWidget {
+  const ReferencePage({Key? key}) : super(key: key);
 
   @override
-  State<reference_page> createState() => _reference_pageState();
+  State<ReferencePage> createState() => _ReferencePageState();
 }
 
-class _reference_pageState extends State<reference_page> {
-  Color MyColor = const Color(0xFF139487);
-  var MyTextStyle = TextStyle(
+class _ReferencePageState extends State<ReferencePage> {
+  Color myColor = const Color(0xFF139487);
+  var myTextStyle = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.bold,
     color: const Color(0xFF139487).withOpacity(0.8),
@@ -35,7 +35,7 @@ class _reference_pageState extends State<reference_page> {
           ),
         ),
         leading: backButton(context),
-        backgroundColor: MyColor,
+        backgroundColor: myColor,
         title: const Text("Reference"),
         centerTitle: true,
         elevation: 0,
@@ -60,7 +60,7 @@ class _reference_pageState extends State<reference_page> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Reference Name", style: MyTextStyle),
+                            Text("Reference Name", style: myTextStyle),
                             SizedBox(height: height * 0.015),
                             TextFormField(
                               validator: (val) {
@@ -81,7 +81,7 @@ class _reference_pageState extends State<reference_page> {
                               ),
                             ),
                             SizedBox(height: height * 0.015),
-                            Text("Designation", style: MyTextStyle),
+                            Text("Designation", style: myTextStyle),
                             SizedBox(height: height * 0.015),
                             TextFormField(
                               validator: (val) {
@@ -102,7 +102,7 @@ class _reference_pageState extends State<reference_page> {
                               ),
                             ),
                             SizedBox(height: height * 0.015),
-                            Text("Organization/Institute", style: MyTextStyle),
+                            Text("Organization/Institute", style: myTextStyle),
                             SizedBox(height: height * 0.015),
                             TextFormField(
                               validator: (val) {
@@ -138,7 +138,7 @@ class _reference_pageState extends State<reference_page> {
                             }
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: MyColor,
+                            backgroundColor: myColor,
                           ),
                           child: const Text(
                             "Save",
@@ -159,7 +159,7 @@ class _reference_pageState extends State<reference_page> {
                             });
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: MyColor,
+                            backgroundColor: myColor,
                           ),
                           child: const Text(
                             "Clear",

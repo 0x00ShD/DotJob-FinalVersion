@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
 import '../globals.dart';
-import '../backButton.dart';
+import '../back_button.dart';
 
-class projects_page extends StatefulWidget {
-  const projects_page({Key? key}) : super(key: key);
+class ProjectsPage extends StatefulWidget {
+  const ProjectsPage({Key? key}) : super(key: key);
 
   @override
-  State<projects_page> createState() => _projects_pageState();
+  State<ProjectsPage> createState() => _ProjectsPageState();
 }
 
-class _projects_pageState extends State<projects_page> {
-  Color MyColor = const Color(0xFF139487);
-  var MyTextStyle = TextStyle(
+class _ProjectsPageState extends State<ProjectsPage> {
+  Color myColor = const Color(0xFF139487);
+  var myTextStyle = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.bold,
     color: const Color(0xFF139487).withOpacity(0.8),
@@ -42,7 +42,7 @@ class _projects_pageState extends State<projects_page> {
           ),
         ),
         leading: backButton(context),
-        backgroundColor: MyColor,
+        backgroundColor: myColor,
         title: const Text("Projects"),
         centerTitle: true,
         elevation: 0,
@@ -67,7 +67,7 @@ class _projects_pageState extends State<projects_page> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Project Title", style: MyTextStyle),
+                            Text("Project Title", style: myTextStyle),
                             SizedBox(height: height * 0.015),
                             TextFormField(
                               validator: (val) {
@@ -88,7 +88,7 @@ class _projects_pageState extends State<projects_page> {
                               ),
                             ),
                             SizedBox(height: height * 0.015),
-                            Text("Technologies", style: MyTextStyle),
+                            Text("Technologies", style: myTextStyle),
                             SizedBox(height: height * 0.015),
                             // Chake Box
                             Row(
@@ -141,7 +141,7 @@ class _projects_pageState extends State<projects_page> {
                               ],
                             ),
                             SizedBox(height: height * 0.015),
-                            Text("Roles", style: MyTextStyle),
+                            Text("Roles", style: myTextStyle),
                             SizedBox(height: height * 0.015),
                             TextFormField(
                               validator: (val) {
@@ -164,7 +164,7 @@ class _projects_pageState extends State<projects_page> {
                               ),
                             ),
                             SizedBox(height: height * 0.015),
-                            Text("Technologies", style: MyTextStyle),
+                            Text("Technologies", style: myTextStyle),
                             SizedBox(height: height * 0.015),
                             TextFormField(
                               validator: (val) {
@@ -185,7 +185,7 @@ class _projects_pageState extends State<projects_page> {
                               ),
                             ),
                             SizedBox(height: height * 0.015),
-                            Text("Project Description", style: MyTextStyle),
+                            Text("Project Description", style: myTextStyle),
                             SizedBox(height: height * 0.015),
                             TextFormField(
                               validator: (val) {
@@ -221,7 +221,7 @@ class _projects_pageState extends State<projects_page> {
                             }
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: MyColor,
+                            backgroundColor: myColor,
                           ),
                           child: const Text(
                             "Save",
@@ -247,7 +247,7 @@ class _projects_pageState extends State<projects_page> {
                             });
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: MyColor,
+                            backgroundColor: myColor,
                           ),
                           child: const Text(
                             "Clear",

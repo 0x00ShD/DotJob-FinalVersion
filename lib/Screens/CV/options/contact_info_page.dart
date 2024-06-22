@@ -4,17 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';
 import '../globals.dart';
-import '../backButton.dart';
+import '../back_button.dart';
 
-class contact_info_page extends StatefulWidget {
-  const contact_info_page({Key? key}) : super(key: key);
+class ContactInfoPage extends StatefulWidget {
+  const ContactInfoPage({Key? key}) : super(key: key);
 
   @override
-  State<contact_info_page> createState() => _contact_info_pageState();
+  State<ContactInfoPage> createState() => _ContactInfoPageState();
 }
 
-class _contact_info_pageState extends State<contact_info_page> {
-  Color MyColor = const Color(0xFF139487);
+class _ContactInfoPageState extends State<ContactInfoPage> {
+  Color myColor = const Color(0xFF139487);
   int initialIndex = 0;
 
   final ImagePicker _picker = ImagePicker();
@@ -30,8 +30,8 @@ class _contact_info_pageState extends State<contact_info_page> {
 
   @override
   Widget build(BuildContext context) {
-    double _width = MediaQuery.of(context).size.width;
-    double _height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         shape: const RoundedRectangleBorder(
@@ -54,7 +54,7 @@ class _contact_info_pageState extends State<contact_info_page> {
           Expanded(
             flex: 2,
             child: Container(
-              width: _width,
+              width: width,
               alignment: const Alignment(0, 0.5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -73,7 +73,7 @@ class _contact_info_pageState extends State<contact_info_page> {
                       },
                       child: Ink(
                         child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: 53),
+                          padding: const EdgeInsets.symmetric(horizontal: 53),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(40),
                               color: const Color(0xFF139487)),
@@ -115,7 +115,7 @@ class _contact_info_pageState extends State<contact_info_page> {
                       child: Ink(
                         color: Colors.white,
                         child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: 60),
+                          padding: const EdgeInsets.symmetric(horizontal: 60),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(40),
                               color: const Color(0xFF139487)),
@@ -162,7 +162,7 @@ class _contact_info_pageState extends State<contact_info_page> {
                     child: Column(
                       children: [
                         Container(
-                          height: _height * 0.48,
+                          height: height * 0.48,
                           margin: const EdgeInsets.all(20),
                           padding: const EdgeInsets.symmetric(horizontal: 15),
                           color: Colors.white,
@@ -179,10 +179,10 @@ class _contact_info_pageState extends State<contact_info_page> {
                                         Expanded(
                                           child: Image.asset(
                                             "assets/icons/user.png",
-                                            height: _height * 0.048,
+                                            height: height * 0.048,
                                           ),
                                         ),
-                                        SizedBox(width: _width * 0.02),
+                                        SizedBox(width: width * 0.02),
                                         Expanded(
                                           flex: 4,
                                           child: TextFormField(
@@ -211,10 +211,10 @@ class _contact_info_pageState extends State<contact_info_page> {
                                         Expanded(
                                           child: Image.asset(
                                             "assets/icons/email.png",
-                                            height: _height * 0.048,
+                                            height: height * 0.048,
                                           ),
                                         ),
-                                        SizedBox(width: _width * 0.02),
+                                        SizedBox(width: width * 0.02),
                                         Expanded(
                                           flex: 4,
                                           child: TextFormField(
@@ -245,10 +245,10 @@ class _contact_info_pageState extends State<contact_info_page> {
                                         Expanded(
                                           child: Image.asset(
                                             "assets/icons/smartphone-call.png",
-                                            height: _height * 0.048,
+                                            height: height * 0.048,
                                           ),
                                         ),
-                                        SizedBox(width: _width * 0.02),
+                                        SizedBox(width: width * 0.02),
                                         Expanded(
                                           flex: 4,
                                           child: TextFormField(
@@ -278,10 +278,10 @@ class _contact_info_pageState extends State<contact_info_page> {
                                         Expanded(
                                           child: Image.asset(
                                             "assets/icons/pin.png",
-                                            height: _height * 0.048,
+                                            height: height * 0.048,
                                           ),
                                         ),
-                                        SizedBox(width: _width * 0.02),
+                                        SizedBox(width: width * 0.02),
                                         Expanded(
                                           flex: 4,
                                           child: TextFormField(
@@ -310,7 +310,7 @@ class _contact_info_pageState extends State<contact_info_page> {
                                     Row(
                                       children: [
                                         Expanded(child: Container()),
-                                        SizedBox(width: _width * 0.02),
+                                        SizedBox(width: width * 0.02),
                                         Expanded(
                                           flex: 4,
                                           child: TextFormField(
@@ -331,7 +331,7 @@ class _contact_info_pageState extends State<contact_info_page> {
                                     Row(
                                       children: [
                                         Expanded(child: Container()),
-                                        SizedBox(width: _width * 0.02),
+                                        SizedBox(width: width * 0.02),
                                         Expanded(
                                           flex: 4,
                                           child: TextFormField(
@@ -355,7 +355,7 @@ class _contact_info_pageState extends State<contact_info_page> {
                             ),
                           ),
                         ),
-                        SizedBox(height: _height * 0.02),
+                        SizedBox(height: height * 0.02),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -406,8 +406,8 @@ class _contact_info_pageState extends State<contact_info_page> {
                   ),
                   Container(
                     color: Colors.white,
-                    height: _height * 0.29,
-                    width: _width,
+                    height: height * 0.29,
+                    width: width,
                     margin: const EdgeInsets.all(20),
                     alignment: Alignment.center,
                     child: Stack(
@@ -480,7 +480,7 @@ class _contact_info_pageState extends State<contact_info_page> {
                           },
                           style: ElevatedButton.styleFrom(
                             shape: const CircleBorder(),
-                            backgroundColor: MyColor,
+                            backgroundColor: myColor,
                           ),
                           child: const Icon(Icons.add),
                         )

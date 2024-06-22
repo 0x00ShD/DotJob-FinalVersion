@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
 import '../globals.dart';
-import '../backButton.dart';
+import '../back_button.dart';
 
-class experience_page extends StatefulWidget {
-  const experience_page({Key? key}) : super(key: key);
+class ExperiencePage extends StatefulWidget {
+  const ExperiencePage({Key? key}) : super(key: key);
 
   @override
-  State<experience_page> createState() => _experience_pageState();
+  State<ExperiencePage> createState() => _ExperiencePageState();
 }
 
-class _experience_pageState extends State<experience_page> {
-  Color MyColor = const Color(0xFF139487);
-  var MyTextStyle = TextStyle(
+class _ExperiencePageState extends State<ExperiencePage> {
+  Color myColor = const Color(0xFF139487);
+  var myTextStyle = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.bold,
     color: const Color(0xFF139487).withOpacity(0.8),
@@ -28,8 +28,8 @@ class _experience_pageState extends State<experience_page> {
   final TextEditingController exitDateController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    double _width = MediaQuery.of(context).size.width;
-    double _height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         shape: const RoundedRectangleBorder(
@@ -39,7 +39,7 @@ class _experience_pageState extends State<experience_page> {
           ),
         ),
         leading: backButton(context),
-        backgroundColor: MyColor,
+        backgroundColor: myColor,
         title: const Text("Experience"),
         centerTitle: true,
         elevation: 0,
@@ -64,8 +64,8 @@ class _experience_pageState extends State<experience_page> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Company Name", style: MyTextStyle),
-                            SizedBox(height: _height * 0.015),
+                            Text("Company Name", style: myTextStyle),
+                            SizedBox(height: height * 0.015),
                             TextFormField(
                               validator: (val) {
                                 if (val!.isEmpty) {
@@ -84,10 +84,10 @@ class _experience_pageState extends State<experience_page> {
                                 border: OutlineInputBorder(),
                               ),
                             ),
-                            SizedBox(height: _height * 0.015),
+                            SizedBox(height: height * 0.015),
                             Text("School/Collage/Institute",
-                                style: MyTextStyle),
-                            SizedBox(height: _height * 0.015),
+                                style: myTextStyle),
+                            SizedBox(height: height * 0.015),
                             TextFormField(
                               validator: (val) {
                                 if (val!.isEmpty) {
@@ -106,9 +106,9 @@ class _experience_pageState extends State<experience_page> {
                                 border: OutlineInputBorder(),
                               ),
                             ),
-                            SizedBox(height: _height * 0.015),
-                            Text("Roles (optional)", style: MyTextStyle),
-                            SizedBox(height: _height * 0.015),
+                            SizedBox(height: height * 0.015),
+                            Text("Roles (optional)", style: myTextStyle),
+                            SizedBox(height: height * 0.015),
                             TextFormField(
                               onSaved: (val) {
                                 setState(() {
@@ -123,7 +123,7 @@ class _experience_pageState extends State<experience_page> {
                                 border: OutlineInputBorder(),
                               ),
                             ),
-                            SizedBox(height: _height * 0.015),
+                            SizedBox(height: height * 0.015),
                             const Text(
                               "Employed Status",
                               style:
@@ -183,7 +183,7 @@ class _experience_pageState extends State<experience_page> {
                             ),
                             Container(color: Colors.grey, height: 1),
                             //Join Date Exit Date
-                            SizedBox(height: _height * 0.015),
+                            SizedBox(height: height * 0.015),
                             Row(
                               children: [
                                 // join Date
@@ -198,7 +198,7 @@ class _experience_pageState extends State<experience_page> {
                                           fontWeight: FontWeight.w500,
                                         ),
                                       ),
-                                      SizedBox(height: _height * 0.01),
+                                      SizedBox(height: height * 0.01),
                                       TextFormField(
                                         validator: (val) {
                                           if (val!.isEmpty) {
@@ -222,7 +222,7 @@ class _experience_pageState extends State<experience_page> {
                                     ],
                                   ),
                                 ),
-                                SizedBox(width: _width * 0.05),
+                                SizedBox(width: width * 0.05),
                                 // Exit Date
                                 Expanded(
                                   child: (Global.experienceEmployedStatus ==
@@ -237,7 +237,7 @@ class _experience_pageState extends State<experience_page> {
                                                 fontWeight: FontWeight.w500,
                                               ),
                                             ),
-                                            SizedBox(height: _height * 0.01),
+                                            SizedBox(height: height * 0.01),
                                             TextFormField(
                                               validator: (val) {
                                                 if (val!.isEmpty) {
@@ -284,7 +284,7 @@ class _experience_pageState extends State<experience_page> {
                             }
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: MyColor,
+                            backgroundColor: myColor,
                           ),
                           child: const Text(
                             "Save",
@@ -305,7 +305,7 @@ class _experience_pageState extends State<experience_page> {
                             });
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: MyColor,
+                            backgroundColor: myColor,
                           ),
                           child: const Text(
                             "Clear",

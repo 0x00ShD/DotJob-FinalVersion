@@ -7,20 +7,20 @@ import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
-import 'package:untitled1/Screens/CV/backButton.dart';
+import 'package:untitled1/Screens/CV/back_button.dart';
 import 'package:untitled1/Screens/CV/globals.dart';
 
-class PDF_Page extends StatefulWidget {
-  PDF_Page({Key? key}) : super(key: key);
+class PDFPage extends StatefulWidget {
+  const PDFPage({Key? key}) : super(key: key);
 
   @override
-  State<PDF_Page> createState() => _PDF_PageState();
+  State<PDFPage> createState() => _PDFPageState();
 }
 
-class _PDF_PageState extends State<PDF_Page> {
+class _PDFPageState extends State<PDFPage> {
   final pdf = pw.Document();
 
-  Color MyColor = const Color(0xFF139487);
+  Color myColor = const Color(0xFF139487);
 
   final image = pw.MemoryImage(
     File(Global.image!.path).readAsBytesSync(),
@@ -31,7 +31,7 @@ class _PDF_PageState extends State<PDF_Page> {
   );
 
   var titleStyle = const TextStyle(color: Colors.white, fontSize: 14);
-  var titleStyle2 = TextStyle(
+  var titleStyle2 = const TextStyle(
       color: Color(0xFF139487), fontSize: 14, fontWeight: FontWeight.w600);
   var detailStyle = const TextStyle(color: Colors.black, fontSize: 12);
   var detailStyle2 = TextStyle(color: Colors.grey.shade700, fontSize: 12);
@@ -151,7 +151,7 @@ class _PDF_PageState extends State<PDF_Page> {
         leading: backButton(context),
         title: const Text("PDF"),
         centerTitle: true,
-        backgroundColor: MyColor,
+        backgroundColor: myColor,
         actions: [
           InkWell(
             onTap: () async {
@@ -238,9 +238,9 @@ class _PDF_PageState extends State<PDF_Page> {
                             ? Text(
                                 "${Global.name}",
                                 textAlign: TextAlign.center,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontSize: 17,
-                                  color: const Color(0xFF139487),
+                                  color: Color(0xFF139487),
                                   fontWeight: FontWeight.w600,
                                 ),
                               )
@@ -252,9 +252,9 @@ class _PDF_PageState extends State<PDF_Page> {
                     flex: 5,
                     child: Container(
                       width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF139487),
-                        borderRadius: const BorderRadius.only(
+                      decoration: const BoxDecoration(
+                        color: Color(0xFF139487),
+                        borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(20),
                         ),
                       ),
