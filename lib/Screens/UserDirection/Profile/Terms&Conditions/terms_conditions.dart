@@ -2,7 +2,6 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:untitled1/Screens/UserDirection/Profile/Security/Components/auth.dart';
 import 'package:untitled1/Screens/UserDirection/Profile/profile_screen.dart';
 
 class TermsCoditions extends StatefulWidget {
