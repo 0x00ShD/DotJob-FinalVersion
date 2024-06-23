@@ -210,26 +210,26 @@ class ProfileScreen extends StatelessWidget {
                 },
               ),
             ),
+            // FadeInLeft(
+            //   delay: const Duration(milliseconds: 800),
+            //   duration: const Duration(milliseconds: 900),
+            //   child: ProfileMenu(
+            //     text: "Dark mode",
+            //     icon: "assets/icons/dark-mode-6682.svg",
+            //     press: () {
+            //       Navigator.push(
+            //         context,
+            //         MaterialPageRoute(
+            //           builder: (context) => Sizer(
+            //             builder: (context, orientation, deviceType) =>
+            //                 const DarkModePage(),
+            //           ),
+            //         ),
+            //       );
+            //     },
+            //   ),
+            // ),
             FadeInLeft(
-              delay: const Duration(milliseconds: 800),
-              duration: const Duration(milliseconds: 900),
-              child: ProfileMenu(
-                text: "Dark mode",
-                icon: "assets/icons/dark-mode-6682.svg",
-                press: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Sizer(
-                        builder: (context, orientation, deviceType) =>
-                            const DarkModePage(),
-                      ),
-                    ),
-                  );
-                },
-              ),
-            ),
-            FadeInRight(
               delay: const Duration(milliseconds: 800),
               duration: const Duration(milliseconds: 900),
               child: ProfileMenu(
@@ -248,7 +248,7 @@ class ProfileScreen extends StatelessWidget {
                 },
               ),
             ),
-            FadeInLeft(
+            FadeInRight(
               delay: const Duration(milliseconds: 800),
               duration: const Duration(milliseconds: 900),
               child: ProfileMenu(

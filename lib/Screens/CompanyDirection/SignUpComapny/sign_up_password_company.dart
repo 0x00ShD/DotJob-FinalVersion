@@ -1,18 +1,18 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_b_phone_number_company.dart';
+import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_email_company.dart';
 import 'package:untitled1/Screens/UserDirection/LoginView/login_user.dart';
-import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up_3.dart';
-import 'package:untitled1/Screens/UserDirection/user_direction.dart';
 
-class SignUp2 extends StatefulWidget {
-  const SignUp2({super.key});
+class SignUpCompanyPassword extends StatefulWidget {
+  const SignUpCompanyPassword({super.key});
 
   @override
-  State<SignUp2> createState() => _SignUp2State();
+  State<SignUpCompanyPassword> createState() => _SignUpCompanyPasswordState();
 }
 
-class _SignUp2State extends State<SignUp2> {
+class _SignUpCompanyPasswordState extends State<SignUpCompanyPassword> {
   final phonenumber = TextEditingController();
   final fullname = TextEditingController();
   final password = TextEditingController();
@@ -33,7 +33,7 @@ class _SignUp2State extends State<SignUp2> {
           MaterialPageRoute(
             builder: (context) => Sizer(
               builder: (context, orientation, deviceType) =>
-                  const UserDirection(),
+                  const SignUpCompanyEmail(),
             ),
           ),
         );
@@ -94,54 +94,86 @@ class _SignUp2State extends State<SignUp2> {
                       height: 8.h,
                     ),
                     FadeInUp(
-                      delay: const Duration(milliseconds: 600),
-                      duration: const Duration(milliseconds: 700),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: FadeInUp(
-                              delay: const Duration(milliseconds: 700),
-                              duration: const Duration(milliseconds: 800),
-                              child: Form(
-                                key: formKey,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      height: 50,
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(30),
-                                          color: const Color(0xFF139487)
-                                              .withOpacity(.2)),
-                                      child: TextFormField(
-                                        controller: fullname,
-                                        validator: (value) {
-                                          if (value!.isEmpty) {
-                                            return "fullname is required";
-                                          }
-                                          return null;
-                                        },
-                                        decoration: const InputDecoration(
-                                          icon: Padding(
-                                            padding: EdgeInsets.only(left: 30),
-                                            child: Icon(Icons.person),
-                                          ),
-                                          border: InputBorder.none,
-                                          hintText: "Full Name",
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                      delay: const Duration(milliseconds: 800),
+                      duration: const Duration(milliseconds: 900),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: const Color(0xFF139487).withOpacity(.2)),
+                        child: TextFormField(
+                          controller: password,
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return "password is required";
+                            }
+                            return null;
+                          },
+                          obscureText: !isVisible,
+                          decoration: InputDecoration(
+                              icon: const Padding(
+                                padding: EdgeInsets.only(left: 20),
+                                child: Icon(Icons.lock),
                               ),
-                            ),
-                          )
-                        ],
+                              border: InputBorder.none,
+                              hintText: "Password",
+                              suffixIcon: IconButton(
+                                  onPressed: () {
+                                    //In here we will create a click to show and hide the password a toggle button
+                                    setState(() {
+                                      //toggle button
+                                      isVisible = !isVisible;
+                                    });
+                                  },
+                                  icon: Icon(isVisible
+                                      ? Icons.visibility
+                                      : Icons.visibility_off))),
+                        ),
                       ),
                     ),
                     SizedBox(
-                      height: 40.h,
+                      height: 3.h,
+                    ),
+                    FadeInUp(
+                      delay: const Duration(milliseconds: 800),
+                      duration: const Duration(milliseconds: 900),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: const Color(0xFF139487).withOpacity(.2)),
+                        child: TextFormField(
+                          controller: confirmPassword,
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return "password is required";
+                            } else if (password.text != confirmPassword.text) {
+                              return "Passwords don't match";
+                            }
+                            return null;
+                          },
+                          obscureText: !isVisible,
+                          decoration: InputDecoration(
+                              icon: const Padding(
+                                padding: EdgeInsets.only(left: 20),
+                                child: Icon(Icons.lock),
+                              ),
+                              border: InputBorder.none,
+                              hintText: "Confirm Password",
+                              suffixIcon: IconButton(
+                                  onPressed: () {
+                                    //In here we will create a click to show and hide the password a toggle button
+                                    setState(() {
+                                      //toggle button
+                                      isVisible = !isVisible;
+                                    });
+                                  },
+                                  icon: Icon(isVisible
+                                      ? Icons.visibility
+                                      : Icons.visibility_off))),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 35.h,
                     ),
                     FadeInLeft(
                       delay: const Duration(milliseconds: 600),
@@ -169,7 +201,7 @@ class _SignUp2State extends State<SignUp2> {
                                     builder: (context) => Sizer(
                                       builder:
                                           (context, orientation, deviceType) =>
-                                              const SignUp3(),
+                                              const SignUpCompanyPhoneNumber(),
                                     ),
                                   ),
                                 );

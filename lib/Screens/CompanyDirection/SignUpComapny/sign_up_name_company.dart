@@ -1,18 +1,18 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_3_company.dart';
+import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_email_company.dart';
+import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_photo_company.dart';
 import 'package:untitled1/Screens/UserDirection/LoginView/login_user.dart';
-import 'package:untitled1/Screens/UserDirection/user_direction.dart';
 
-class SignUpCompany2 extends StatefulWidget {
-  const SignUpCompany2({super.key});
+class SignUpCompanyName extends StatefulWidget {
+  const SignUpCompanyName({super.key});
 
   @override
-  State<SignUpCompany2> createState() => _SignUpCompany2State();
+  State<SignUpCompanyName> createState() => _SignUpCompanyNameState();
 }
 
-class _SignUpCompany2State extends State<SignUpCompany2> {
+class _SignUpCompanyNameState extends State<SignUpCompanyName> {
   final phonenumber = TextEditingController();
   final fullname = TextEditingController();
   final password = TextEditingController();
@@ -33,7 +33,7 @@ class _SignUpCompany2State extends State<SignUpCompany2> {
           MaterialPageRoute(
             builder: (context) => Sizer(
               builder: (context, orientation, deviceType) =>
-                  const UserDirection(),
+                  const SignUpPhotoCampany(),
             ),
           ),
         );
@@ -169,7 +169,7 @@ class _SignUpCompany2State extends State<SignUpCompany2> {
                                     builder: (context) => Sizer(
                                       builder:
                                           (context, orientation, deviceType) =>
-                                              const SignUpCompany3(),
+                                              const SignUpCompanyEmail(),
                                     ),
                                   ),
                                 );

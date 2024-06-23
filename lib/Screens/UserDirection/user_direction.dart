@@ -2,7 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:untitled1/Screens/UserDirection/LoginView/login_user.dart';
-import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up.dart';
+import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up_photo.dart';
 import 'package:untitled1/Screens/user_company_choose.dart';
 
 class UserDirection extends StatefulWidget {
@@ -158,7 +158,7 @@ class _UserDirectionState extends State<UserDirection> {
                                       builder: (context) => Sizer(
                                         builder: (context, orientation,
                                                 deviceType) =>
-                                            const SignUp(),
+                                            const SignUpPhoto(),
                                       ),
                                     ),
                                   );

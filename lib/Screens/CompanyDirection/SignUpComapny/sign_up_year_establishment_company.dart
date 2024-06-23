@@ -1,23 +1,23 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_size_company.dart';
+import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_tin_company.dart';
 import 'package:untitled1/Screens/UserDirection/LoginView/login_user.dart';
-import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up.dart';
-import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up_7.dart';
 
-class SignUp6 extends StatefulWidget {
-  const SignUp6({super.key});
+class SignUpCompanyYearEstablishment extends StatefulWidget {
+  const SignUpCompanyYearEstablishment({super.key});
 
   @override
-  State<SignUp6> createState() => _SignUp6State();
+  State<SignUpCompanyYearEstablishment> createState() =>
+      _SignUpCompanyYearEstablishmentState();
 }
 
-class _SignUp6State extends State<SignUp6> {
-  final phonenumber = TextEditingController();
+class _SignUpCompanyYearEstablishmentState
+    extends State<SignUpCompanyYearEstablishment> {
+  final yearofestablishment = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
-
-  final TextEditingController _dataController = TextEditingController();
 
   String dropdownValue = "Male";
 
@@ -32,7 +32,8 @@ class _SignUp6State extends State<SignUp6> {
           context,
           MaterialPageRoute(
             builder: (context) => Sizer(
-              builder: (context, orientation, deviceType) => const SignUp(),
+              builder: (context, orientation, deviceType) =>
+                  const SignUpCompanyTIN(),
             ),
           ),
         );
@@ -99,44 +100,56 @@ class _SignUp6State extends State<SignUp6> {
                       ],
                     ),
                     SizedBox(
-                      height: 8.h,
+                      height: 2.h,
+                    ),
+                    SizedBox(
+                      height: 2.h,
                     ),
                     FadeInUp(
                       delay: const Duration(milliseconds: 600),
                       duration: const Duration(milliseconds: 700),
-                      child: Container(
-                        height: 60,
-                        width: 310,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: const Color(0xFF139487).withOpacity(.2)),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: TextField(
-                            controller: _dataController,
-                            decoration: InputDecoration(
-                              fillColor:
-                                  const Color(0xFF139487).withOpacity(0.5),
-                              labelText: 'Birthday',
-                              labelStyle: TextStyle(
-                                color: Colors.black.withOpacity(0.6),
-                              ),
-                              prefixIcon: const Icon(Icons.calendar_today),
-                              enabledBorder: const OutlineInputBorder(
-                                  borderSide: BorderSide.none),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color:
-                                      const Color(0xFF139487).withOpacity(0.0),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: FadeInUp(
+                              delay: const Duration(milliseconds: 700),
+                              duration: const Duration(milliseconds: 800),
+                              child: Form(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      height: 50,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                          color: const Color(0xFF139487)
+                                              .withOpacity(.2)),
+                                      child: TextFormField(
+                                        controller: yearofestablishment,
+                                        validator: (value) {
+                                          if (value!.isEmpty) {
+                                            return "year of establishment is required";
+                                          }
+                                          return null;
+                                        },
+                                        decoration: const InputDecoration(
+                                          icon: Padding(
+                                            padding: EdgeInsets.only(left: 20),
+                                            child:
+                                                Icon(Icons.calendar_view_week),
+                                          ),
+                                          border: InputBorder.none,
+                                          hintText: "Year of establishment",
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
-                            readOnly: true,
-                            onTap: () {
-                              _selectData();
-                            },
-                          ),
-                        ),
+                          )
+                        ],
                       ),
                     ),
                     SizedBox(
@@ -168,7 +181,7 @@ class _SignUp6State extends State<SignUp6> {
                                     builder: (context) => Sizer(
                                       builder:
                                           (context, orientation, deviceType) =>
-                                              const SignUp7(),
+                                              const SignUpCompanySize(),
                                     ),
                                   ),
                                 );
@@ -243,17 +256,5 @@ class _SignUp6State extends State<SignUp6> {
     );
   }
 
-  Future<void> _selectData() async {
-    DateTime? picked = await showDatePicker(
-      initialDate: DateTime.now(),
-      context: context,
-      firstDate: DateTime(2000),
-      lastDate: DateTime(2100),
-    );
-    if (picked != null) {
-      setState(() {
-        _dataController.text = picked.toString().split(" ")[0];
-      });
-    }
-  }
+  //
 }

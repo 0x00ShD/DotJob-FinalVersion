@@ -1,19 +1,19 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_b_address_company.dart';
+import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_year_establishment_company.dart';
 import 'package:untitled1/Screens/UserDirection/LoginView/login_user.dart';
-import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up.dart';
-import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up_6.dart';
 
-class SignUp5 extends StatefulWidget {
-  const SignUp5({super.key});
+class SignUpCompanyTIN extends StatefulWidget {
+  const SignUpCompanyTIN({super.key});
 
   @override
-  State<SignUp5> createState() => _SignUp5State();
+  State<SignUpCompanyTIN> createState() => _SignUpCompanyTINState();
 }
 
-class _SignUp5State extends State<SignUp5> {
-  final phonenumber = TextEditingController();
+class _SignUpCompanyTINState extends State<SignUpCompanyTIN> {
+  final tin = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
 
@@ -30,7 +30,8 @@ class _SignUp5State extends State<SignUp5> {
           context,
           MaterialPageRoute(
             builder: (context) => Sizer(
-              builder: (context, orientation, deviceType) => const SignUp(),
+              builder: (context, orientation, deviceType) =>
+                  const SignUpCompanyAddress(),
             ),
           ),
         );
@@ -123,20 +124,21 @@ class _SignUp5State extends State<SignUp5> {
                                           color: const Color(0xFF139487)
                                               .withOpacity(.2)),
                                       child: TextFormField(
-                                        controller: phonenumber,
+                                        controller: tin,
                                         validator: (value) {
                                           if (value!.isEmpty) {
-                                            return "phonenumber is required";
+                                            return "TIN is required";
                                           }
                                           return null;
                                         },
                                         decoration: const InputDecoration(
                                           icon: Padding(
                                             padding: EdgeInsets.only(left: 20),
-                                            child: Icon(Icons.person),
+                                            child: Icon(Icons.card_membership),
                                           ),
                                           border: InputBorder.none,
-                                          hintText: "Phone Number",
+                                          hintText:
+                                              "Tax Identification Number (TIN)",
                                         ),
                                       ),
                                     ),
@@ -175,9 +177,9 @@ class _SignUp5State extends State<SignUp5> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => Sizer(
-                                      builder:
-                                          (context, orientation, deviceType) =>
-                                              const SignUp6(),
+                                      builder: (context, orientation,
+                                              deviceType) =>
+                                          const SignUpCompanyYearEstablishment(),
                                     ),
                                   ),
                                 );

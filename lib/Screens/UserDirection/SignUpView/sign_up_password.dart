@@ -2,17 +2,17 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:untitled1/Screens/UserDirection/LoginView/login_user.dart';
-import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up_5.dart';
-import 'package:untitled1/Screens/UserDirection/user_direction.dart';
+import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up_email.dart';
+import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up_phone_number.dart';
 
-class SignUp4 extends StatefulWidget {
-  const SignUp4({super.key});
+class SignUpPassword extends StatefulWidget {
+  const SignUpPassword({super.key});
 
   @override
-  State<SignUp4> createState() => _SignUp4State();
+  State<SignUpPassword> createState() => _SignUpPasswordState();
 }
 
-class _SignUp4State extends State<SignUp4> {
+class _SignUpPasswordState extends State<SignUpPassword> {
   final phonenumber = TextEditingController();
   final fullname = TextEditingController();
   final password = TextEditingController();
@@ -33,7 +33,7 @@ class _SignUp4State extends State<SignUp4> {
           MaterialPageRoute(
             builder: (context) => Sizer(
               builder: (context, orientation, deviceType) =>
-                  const UserDirection(),
+                  const SignUpEmail(),
             ),
           ),
         );
@@ -201,7 +201,7 @@ class _SignUp4State extends State<SignUp4> {
                                     builder: (context) => Sizer(
                                       builder:
                                           (context, orientation, deviceType) =>
-                                              const SignUp5(),
+                                              const SignUpPhoneNumber(),
                                     ),
                                   ),
                                 );

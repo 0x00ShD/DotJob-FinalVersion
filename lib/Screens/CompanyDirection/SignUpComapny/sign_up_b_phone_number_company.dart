@@ -1,19 +1,20 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_10_company.dart';
+import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_b_address_company.dart';
+import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_password_company.dart';
 import 'package:untitled1/Screens/UserDirection/LoginView/login_user.dart';
-import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up.dart';
 
-class SignUpCompany9 extends StatefulWidget {
-  const SignUpCompany9({super.key});
+class SignUpCompanyPhoneNumber extends StatefulWidget {
+  const SignUpCompanyPhoneNumber({super.key});
 
   @override
-  State<SignUpCompany9> createState() => _SignUpCompany9State();
+  State<SignUpCompanyPhoneNumber> createState() =>
+      _SignUpCompanyPhoneNumberState();
 }
 
-class _SignUpCompany9State extends State<SignUpCompany9> {
-  final companysize = TextEditingController();
+class _SignUpCompanyPhoneNumberState extends State<SignUpCompanyPhoneNumber> {
+  final phonenumber = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
 
@@ -30,7 +31,8 @@ class _SignUpCompany9State extends State<SignUpCompany9> {
           context,
           MaterialPageRoute(
             builder: (context) => Sizer(
-              builder: (context, orientation, deviceType) => const SignUp(),
+              builder: (context, orientation, deviceType) =>
+                  const SignUpCompanyPassword(),
             ),
           ),
         );
@@ -123,20 +125,20 @@ class _SignUpCompany9State extends State<SignUpCompany9> {
                                           color: const Color(0xFF139487)
                                               .withOpacity(.2)),
                                       child: TextFormField(
-                                        controller: companysize,
+                                        controller: phonenumber,
                                         validator: (value) {
                                           if (value!.isEmpty) {
-                                            return "company size is required";
+                                            return "phonenumber is required";
                                           }
                                           return null;
                                         },
                                         decoration: const InputDecoration(
                                           icon: Padding(
                                             padding: EdgeInsets.only(left: 20),
-                                            child: Icon(Icons.format_size),
+                                            child: Icon(Icons.numbers),
                                           ),
                                           border: InputBorder.none,
-                                          hintText: "Company size",
+                                          hintText: "Business Phone Number",
                                         ),
                                       ),
                                     ),
@@ -177,7 +179,7 @@ class _SignUpCompany9State extends State<SignUpCompany9> {
                                     builder: (context) => Sizer(
                                       builder:
                                           (context, orientation, deviceType) =>
-                                              const SignUpCompany10(),
+                                              const SignUpCompanyAddress(),
                                     ),
                                   ),
                                 );

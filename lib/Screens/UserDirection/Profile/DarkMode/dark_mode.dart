@@ -64,7 +64,7 @@ class DarkModePage extends StatelessWidget {
                                 label: 'Dark Theme',
                               ),
                               const Spacer(),
-                              SwitchDarkMode(onToggleTheme: onToggleTheme),
+                              const ThemeSwitch(),
                             ],
                           ),
                         ],

@@ -1,25 +1,24 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_4_company.dart';
+import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_size_company.dart';
+import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/success_signup.dart';
 import 'package:untitled1/Screens/UserDirection/LoginView/login_user.dart';
-import 'package:untitled1/Screens/UserDirection/user_direction.dart';
 
-class SignUpCompany3 extends StatefulWidget {
-  const SignUpCompany3({super.key});
+class SignUpCompanyDecription extends StatefulWidget {
+  const SignUpCompanyDecription({super.key});
 
   @override
-  State<SignUpCompany3> createState() => _SignUpCompany3State();
+  State<SignUpCompanyDecription> createState() =>
+      _SignUpCompanyDecriptionState();
 }
 
-class _SignUpCompany3State extends State<SignUpCompany3> {
-  final phonenumber = TextEditingController();
-  final fullname = TextEditingController();
-  final password = TextEditingController();
-  final confirmPassword = TextEditingController();
-  final email = TextEditingController();
+class _SignUpCompanyDecriptionState extends State<SignUpCompanyDecription> {
+  final briefdecriptionofthecompany = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
+
+  String dropdownValue = "Male";
 
   bool isVisible = false;
 
@@ -33,7 +32,7 @@ class _SignUpCompany3State extends State<SignUpCompany3> {
           MaterialPageRoute(
             builder: (context) => Sizer(
               builder: (context, orientation, deviceType) =>
-                  const UserDirection(),
+                  const SignUpCompanySize(),
             ),
           ),
         );
@@ -52,12 +51,18 @@ class _SignUpCompany3State extends State<SignUpCompany3> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    SizedBox(
+                      height: 1.h,
+                    ),
                     FadeInDown(
                       delay: const Duration(milliseconds: 900),
                       duration: const Duration(milliseconds: 1000),
                       child: Center(
                           child: Image.asset('assets/Images/Logo.png',
                               height: 10.h)),
+                    ),
+                    SizedBox(
+                      height: 1.h,
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,6 +80,9 @@ class _SignUpCompany3State extends State<SignUpCompany3> {
                             ),
                           ),
                         ),
+                        SizedBox(
+                          height: 1.h,
+                        ),
                         FadeInDown(
                           delay: const Duration(milliseconds: 700),
                           duration: const Duration(milliseconds: 800),
@@ -91,7 +99,10 @@ class _SignUpCompany3State extends State<SignUpCompany3> {
                       ],
                     ),
                     SizedBox(
-                      height: 8.h,
+                      height: 2.h,
+                    ),
+                    SizedBox(
+                      height: 2.h,
                     ),
                     FadeInUp(
                       delay: const Duration(milliseconds: 600),
@@ -107,27 +118,28 @@ class _SignUpCompany3State extends State<SignUpCompany3> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Container(
-                                      height: 50,
+                                      height: 200,
                                       decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(20),
                                           color: const Color(0xFF139487)
                                               .withOpacity(.2)),
                                       child: TextFormField(
-                                        controller: email,
+                                        controller: briefdecriptionofthecompany,
                                         validator: (value) {
                                           if (value!.isEmpty) {
-                                            return "email is required";
+                                            return "brief decription of the company is required";
                                           }
                                           return null;
                                         },
                                         decoration: const InputDecoration(
                                           icon: Padding(
                                             padding: EdgeInsets.only(left: 20),
-                                            child: Icon(Icons.email),
+                                            child: Icon(Icons.summarize),
                                           ),
                                           border: InputBorder.none,
-                                          hintText: "Company E-mail",
+                                          hintText:
+                                              "brief decription of the company",
                                         ),
                                       ),
                                     ),
@@ -140,7 +152,7 @@ class _SignUpCompany3State extends State<SignUpCompany3> {
                       ),
                     ),
                     SizedBox(
-                      height: 40.h,
+                      height: 20.h,
                     ),
                     FadeInLeft(
                       delay: const Duration(milliseconds: 600),
@@ -168,7 +180,7 @@ class _SignUpCompany3State extends State<SignUpCompany3> {
                                     builder: (context) => Sizer(
                                       builder:
                                           (context, orientation, deviceType) =>
-                                              const SignUpCompany4(),
+                                              const SuccessSignUpCompany(),
                                     ),
                                   ),
                                 );
@@ -179,7 +191,7 @@ class _SignUpCompany3State extends State<SignUpCompany3> {
                                 borderRadius: BorderRadius.circular(50),
                               ),
                               child: const Text(
-                                "Next",
+                                "Confirm",
                                 style: TextStyle(
                                   fontFamily: "Arimo",
                                   fontWeight: FontWeight.w600,
@@ -242,4 +254,6 @@ class _SignUpCompany3State extends State<SignUpCompany3> {
       ),
     );
   }
+
+  //
 }

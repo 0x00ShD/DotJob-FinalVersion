@@ -1,23 +1,25 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_9_company.dart';
+import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_name_company.dart';
+import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_password_company.dart';
 import 'package:untitled1/Screens/UserDirection/LoginView/login_user.dart';
-import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up.dart';
 
-class SignUpCompany8 extends StatefulWidget {
-  const SignUpCompany8({super.key});
+class SignUpCompanyEmail extends StatefulWidget {
+  const SignUpCompanyEmail({super.key});
 
   @override
-  State<SignUpCompany8> createState() => _SignUpCompany8State();
+  State<SignUpCompanyEmail> createState() => _SignUpCompanyEmailState();
 }
 
-class _SignUpCompany8State extends State<SignUpCompany8> {
-  final yearofestablishment = TextEditingController();
+class _SignUpCompanyEmailState extends State<SignUpCompanyEmail> {
+  final phonenumber = TextEditingController();
+  final fullname = TextEditingController();
+  final password = TextEditingController();
+  final confirmPassword = TextEditingController();
+  final email = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
-
-  String dropdownValue = "Male";
 
   bool isVisible = false;
 
@@ -30,7 +32,8 @@ class _SignUpCompany8State extends State<SignUpCompany8> {
           context,
           MaterialPageRoute(
             builder: (context) => Sizer(
-              builder: (context, orientation, deviceType) => const SignUp(),
+              builder: (context, orientation, deviceType) =>
+                  const SignUpCompanyName(),
             ),
           ),
         );
@@ -49,18 +52,12 @@ class _SignUpCompany8State extends State<SignUpCompany8> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
-                      height: 1.h,
-                    ),
                     FadeInDown(
                       delay: const Duration(milliseconds: 900),
                       duration: const Duration(milliseconds: 1000),
                       child: Center(
                           child: Image.asset('assets/Images/Logo.png',
                               height: 10.h)),
-                    ),
-                    SizedBox(
-                      height: 1.h,
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -78,9 +75,6 @@ class _SignUpCompany8State extends State<SignUpCompany8> {
                             ),
                           ),
                         ),
-                        SizedBox(
-                          height: 1.h,
-                        ),
                         FadeInDown(
                           delay: const Duration(milliseconds: 700),
                           duration: const Duration(milliseconds: 800),
@@ -97,10 +91,7 @@ class _SignUpCompany8State extends State<SignUpCompany8> {
                       ],
                     ),
                     SizedBox(
-                      height: 2.h,
-                    ),
-                    SizedBox(
-                      height: 2.h,
+                      height: 8.h,
                     ),
                     FadeInUp(
                       delay: const Duration(milliseconds: 600),
@@ -123,21 +114,20 @@ class _SignUpCompany8State extends State<SignUpCompany8> {
                                           color: const Color(0xFF139487)
                                               .withOpacity(.2)),
                                       child: TextFormField(
-                                        controller: yearofestablishment,
+                                        controller: email,
                                         validator: (value) {
                                           if (value!.isEmpty) {
-                                            return "year of establishment is required";
+                                            return "email is required";
                                           }
                                           return null;
                                         },
                                         decoration: const InputDecoration(
                                           icon: Padding(
                                             padding: EdgeInsets.only(left: 20),
-                                            child:
-                                                Icon(Icons.calendar_view_week),
+                                            child: Icon(Icons.email),
                                           ),
                                           border: InputBorder.none,
-                                          hintText: "Year of establishment",
+                                          hintText: "Company E-mail",
                                         ),
                                       ),
                                     ),
@@ -178,7 +168,7 @@ class _SignUpCompany8State extends State<SignUpCompany8> {
                                     builder: (context) => Sizer(
                                       builder:
                                           (context, orientation, deviceType) =>
-                                              const SignUpCompany9(),
+                                              const SignUpCompanyPassword(),
                                     ),
                                   ),
                                 );
@@ -252,6 +242,4 @@ class _SignUpCompany8State extends State<SignUpCompany8> {
       ),
     );
   }
-
-  //
 }

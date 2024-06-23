@@ -1,39 +1,25 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';
-import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_2_company.dart';
 import 'package:untitled1/Screens/UserDirection/LoginView/login_user.dart';
-import 'package:untitled1/Components/pick_image_component.dart';
-import 'package:untitled1/Screens/UserDirection/user_direction.dart';
+import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up_front_id.dart';
+import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up_birthday.dart';
 
-class SignUpCompany extends StatefulWidget {
-  const SignUpCompany({super.key});
+class SignUpType extends StatefulWidget {
+  const SignUpType({super.key});
 
   @override
-  State<SignUpCompany> createState() => _SignUpCompanyState();
+  State<SignUpType> createState() => _SignUpTypeState();
 }
 
-class _SignUpCompanyState extends State<SignUpCompany> {
+class _SignUpTypeState extends State<SignUpType> {
   final phonenumber = TextEditingController();
-  final fullname = TextEditingController();
-  final password = TextEditingController();
-  final confirmPassword = TextEditingController();
-  final email = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
 
+  String dropdownValue = "Male";
+
   bool isVisible = false;
-
-  Uint8List? _image;
-
-  void selectImage() async {
-    Uint8List? ima = await pickImage(ImageSource.gallery);
-    setState(() {
-      _image = ima;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +31,7 @@ class _SignUpCompanyState extends State<SignUpCompany> {
           MaterialPageRoute(
             builder: (context) => Sizer(
               builder: (context, orientation, deviceType) =>
-                  const UserDirection(),
+                  const SignUpBirthday(),
             ),
           ),
         );
@@ -57,19 +43,25 @@ class _SignUpCompanyState extends State<SignUpCompany> {
                 child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               child: Container(
-                height: 120.h,
+                height: 110.h,
                 decoration: const BoxDecoration(color: Colors.white),
                 padding: EdgeInsets.symmetric(horizontal: 7.w, vertical: 2.h),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    SizedBox(
+                      height: 1.h,
+                    ),
                     FadeInDown(
                       delay: const Duration(milliseconds: 900),
                       duration: const Duration(milliseconds: 1000),
                       child: Center(
                           child: Image.asset('assets/Images/Logo.png',
                               height: 10.h)),
+                    ),
+                    SizedBox(
+                      height: 1.h,
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -87,6 +79,9 @@ class _SignUpCompanyState extends State<SignUpCompany> {
                             ),
                           ),
                         ),
+                        SizedBox(
+                          height: 1.h,
+                        ),
                         FadeInDown(
                           delay: const Duration(milliseconds: 700),
                           duration: const Duration(milliseconds: 800),
@@ -103,39 +98,58 @@ class _SignUpCompanyState extends State<SignUpCompany> {
                       ],
                     ),
                     SizedBox(
-                      height: 5.h,
+                      height: 8.h,
                     ),
-                    FadeInDown(
-                        delay: const Duration(milliseconds: 900),
-                        duration: const Duration(milliseconds: 1000),
-                        child: Center(
-                          child: Stack(
-                            children: [
-                              _image != null
-                                  ? CircleAvatar(
-                                      radius: 100,
-                                      backgroundImage: MemoryImage(_image!))
-                                  : const CircleAvatar(
-                                      radius: 100,
-                                      backgroundImage: NetworkImage(
-                                          'https://t4.ftcdn.net/jpg/05/49/98/39/360_F_549983970_bRCkYfk0P6PP5fKbMhZMIb07mCJ6esXL.jpg'),
-                                    ),
-                              Positioned(
-                                bottom: -10,
-                                right: 35,
-                                child: IconButton(
-                                  onPressed: selectImage,
-                                  icon: const Icon(
-                                    Icons.add_a_photo,
-                                    size: 40,
+                    FadeInUp(
+                      delay: const Duration(milliseconds: 600),
+                      duration: const Duration(milliseconds: 700),
+                      child: Container(
+                        height: 60,
+                        width: 310,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: const Color(0xFF139487).withOpacity(.2)),
+                        child: DropdownButtonHideUnderline(
+                          child: Center(
+                            child: Directionality(
+                              textDirection: TextDirection.rtl,
+                              child: DropdownButton<String>(
+                                iconEnabledColor: Colors.black,
+                                padding: const EdgeInsets.only(right: 220),
+                                icon: const Icon(Icons.arrow_back_ios),
+                                value: dropdownValue,
+                                style: const TextStyle(color: Colors.white),
+                                onChanged: (String? newValue) {
+                                  setState(() {
+                                    dropdownValue = newValue!;
+                                  });
+                                },
+                                items: [
+                                  DropdownMenuItem<String>(
+                                    value: 'Male',
+                                    child: Text('Male',
+                                        style: TextStyle(
+                                            color:
+                                                Colors.black.withOpacity(0.6),
+                                            fontWeight: FontWeight.bold)),
                                   ),
-                                ),
-                              )
-                            ],
+                                  DropdownMenuItem<String>(
+                                    value: ' Female',
+                                    child: Text(' Female',
+                                        style: TextStyle(
+                                            color:
+                                                Colors.black.withOpacity(0.6),
+                                            fontWeight: FontWeight.bold)),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
-                        )),
+                        ),
+                      ),
+                    ),
                     SizedBox(
-                      height: 20.h,
+                      height: 40.h,
                     ),
                     FadeInLeft(
                       delay: const Duration(milliseconds: 600),
@@ -163,7 +177,7 @@ class _SignUpCompanyState extends State<SignUpCompany> {
                                     builder: (context) => Sizer(
                                       builder:
                                           (context, orientation, deviceType) =>
-                                              const SignUpCompany2(),
+                                              const SignUpFrontID(),
                                     ),
                                   ),
                                 );

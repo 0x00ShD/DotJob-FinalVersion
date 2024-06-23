@@ -1,18 +1,21 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';
+import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_name_company.dart';
+import 'package:untitled1/Screens/CompanyDirection/company_direction.dart';
 import 'package:untitled1/Screens/UserDirection/LoginView/login_user.dart';
-import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up_4.dart';
-import 'package:untitled1/Screens/UserDirection/user_direction.dart';
+import 'package:untitled1/Components/pick_image_component.dart';
 
-class SignUp3 extends StatefulWidget {
-  const SignUp3({super.key});
+class SignUpPhotoCampany extends StatefulWidget {
+  const SignUpPhotoCampany({super.key});
 
   @override
-  State<SignUp3> createState() => _SignUp3State();
+  State<SignUpPhotoCampany> createState() => _SignUpPhotoCampanyState();
 }
 
-class _SignUp3State extends State<SignUp3> {
+class _SignUpPhotoCampanyState extends State<SignUpPhotoCampany> {
   final phonenumber = TextEditingController();
   final fullname = TextEditingController();
   final password = TextEditingController();
@@ -22,6 +25,15 @@ class _SignUp3State extends State<SignUp3> {
   final formKey = GlobalKey<FormState>();
 
   bool isVisible = false;
+
+  Uint8List? _image;
+
+  void selectImage() async {
+    Uint8List? ima = await pickImage(ImageSource.gallery);
+    setState(() {
+      _image = ima;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +45,7 @@ class _SignUp3State extends State<SignUp3> {
           MaterialPageRoute(
             builder: (context) => Sizer(
               builder: (context, orientation, deviceType) =>
-                  const UserDirection(),
+                  const CompanyDirection(),
             ),
           ),
         );
@@ -45,7 +57,7 @@ class _SignUp3State extends State<SignUp3> {
                 child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               child: Container(
-                height: 110.h,
+                height: 120.h,
                 decoration: const BoxDecoration(color: Colors.white),
                 padding: EdgeInsets.symmetric(horizontal: 7.w, vertical: 2.h),
                 child: Column(
@@ -91,56 +103,39 @@ class _SignUp3State extends State<SignUp3> {
                       ],
                     ),
                     SizedBox(
-                      height: 8.h,
+                      height: 5.h,
                     ),
-                    FadeInUp(
-                      delay: const Duration(milliseconds: 600),
-                      duration: const Duration(milliseconds: 700),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: FadeInUp(
-                              delay: const Duration(milliseconds: 700),
-                              duration: const Duration(milliseconds: 800),
-                              child: Form(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      height: 50,
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(20),
-                                          color: const Color(0xFF139487)
-                                              .withOpacity(.2)),
-                                      child: TextFormField(
-                                        controller: email,
-                                        validator: (value) {
-                                          if (value!.isEmpty) {
-                                            return "email is required";
-                                          }
-                                          return null;
-                                        },
-                                        decoration: const InputDecoration(
-                                          icon: Padding(
-                                            padding: EdgeInsets.only(left: 20),
-                                            child: Icon(Icons.person),
-                                          ),
-                                          border: InputBorder.none,
-                                          hintText: "E-mail",
-                                        ),
-                                      ),
+                    FadeInDown(
+                        delay: const Duration(milliseconds: 900),
+                        duration: const Duration(milliseconds: 1000),
+                        child: Center(
+                          child: Stack(
+                            children: [
+                              _image != null
+                                  ? CircleAvatar(
+                                      radius: 100,
+                                      backgroundImage: MemoryImage(_image!))
+                                  : const CircleAvatar(
+                                      radius: 100,
+                                      backgroundImage: NetworkImage(
+                                          'https://t4.ftcdn.net/jpg/05/49/98/39/360_F_549983970_bRCkYfk0P6PP5fKbMhZMIb07mCJ6esXL.jpg'),
                                     ),
-                                  ],
+                              Positioned(
+                                bottom: -10,
+                                right: 35,
+                                child: IconButton(
+                                  onPressed: selectImage,
+                                  icon: const Icon(
+                                    Icons.add_a_photo,
+                                    size: 40,
+                                  ),
                                 ),
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
+                              )
+                            ],
+                          ),
+                        )),
                     SizedBox(
-                      height: 40.h,
+                      height: 20.h,
                     ),
                     FadeInLeft(
                       delay: const Duration(milliseconds: 600),
@@ -168,7 +163,7 @@ class _SignUp3State extends State<SignUp3> {
                                     builder: (context) => Sizer(
                                       builder:
                                           (context, orientation, deviceType) =>
-                                              const SignUp4(),
+                                              const SignUpCompanyName(),
                                     ),
                                   ),
                                 );

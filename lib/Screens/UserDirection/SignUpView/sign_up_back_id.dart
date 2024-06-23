@@ -5,17 +5,17 @@ import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';
 import 'package:untitled1/Screens/UserDirection/LoginView/login_user.dart';
 import 'package:untitled1/Components/pick_image_component.dart';
+import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up_front_id.dart';
 import 'package:untitled1/Screens/UserDirection/SignUpView/success_signup.dart';
-import 'package:untitled1/Screens/UserDirection/user_direction.dart';
 
-class SignUp9 extends StatefulWidget {
-  const SignUp9({super.key});
+class SignUpBackID extends StatefulWidget {
+  const SignUpBackID({super.key});
 
   @override
-  State<SignUp9> createState() => _SignUp9State();
+  State<SignUpBackID> createState() => _SignUpBackIDState();
 }
 
-class _SignUp9State extends State<SignUp9> {
+class _SignUpBackIDState extends State<SignUpBackID> {
   final phonenumber = TextEditingController();
   final fullname = TextEditingController();
   final password = TextEditingController();
@@ -45,7 +45,7 @@ class _SignUp9State extends State<SignUp9> {
           MaterialPageRoute(
             builder: (context) => Sizer(
               builder: (context, orientation, deviceType) =>
-                  const UserDirection(),
+                  const SignUpFrontID(),
             ),
           ),
         );

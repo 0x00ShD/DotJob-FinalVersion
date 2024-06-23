@@ -1,33 +1,27 @@
-import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:untitled1/Screens/UserDirection/Profile/DarkMode/Components/provider.dart';
 
-class SwitchDarkMode extends StatefulWidget {
-  final void Function(bool) onToggleTheme;
-
-  const SwitchDarkMode({super.key, required this.onToggleTheme});
-
-  @override
-  State<SwitchDarkMode> createState() => _SwitchDarkModeState();
-}
-
-class _SwitchDarkModeState extends State<SwitchDarkMode> {
-  bool _lights = false;
+class ThemeSwitch extends ConsumerWidget {
+  const ThemeSwitch({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return FadeInRight(
-      delay: const Duration(milliseconds: 800),
-      duration: const Duration(milliseconds: 900),
-      child: Switch.adaptive(
-        activeColor: Colors.black,
-        value: _lights,
-        onChanged: (bool value) {
-          setState(() {
-            _lights = value;
-          });
-          widget.onToggleTheme(value);
-        },
-      ),
+  Widget build(BuildContext context, WidgetRef ref) {
+    final themeMode = ref.watch(themeModeProvider);
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(themeMode == ThemeMode.light ? Icons.light_mode : Icons.dark_mode),
+        Switch(
+          value: themeMode == ThemeMode.dark,
+          onChanged: (value) {
+            ref
+                .read(themeModeProvider.notifier)
+                .update((state) => value ? ThemeMode.dark : ThemeMode.light);
+          },
+        )
+      ],
     );
   }
 }

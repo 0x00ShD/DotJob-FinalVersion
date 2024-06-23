@@ -2,20 +2,22 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:untitled1/Screens/UserDirection/LoginView/login_user.dart';
-import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up.dart';
-import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up_8.dart';
+import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up_type.dart';
+import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up_phone_number.dart';
 
-class SignUp7 extends StatefulWidget {
-  const SignUp7({super.key});
+class SignUpBirthday extends StatefulWidget {
+  const SignUpBirthday({super.key});
 
   @override
-  State<SignUp7> createState() => _SignUp7State();
+  State<SignUpBirthday> createState() => _SignUpBirthdayState();
 }
 
-class _SignUp7State extends State<SignUp7> {
+class _SignUpBirthdayState extends State<SignUpBirthday> {
   final phonenumber = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
+
+  final TextEditingController _dataController = TextEditingController();
 
   String dropdownValue = "Male";
 
@@ -30,7 +32,8 @@ class _SignUp7State extends State<SignUp7> {
           context,
           MaterialPageRoute(
             builder: (context) => Sizer(
-              builder: (context, orientation, deviceType) => const SignUp(),
+              builder: (context, orientation, deviceType) =>
+                  const SignUpPhoneNumber(),
             ),
           ),
         );
@@ -108,41 +111,31 @@ class _SignUp7State extends State<SignUp7> {
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             color: const Color(0xFF139487).withOpacity(.2)),
-                        child: DropdownButtonHideUnderline(
-                          child: Center(
-                            child: Directionality(
-                              textDirection: TextDirection.rtl,
-                              child: DropdownButton<String>(
-                                iconEnabledColor: Colors.black,
-                                padding: const EdgeInsets.only(right: 220),
-                                icon: const Icon(Icons.arrow_back_ios),
-                                value: dropdownValue,
-                                style: const TextStyle(color: Colors.white),
-                                onChanged: (String? newValue) {
-                                  setState(() {
-                                    dropdownValue = newValue!;
-                                  });
-                                },
-                                items: [
-                                  DropdownMenuItem<String>(
-                                    value: 'Male',
-                                    child: Text('Male',
-                                        style: TextStyle(
-                                            color:
-                                                Colors.black.withOpacity(0.6),
-                                            fontWeight: FontWeight.bold)),
-                                  ),
-                                  DropdownMenuItem<String>(
-                                    value: ' Female',
-                                    child: Text(' Female',
-                                        style: TextStyle(
-                                            color:
-                                                Colors.black.withOpacity(0.6),
-                                            fontWeight: FontWeight.bold)),
-                                  ),
-                                ],
+                        child: Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: TextField(
+                            controller: _dataController,
+                            decoration: InputDecoration(
+                              fillColor:
+                                  const Color(0xFF139487).withOpacity(0.5),
+                              labelText: 'Birthday',
+                              labelStyle: TextStyle(
+                                color: Colors.black.withOpacity(0.6),
+                              ),
+                              prefixIcon: const Icon(Icons.calendar_today),
+                              enabledBorder: const OutlineInputBorder(
+                                  borderSide: BorderSide.none),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color:
+                                      const Color(0xFF139487).withOpacity(0.0),
+                                ),
                               ),
                             ),
+                            readOnly: true,
+                            onTap: () {
+                              _selectData();
+                            },
                           ),
                         ),
                       ),
@@ -176,7 +169,7 @@ class _SignUp7State extends State<SignUp7> {
                                     builder: (context) => Sizer(
                                       builder:
                                           (context, orientation, deviceType) =>
-                                              const SignUp8(),
+                                              const SignUpType(),
                                     ),
                                   ),
                                 );
@@ -249,5 +242,19 @@ class _SignUp7State extends State<SignUp7> {
         ),
       ),
     );
+  }
+
+  Future<void> _selectData() async {
+    DateTime? picked = await showDatePicker(
+      initialDate: DateTime.now(),
+      context: context,
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2100),
+    );
+    if (picked != null) {
+      setState(() {
+        _dataController.text = picked.toString().split(" ")[0];
+      });
+    }
   }
 }

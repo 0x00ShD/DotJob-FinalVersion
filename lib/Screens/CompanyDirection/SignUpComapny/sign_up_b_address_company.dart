@@ -1,39 +1,25 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';
+import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_b_phone_number_company.dart';
+import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_tin_company.dart';
 import 'package:untitled1/Screens/UserDirection/LoginView/login_user.dart';
-import 'package:untitled1/Components/pick_image_component.dart';
-import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up_9.dart';
-import 'package:untitled1/Screens/UserDirection/user_direction.dart';
 
-class SignUp8 extends StatefulWidget {
-  const SignUp8({super.key});
+class SignUpCompanyAddress extends StatefulWidget {
+  const SignUpCompanyAddress({super.key});
 
   @override
-  State<SignUp8> createState() => _SignUp8State();
+  State<SignUpCompanyAddress> createState() => _SignUpCompanyAddressState();
 }
 
-class _SignUp8State extends State<SignUp8> {
-  final phonenumber = TextEditingController();
-  final fullname = TextEditingController();
-  final password = TextEditingController();
-  final confirmPassword = TextEditingController();
-  final email = TextEditingController();
+class _SignUpCompanyAddressState extends State<SignUpCompanyAddress> {
+  final address = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
 
+  String dropdownValue = "Male";
+
   bool isVisible = false;
-
-  Uint8List? _image;
-
-  void selectImage() async {
-    Uint8List? ima = await pickImage(ImageSource.gallery);
-    setState(() {
-      _image = ima;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +31,7 @@ class _SignUp8State extends State<SignUp8> {
           MaterialPageRoute(
             builder: (context) => Sizer(
               builder: (context, orientation, deviceType) =>
-                  const UserDirection(),
+                  const SignUpCompanyPhoneNumber(),
             ),
           ),
         );
@@ -57,19 +43,25 @@ class _SignUp8State extends State<SignUp8> {
                 child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               child: Container(
-                height: 120.h,
+                height: 110.h,
                 decoration: const BoxDecoration(color: Colors.white),
                 padding: EdgeInsets.symmetric(horizontal: 7.w, vertical: 2.h),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    SizedBox(
+                      height: 1.h,
+                    ),
                     FadeInDown(
                       delay: const Duration(milliseconds: 900),
                       duration: const Duration(milliseconds: 1000),
                       child: Center(
                           child: Image.asset('assets/Images/Logo.png',
                               height: 10.h)),
+                    ),
+                    SizedBox(
+                      height: 1.h,
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -87,6 +79,9 @@ class _SignUp8State extends State<SignUp8> {
                             ),
                           ),
                         ),
+                        SizedBox(
+                          height: 1.h,
+                        ),
                         FadeInDown(
                           delay: const Duration(milliseconds: 700),
                           duration: const Duration(milliseconds: 800),
@@ -103,39 +98,59 @@ class _SignUp8State extends State<SignUp8> {
                       ],
                     ),
                     SizedBox(
-                      height: 5.h,
+                      height: 2.h,
                     ),
-                    FadeInDown(
-                        delay: const Duration(milliseconds: 900),
-                        duration: const Duration(milliseconds: 1000),
-                        child: Center(
-                          child: Stack(
-                            children: [
-                              _image != null
-                                  ? CircleAvatar(
-                                      radius: 100,
-                                      backgroundImage: MemoryImage(_image!))
-                                  : const CircleAvatar(
-                                      radius: 100,
-                                      backgroundImage: NetworkImage(
-                                          'https://static.vecteezy.com/system/resources/previews/028/143/051/original/id-card-icon-id-card-badge-icon-identification-card-driver-s-license-icon-illustration-vector.jpg'),
-                                    ),
-                              Positioned(
-                                top: 60,
-                                right: 70,
-                                child: IconButton(
-                                  onPressed: selectImage,
-                                  icon: const Icon(
-                                    Icons.add,
-                                    size: 40,
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-                        )),
                     SizedBox(
-                      height: 20.h,
+                      height: 2.h,
+                    ),
+                    FadeInUp(
+                      delay: const Duration(milliseconds: 600),
+                      duration: const Duration(milliseconds: 700),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: FadeInUp(
+                              delay: const Duration(milliseconds: 700),
+                              duration: const Duration(milliseconds: 800),
+                              child: Form(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      height: 50,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                          color: const Color(0xFF139487)
+                                              .withOpacity(.2)),
+                                      child: TextFormField(
+                                        controller: address,
+                                        validator: (value) {
+                                          if (value!.isEmpty) {
+                                            return "address is required";
+                                          }
+                                          return null;
+                                        },
+                                        decoration: const InputDecoration(
+                                          icon: Padding(
+                                            padding: EdgeInsets.only(left: 20),
+                                            child: Icon(Icons.title),
+                                          ),
+                                          border: InputBorder.none,
+                                          hintText: "Business Adderss",
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 40.h,
                     ),
                     FadeInLeft(
                       delay: const Duration(milliseconds: 600),
@@ -163,7 +178,7 @@ class _SignUp8State extends State<SignUp8> {
                                     builder: (context) => Sizer(
                                       builder:
                                           (context, orientation, deviceType) =>
-                                              const SignUp9(),
+                                              const SignUpCompanyTIN(),
                                     ),
                                   ),
                                 );
@@ -237,4 +252,6 @@ class _SignUp8State extends State<SignUp8> {
       ),
     );
   }
+
+  //
 }

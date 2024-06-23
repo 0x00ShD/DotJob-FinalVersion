@@ -1,19 +1,19 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/success_signup.dart';
+import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_decription_company.dart';
+import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_year_establishment_company.dart';
 import 'package:untitled1/Screens/UserDirection/LoginView/login_user.dart';
-import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up.dart';
 
-class SignUpCompany10 extends StatefulWidget {
-  const SignUpCompany10({super.key});
+class SignUpCompanySize extends StatefulWidget {
+  const SignUpCompanySize({super.key});
 
   @override
-  State<SignUpCompany10> createState() => _SignUpCompany10State();
+  State<SignUpCompanySize> createState() => _SignUpCompanySizeState();
 }
 
-class _SignUpCompany10State extends State<SignUpCompany10> {
-  final briefdecriptionofthecompany = TextEditingController();
+class _SignUpCompanySizeState extends State<SignUpCompanySize> {
+  final companysize = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
 
@@ -30,7 +30,8 @@ class _SignUpCompany10State extends State<SignUpCompany10> {
           context,
           MaterialPageRoute(
             builder: (context) => Sizer(
-              builder: (context, orientation, deviceType) => const SignUp(),
+              builder: (context, orientation, deviceType) =>
+                  const SignUpCompanyYearEstablishment(),
             ),
           ),
         );
@@ -116,28 +117,27 @@ class _SignUpCompany10State extends State<SignUpCompany10> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Container(
-                                      height: 200,
+                                      height: 50,
                                       decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(20),
                                           color: const Color(0xFF139487)
                                               .withOpacity(.2)),
                                       child: TextFormField(
-                                        controller: briefdecriptionofthecompany,
+                                        controller: companysize,
                                         validator: (value) {
                                           if (value!.isEmpty) {
-                                            return "brief decription of the company is required";
+                                            return "company size is required";
                                           }
                                           return null;
                                         },
                                         decoration: const InputDecoration(
                                           icon: Padding(
                                             padding: EdgeInsets.only(left: 20),
-                                            child: Icon(Icons.summarize),
+                                            child: Icon(Icons.format_size),
                                           ),
                                           border: InputBorder.none,
-                                          hintText:
-                                              "brief decription of the company",
+                                          hintText: "Company size",
                                         ),
                                       ),
                                     ),
@@ -150,7 +150,7 @@ class _SignUpCompany10State extends State<SignUpCompany10> {
                       ),
                     ),
                     SizedBox(
-                      height: 20.h,
+                      height: 40.h,
                     ),
                     FadeInLeft(
                       delay: const Duration(milliseconds: 600),
@@ -178,7 +178,7 @@ class _SignUpCompany10State extends State<SignUpCompany10> {
                                     builder: (context) => Sizer(
                                       builder:
                                           (context, orientation, deviceType) =>
-                                              const SuccessSignUpCompany(),
+                                              const SignUpCompanyDecription(),
                                     ),
                                   ),
                                 );
@@ -189,7 +189,7 @@ class _SignUpCompany10State extends State<SignUpCompany10> {
                                 borderRadius: BorderRadius.circular(50),
                               ),
                               child: const Text(
-                                "Confirm",
+                                "Next",
                                 style: TextStyle(
                                   fontFamily: "Arimo",
                                   fontWeight: FontWeight.w600,

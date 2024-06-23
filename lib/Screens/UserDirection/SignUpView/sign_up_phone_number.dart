@@ -1,18 +1,18 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_6_company.dart';
 import 'package:untitled1/Screens/UserDirection/LoginView/login_user.dart';
-import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up.dart';
+import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up_birthday.dart';
+import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up_password.dart';
 
-class SignUpCompany5 extends StatefulWidget {
-  const SignUpCompany5({super.key});
+class SignUpPhoneNumber extends StatefulWidget {
+  const SignUpPhoneNumber({super.key});
 
   @override
-  State<SignUpCompany5> createState() => _SignUpCompany5State();
+  State<SignUpPhoneNumber> createState() => _SignUpPhoneNumberState();
 }
 
-class _SignUpCompany5State extends State<SignUpCompany5> {
+class _SignUpPhoneNumberState extends State<SignUpPhoneNumber> {
   final phonenumber = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
@@ -30,7 +30,8 @@ class _SignUpCompany5State extends State<SignUpCompany5> {
           context,
           MaterialPageRoute(
             builder: (context) => Sizer(
-              builder: (context, orientation, deviceType) => const SignUp(),
+              builder: (context, orientation, deviceType) =>
+                  const SignUpPassword(),
             ),
           ),
         );
@@ -133,10 +134,10 @@ class _SignUpCompany5State extends State<SignUpCompany5> {
                                         decoration: const InputDecoration(
                                           icon: Padding(
                                             padding: EdgeInsets.only(left: 20),
-                                            child: Icon(Icons.numbers),
+                                            child: Icon(Icons.person),
                                           ),
                                           border: InputBorder.none,
-                                          hintText: "Business Phone Number",
+                                          hintText: "Phone Number",
                                         ),
                                       ),
                                     ),
@@ -177,7 +178,7 @@ class _SignUpCompany5State extends State<SignUpCompany5> {
                                     builder: (context) => Sizer(
                                       builder:
                                           (context, orientation, deviceType) =>
-                                              const SignUpCompany6(),
+                                              const SignUpBirthday(),
                                     ),
                                   ),
                                 );

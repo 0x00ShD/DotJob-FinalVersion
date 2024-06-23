@@ -1,18 +1,18 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_5_company.dart';
 import 'package:untitled1/Screens/UserDirection/LoginView/login_user.dart';
-import 'package:untitled1/Screens/UserDirection/user_direction.dart';
+import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up_password.dart';
+import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up_second_name.dart';
 
-class SignUpCompany4 extends StatefulWidget {
-  const SignUpCompany4({super.key});
+class SignUpEmail extends StatefulWidget {
+  const SignUpEmail({super.key});
 
   @override
-  State<SignUpCompany4> createState() => _SignUpCompany4State();
+  State<SignUpEmail> createState() => _SignUpEmailState();
 }
 
-class _SignUpCompany4State extends State<SignUpCompany4> {
+class _SignUpEmailState extends State<SignUpEmail> {
   final phonenumber = TextEditingController();
   final fullname = TextEditingController();
   final password = TextEditingController();
@@ -33,7 +33,7 @@ class _SignUpCompany4State extends State<SignUpCompany4> {
           MaterialPageRoute(
             builder: (context) => Sizer(
               builder: (context, orientation, deviceType) =>
-                  const UserDirection(),
+                  const SignUpSecondName(),
             ),
           ),
         );
@@ -94,86 +94,53 @@ class _SignUpCompany4State extends State<SignUpCompany4> {
                       height: 8.h,
                     ),
                     FadeInUp(
-                      delay: const Duration(milliseconds: 800),
-                      duration: const Duration(milliseconds: 900),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: const Color(0xFF139487).withOpacity(.2)),
-                        child: TextFormField(
-                          controller: password,
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return "password is required";
-                            }
-                            return null;
-                          },
-                          obscureText: !isVisible,
-                          decoration: InputDecoration(
-                              icon: const Padding(
-                                padding: EdgeInsets.only(left: 20),
-                                child: Icon(Icons.lock),
+                      delay: const Duration(milliseconds: 600),
+                      duration: const Duration(milliseconds: 700),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: FadeInUp(
+                              delay: const Duration(milliseconds: 700),
+                              duration: const Duration(milliseconds: 800),
+                              child: Form(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      height: 50,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                          color: const Color(0xFF139487)
+                                              .withOpacity(.2)),
+                                      child: TextFormField(
+                                        controller: email,
+                                        validator: (value) {
+                                          if (value!.isEmpty) {
+                                            return "email is required";
+                                          }
+                                          return null;
+                                        },
+                                        decoration: const InputDecoration(
+                                          icon: Padding(
+                                            padding: EdgeInsets.only(left: 20),
+                                            child: Icon(Icons.person),
+                                          ),
+                                          border: InputBorder.none,
+                                          hintText: "E-mail",
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
-                              border: InputBorder.none,
-                              hintText: "Password",
-                              suffixIcon: IconButton(
-                                  onPressed: () {
-                                    //In here we will create a click to show and hide the password a toggle button
-                                    setState(() {
-                                      //toggle button
-                                      isVisible = !isVisible;
-                                    });
-                                  },
-                                  icon: Icon(isVisible
-                                      ? Icons.visibility
-                                      : Icons.visibility_off))),
-                        ),
+                            ),
+                          )
+                        ],
                       ),
                     ),
                     SizedBox(
-                      height: 3.h,
-                    ),
-                    FadeInUp(
-                      delay: const Duration(milliseconds: 800),
-                      duration: const Duration(milliseconds: 900),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: const Color(0xFF139487).withOpacity(.2)),
-                        child: TextFormField(
-                          controller: confirmPassword,
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return "password is required";
-                            } else if (password.text != confirmPassword.text) {
-                              return "Passwords don't match";
-                            }
-                            return null;
-                          },
-                          obscureText: !isVisible,
-                          decoration: InputDecoration(
-                              icon: const Padding(
-                                padding: EdgeInsets.only(left: 20),
-                                child: Icon(Icons.lock),
-                              ),
-                              border: InputBorder.none,
-                              hintText: "Confirm Password",
-                              suffixIcon: IconButton(
-                                  onPressed: () {
-                                    //In here we will create a click to show and hide the password a toggle button
-                                    setState(() {
-                                      //toggle button
-                                      isVisible = !isVisible;
-                                    });
-                                  },
-                                  icon: Icon(isVisible
-                                      ? Icons.visibility
-                                      : Icons.visibility_off))),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 35.h,
+                      height: 40.h,
                     ),
                     FadeInLeft(
                       delay: const Duration(milliseconds: 600),
@@ -201,7 +168,7 @@ class _SignUpCompany4State extends State<SignUpCompany4> {
                                     builder: (context) => Sizer(
                                       builder:
                                           (context, orientation, deviceType) =>
-                                              const SignUpCompany5(),
+                                              const SignUpPassword(),
                                     ),
                                   ),
                                 );
