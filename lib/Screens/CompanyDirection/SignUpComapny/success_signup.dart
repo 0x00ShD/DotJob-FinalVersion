@@ -2,7 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:untitled1/Screens/CompanyDirection/HomePageCompany/home_page_company.dart';
-import 'package:untitled1/Screens/UserDirection/user_direction.dart';
+import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_decription_company.dart';
 
 class SuccessSignUpCompany extends StatefulWidget {
   const SuccessSignUpCompany({super.key});
@@ -34,7 +34,7 @@ class _SuccessSignUpCompanyState extends State<SuccessSignUpCompany> {
           MaterialPageRoute(
             builder: (context) => Sizer(
               builder: (context, orientation, deviceType) =>
-                  const UserDirection(),
+                  const SignUpCompanyDecription(),
             ),
           ),
         );

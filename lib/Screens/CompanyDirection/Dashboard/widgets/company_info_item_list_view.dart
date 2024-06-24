@@ -2,21 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:untitled1/Screens/UserDirection/Dashboard/models/all_expensess_item_model.dart';
 import 'package:untitled1/Screens/UserDirection/Dashboard/widgets/all_expenssess_item.dart';
 
-class UserInfoItemsListView extends StatefulWidget {
-  const UserInfoItemsListView({super.key});
+class CompanyInfoItemsListView extends StatefulWidget {
+  const CompanyInfoItemsListView({super.key});
 
   @override
-  State<UserInfoItemsListView> createState() => _UserInfoItemsListViewState();
+  State<CompanyInfoItemsListView> createState() =>
+      _CompanyInfoItemsListViewState();
 }
 
-class _UserInfoItemsListViewState extends State<UserInfoItemsListView> {
+class _CompanyInfoItemsListViewState extends State<CompanyInfoItemsListView> {
   final items = [
     const AllExpensessItemModel(
-        title: 'No. of CV watched', number: r'10', type: 'times'),
+        title: 'No. of CV watched', number: r'120', type: 'times'),
     const AllExpensessItemModel(
-        title: 'No. of acception', number: r'6', type: 'times'),
+        title: 'No. of acception', number: r'50', type: 'times'),
     const AllExpensessItemModel(
-        title: 'No. of rejection', number: r'4', type: 'times'),
+        title: 'No. of rejection', number: r'70', type: 'times'),
   ];
 
   int selectedIndex = 0;

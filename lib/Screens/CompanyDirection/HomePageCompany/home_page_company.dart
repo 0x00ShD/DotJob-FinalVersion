@@ -2,10 +2,12 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:sizer/sizer.dart';
+import 'package:untitled1/Screens/CompanyDirection/Dashboard/views/dashboard_view_company.dart';
 import 'package:untitled1/Screens/CompanyDirection/HomePageCompany/Users/show_all_users.dart';
 import 'package:untitled1/Screens/CompanyDirection/HomePageCompany/Top%20Jobs/top_job_list_view.dart';
 import 'package:untitled1/Screens/CompanyDirection/HomePageCompany/search.dart';
 import 'package:untitled1/Screens/CompanyDirection/HomePageCompany/show_all_top_job.dart';
+import 'package:untitled1/Screens/CompanyDirection/Profile/profile_screen_company.dart';
 import 'package:untitled1/Screens/PaymentPage/payment_details.dart';
 
 class HomePageCompany extends StatefulWidget {
@@ -82,7 +84,20 @@ class _HomePageCompanyState extends State<HomePageCompany> {
           color: const Color(0xFF139487),
           animationDuration: const Duration(milliseconds: 300),
           items: [
-            const Icon(Icons.dashboard, size: 30, color: Colors.white),
+            IconButton(
+              icon: const Icon(Icons.dashboard, size: 30, color: Colors.white),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Sizer(
+                      builder: (context, orientation, deviceType) =>
+                          const DashBoradViewCompany(),
+                    ),
+                  ),
+                );
+              },
+            ),
             const Icon(Icons.home, size: 30, color: Colors.white),
             IconButton(
               icon: const Icon(Icons.payment, size: 30, color: Colors.white),
@@ -98,7 +113,20 @@ class _HomePageCompanyState extends State<HomePageCompany> {
                 );
               },
             ),
-            const Icon(Icons.account_circle, size: 30, color: Colors.white),
+            IconButton(
+              icon: const Icon(Icons.apartment, size: 30, color: Colors.white),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Sizer(
+                      builder: (context, orientation, deviceType) =>
+                          const ProfileScreenCompany(),
+                    ),
+                  ),
+                );
+              },
+            ),
           ]),
       body: Column(
         children: [

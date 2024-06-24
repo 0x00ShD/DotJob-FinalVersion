@@ -5,14 +5,14 @@ import 'package:untitled1/Screens/UserDirection/Profile/Notification/components/
 import 'package:untitled1/Screens/UserDirection/Profile/Notification/components/switch.dart';
 import 'package:untitled1/Screens/UserDirection/Profile/profile_screen.dart';
 
-class SecurityPage extends StatefulWidget {
-  const SecurityPage({super.key});
+class NotificationPage extends StatefulWidget {
+  const NotificationPage({super.key});
 
   @override
-  State<SecurityPage> createState() => _SecurityPageState();
+  State<NotificationPage> createState() => _NotificationPageState();
 }
 
-class _SecurityPageState extends State<SecurityPage> {
+class _NotificationPageState extends State<NotificationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +22,7 @@ class _SecurityPageState extends State<SecurityPage> {
           delay: const Duration(milliseconds: 600),
           duration: const Duration(milliseconds: 700),
           child: const Text(
-            "Security",
+            "Notification",
             style: TextStyle(fontFamily: 'Arimo'),
           ),
         ),
@@ -65,13 +65,10 @@ class _SecurityPageState extends State<SecurityPage> {
                       padding: EdgeInsets.symmetric(horizontal: 40),
                       child: Column(
                         children: <Widget>[
-                          SizedBox(
-                            height: 10,
-                          ),
                           Row(
                             children: [
                               LeftSide(
-                                label: 'Fingerprint ID',
+                                label: 'Special Offers',
                               ),
                               Spacer(),
                               SwitchForm(),
@@ -83,11 +80,50 @@ class _SecurityPageState extends State<SecurityPage> {
                           Row(
                             children: [
                               LeftSide(
-                                label: 'Face ID',
+                                label: 'Vibrate',
                               ),
                               Spacer(),
                               SwitchForm(),
                             ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            children: [
+                              LeftSide(
+                                label: 'Sound',
+                              ),
+                              Spacer(),
+                              SwitchForm(),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            children: [
+                              LeftSide(
+                                label: 'General Notification',
+                              ),
+                              Spacer(),
+                              SwitchForm(),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            children: [
+                              LeftSide(
+                                label: 'App Update',
+                              ),
+                              Spacer(),
+                              SwitchForm(),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
                           ),
                         ],
                       ),

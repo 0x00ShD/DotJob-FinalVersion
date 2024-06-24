@@ -5,7 +5,6 @@ import 'package:untitled1/Screens/CompanyDirection/ForgetPasswordCompany/forget_
 import 'package:untitled1/Screens/CompanyDirection/HomePageCompany/home_page_company.dart';
 import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_photo_company.dart';
 import 'package:untitled1/Screens/CompanyDirection/company_direction.dart';
-import 'package:untitled1/Screens/UserDirection/user_direction.dart';
 
 class LoginCompanyPage extends StatelessWidget {
   const LoginCompanyPage({super.key});

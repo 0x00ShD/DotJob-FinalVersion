@@ -2,22 +2,21 @@ import 'package:animate_do/animate_do.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-import 'package:untitled1/Screens/CV/build_options_page.dart';
-import 'package:untitled1/Screens/UserDirection/Dashboard/views/dashboard_view.dart';
-import 'package:untitled1/Screens/UserDirection/HomePage/home_page.dart';
-import 'package:untitled1/Screens/UserDirection/LoginView/login_user.dart';
-import 'package:untitled1/Screens/UserDirection/Profile/MyAccount/my_account.dart';
+import 'package:untitled1/Screens/CompanyDirection/Dashboard/views/dashboard_view_company.dart';
+import 'package:untitled1/Screens/CompanyDirection/HomePageCompany/home_page_company.dart';
+import 'package:untitled1/Screens/CompanyDirection/LogInCompany/log_in_company.dart';
+import 'package:untitled1/Screens/CompanyDirection/Profile/MyAccount/my_account.dart';
+import 'package:untitled1/Screens/CompanyDirection/Profile/components/profile_menu_company.dart';
+import 'package:untitled1/Screens/CompanyDirection/Profile/components/profile_pic_company.dart';
+import 'package:untitled1/Screens/PaymentPage/payment_details.dart';
 import 'package:untitled1/Screens/UserDirection/Profile/Notification/notifiction.dart';
 import 'package:untitled1/Screens/UserDirection/Profile/Security/security.dart';
 import 'package:untitled1/Screens/UserDirection/Profile/Terms&Conditions/terms_conditions.dart';
 
-import 'components/profile_menu.dart';
-import 'components/profile_pic.dart';
-
-class ProfileScreen extends StatelessWidget {
+class ProfileScreenCompany extends StatelessWidget {
   static String routeName = "/profile";
 
-  const ProfileScreen({super.key});
+  const ProfileScreenCompany({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,22 +90,7 @@ class ProfileScreen extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => Sizer(
                       builder: (context, orientation, deviceType) =>
-                          const BuildOptionsPage(),
-                    ),
-                  ),
-                );
-              },
-              child: const Icon(Icons.switch_account_outlined,
-                  size: 30, color: Colors.white),
-            ),
-            MaterialButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Sizer(
-                      builder: (context, orientation, deviceType) =>
-                          const DashBoradView(),
+                          const DashBoradViewCompany(),
                     ),
                   ),
                 );
@@ -120,7 +104,7 @@ class ProfileScreen extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => Sizer(
                       builder: (context, orientation, deviceType) =>
-                          const HomePage(),
+                          const HomePageCompany(),
                     ),
                   ),
                 );
@@ -134,14 +118,14 @@ class ProfileScreen extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => Sizer(
                       builder: (context, orientation, deviceType) =>
-                          const ProfileScreen(),
+                          const PaymentDetailsView(),
                     ),
                   ),
                 );
               },
-              child: const Icon(Icons.account_circle,
-                  size: 30, color: Colors.white),
+              child: const Icon(Icons.payment, size: 30, color: Colors.white),
             ),
+            const Icon(Icons.apartment, size: 30, color: Colors.white),
           ]),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(vertical: 20),
@@ -150,13 +134,13 @@ class ProfileScreen extends StatelessWidget {
             FadeInDown(
                 delay: const Duration(milliseconds: 800),
                 duration: const Duration(milliseconds: 900),
-                child: const ProfilePic()),
+                child: const ProfilePicCompany()),
             const SizedBox(height: 20),
             FadeInRight(
               delay: const Duration(milliseconds: 800),
               duration: const Duration(milliseconds: 900),
-              child: ProfileMenu(
-                text: "My Account",
+              child: ProfileMenuCompany(
+                text: "Company Account",
                 icon: "assets/icons/User Icon.svg",
                 press: () => {
                   Navigator.push(
@@ -164,7 +148,7 @@ class ProfileScreen extends StatelessWidget {
                     MaterialPageRoute(
                       builder: (context) => Sizer(
                         builder: (context, orientation, deviceType) =>
-                            const MyAccountPage(),
+                            const AccountPageCompany(),
                       ),
                     ),
                   ),
@@ -174,7 +158,7 @@ class ProfileScreen extends StatelessWidget {
             FadeInLeft(
               delay: const Duration(milliseconds: 800),
               duration: const Duration(milliseconds: 900),
-              child: ProfileMenu(
+              child: ProfileMenuCompany(
                 text: "Notifications",
                 icon: "assets/icons/Bell.svg",
                 press: () => {
@@ -193,7 +177,7 @@ class ProfileScreen extends StatelessWidget {
             FadeInRight(
               delay: const Duration(milliseconds: 800),
               duration: const Duration(milliseconds: 900),
-              child: ProfileMenu(
+              child: ProfileMenuCompany(
                 text: "Security",
                 icon: "assets/icons/security-svgrepo-com.svg",
                 press: () => {
@@ -231,7 +215,7 @@ class ProfileScreen extends StatelessWidget {
             FadeInLeft(
               delay: const Duration(milliseconds: 800),
               duration: const Duration(milliseconds: 900),
-              child: ProfileMenu(
+              child: ProfileMenuCompany(
                 text: "Terms & Conditions",
                 icon: "assets/icons/terms-and-conditions-icon.svg",
                 press: () => {
@@ -250,7 +234,7 @@ class ProfileScreen extends StatelessWidget {
             FadeInRight(
               delay: const Duration(milliseconds: 800),
               duration: const Duration(milliseconds: 900),
-              child: ProfileMenu(
+              child: ProfileMenuCompany(
                 text: "Log Out",
                 icon: "assets/icons/Log out.svg",
                 press: () {
@@ -259,7 +243,7 @@ class ProfileScreen extends StatelessWidget {
                     MaterialPageRoute(
                       builder: (context) => Sizer(
                         builder: (context, orientation, deviceType) =>
-                            const LoginUSerPage(),
+                            const LoginCompanyPage(),
                       ),
                     ),
                   );
