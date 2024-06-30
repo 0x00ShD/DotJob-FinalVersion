@@ -192,94 +192,92 @@ class _PDFPageState extends State<PDFPage> {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        child: Row(
-          children: [
-            Expanded(
-              flex: 6,
-              child: Container(
-                padding: const EdgeInsets.only(left: 10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(height: 10),
-                    education(),
-                    const Spacer(),
-                    technicalSkills(),
-                    const Spacer(),
-                    achievement(),
-                    const Spacer(),
-                    carrierObjective(),
-                    const Spacer(),
-                    projects(),
-                    const Spacer(),
-                    experience(),
-                    const Spacer(),
-                    reference(),
-                    const SizedBox(height: 12),
-                  ],
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 4,
+      body: Row(
+        children: [
+          Expanded(
+            flex: 6,
+            child: Container(
+              padding: const EdgeInsets.only(left: 10),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Expanded(
-                    flex: 2,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        CircleAvatar(
-                          backgroundImage: image2,
-                          radius: 55,
-                        ),
-                        (Global.name != null)
-                            ? Text(
-                                "${Global.name}",
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  fontSize: 17,
-                                  color: Color(0xFF139487),
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              )
-                            : Container(),
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    flex: 5,
-                    child: Container(
-                      width: double.infinity,
-                      decoration: const BoxDecoration(
-                        color: Color(0xFF139487),
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                        ),
-                      ),
-                      padding: const EdgeInsets.only(left: 10),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const SizedBox(height: 10),
-                          contactInFo(),
-                          const Spacer(),
-                          personalDetails(),
-                          const Spacer(),
-                          interestHobbies(),
-                          const Spacer(),
-                          declaration(),
-                          const SizedBox(height: 12),
-                        ],
-                      ),
-                    ),
-                  ),
+                  const SizedBox(height: 10),
+                  education(),
+                  const Spacer(),
+                  technicalSkills(),
+                  const Spacer(),
+                  achievement(),
+                  const Spacer(),
+                  carrierObjective(),
+                  const Spacer(),
+                  projects(),
+                  const Spacer(),
+                  experience(),
+                  const Spacer(),
+                  reference(),
+                  const SizedBox(height: 12),
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+          Expanded(
+            flex: 4,
+            child: Column(
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      CircleAvatar(
+                        backgroundImage: image2,
+                        radius: 55,
+                      ),
+                      (Global.name != null)
+                          ? Text(
+                              "${Global.name}",
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                fontSize: 17,
+                                color: Color(0xFF139487),
+                                fontWeight: FontWeight.w600,
+                              ),
+                            )
+                          : Container(),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  flex: 5,
+                  child: Container(
+                    width: double.infinity,
+                    decoration: const BoxDecoration(
+                      color: Color(0xFF139487),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                      ),
+                    ),
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const SizedBox(height: 10),
+                        contactInFo(),
+                        const Spacer(),
+                        personalDetails(),
+                        const Spacer(),
+                        interestHobbies(),
+                        const Spacer(),
+                        declaration(),
+                        const SizedBox(height: 12),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

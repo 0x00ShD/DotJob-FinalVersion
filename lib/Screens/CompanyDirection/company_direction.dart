@@ -2,7 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:untitled1/Screens/CompanyDirection/LogInCompany/log_in_company.dart';
-import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_photo_company.dart';
+import 'package:untitled1/Screens/CompanyDirection/SignUpComapny/sign_up_company.dart';
 import 'package:untitled1/Screens/user_company_choose.dart';
 
 class CompanyDirection extends StatefulWidget {
@@ -172,7 +172,7 @@ class _CompanyDirectionState extends State<CompanyDirection> {
                                     builder: (context) => Sizer(
                                       builder:
                                           (context, orientation, deviceType) =>
-                                              const SignUpPhotoCampany(),
+                                              const SignUpCampany(),
                                     ),
                                   ),
                                 );

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:untitled1/Screens/CompanyDirection/Dashboard/widgets/all_expensess_and_quick_invoice_section_company.dart';
 import 'package:untitled1/Screens/UserDirection/Dashboard/widgets/all_expensess_and_quick_invoice_section.dart';
 import 'package:untitled1/Screens/UserDirection/Dashboard/widgets/job_details_section.dart';
 import 'package:untitled1/Screens/UserDirection/Dashboard/widgets/profile_strength_section.dart';
@@ -17,7 +16,6 @@ class DashBoardMobileLayout extends StatelessWidget {
       child: Column(
         children: [
           AllExpensessAndQuickInvoiceSection(),
-          AllExpensessAndQuickInvoiceSectionCompany(),
           JobDetails(),
           SizedBox(
             height: 16,

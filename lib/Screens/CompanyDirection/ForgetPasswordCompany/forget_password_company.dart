@@ -2,7 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:untitled1/Screens/CompanyDirection/ForgetPasswordCompany/verfication_email_company.dart';
-import 'package:untitled1/Screens/UserDirection/LoginView/login_user.dart';
+import 'package:untitled1/Screens/CompanyDirection/LogInCompany/log_in_company.dart';
 
 class ForgetPasswordCompany extends StatelessWidget {
   const ForgetPasswordCompany({super.key});
@@ -37,7 +37,7 @@ class ForgetPasswordCompany extends StatelessWidget {
             MaterialPageRoute(
               builder: (context) => Sizer(
                 builder: (context, orientation, deviceType) =>
-                    const LoginUSerPage(),
+                    const LoginCompanyPage(),
               ),
             ),
           );

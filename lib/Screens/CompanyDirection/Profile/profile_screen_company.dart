@@ -2,13 +2,12 @@ import 'package:animate_do/animate_do.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-import 'package:untitled1/Screens/CompanyDirection/Dashboard/views/dashboard_view_company.dart';
 import 'package:untitled1/Screens/CompanyDirection/HomePageCompany/home_page_company.dart';
 import 'package:untitled1/Screens/CompanyDirection/LogInCompany/log_in_company.dart';
+import 'package:untitled1/Screens/CompanyDirection/PlanPage/plan_page.dart';
 import 'package:untitled1/Screens/CompanyDirection/Profile/MyAccount/my_account.dart';
 import 'package:untitled1/Screens/CompanyDirection/Profile/components/profile_menu_company.dart';
 import 'package:untitled1/Screens/CompanyDirection/Profile/components/profile_pic_company.dart';
-import 'package:untitled1/Screens/PaymentPage/payment_details.dart';
 import 'package:untitled1/Screens/UserDirection/Profile/Notification/notifiction.dart';
 import 'package:untitled1/Screens/UserDirection/Profile/Security/security.dart';
 import 'package:untitled1/Screens/UserDirection/Profile/Terms&Conditions/terms_conditions.dart';
@@ -78,7 +77,7 @@ class ProfileScreenCompany extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: CurvedNavigationBar(
-          index: 3,
+          index: 2,
           backgroundColor: const Color(0xFF139487).withOpacity(0.5),
           color: const Color(0xFF139487),
           animationDuration: const Duration(milliseconds: 300),
@@ -90,13 +89,14 @@ class ProfileScreenCompany extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => Sizer(
                       builder: (context, orientation, deviceType) =>
-                          const DashBoradViewCompany(),
+                          const PlanPage(),
                     ),
                   ),
                 );
               },
-              child: const Icon(Icons.dashboard, size: 30, color: Colors.white),
+              child: const Icon(Icons.payment, size: 30, color: Colors.white),
             ),
+            
             MaterialButton(
               onPressed: () {
                 Navigator.push(
@@ -111,20 +111,7 @@ class ProfileScreenCompany extends StatelessWidget {
               },
               child: const Icon(Icons.home, size: 30, color: Colors.white),
             ),
-            MaterialButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Sizer(
-                      builder: (context, orientation, deviceType) =>
-                          const PaymentDetailsView(),
-                    ),
-                  ),
-                );
-              },
-              child: const Icon(Icons.payment, size: 30, color: Colors.white),
-            ),
+            
             const Icon(Icons.apartment, size: 30, color: Colors.white),
           ]),
       body: SingleChildScrollView(
@@ -143,7 +130,7 @@ class ProfileScreenCompany extends StatelessWidget {
                 text: "Company Account",
                 icon: "assets/icons/User Icon.svg",
                 press: () => {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                       builder: (context) => Sizer(

@@ -14,9 +14,8 @@ import 'package:untitled1/Screens/CV/options/technical_skills_page.dart';
 import 'package:untitled1/Screens/CV/pdf_page.dart';
 import 'Screens/splash_screen.dart';
 
-void main() {
-  runApp(
-    MaterialApp(
+void main()  {
+  runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
         '/': (context) => const SplashScreen(),
@@ -34,9 +33,10 @@ void main() {
         "declaration_page": (context) => const DeclarationPage(),
         "pdf_page": (context) => const PDFPage(),
       },
-    ),
-  );
+    ),);
 }
+
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

@@ -25,14 +25,14 @@ class _HomePageState extends State<HomePage> {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60.0),
         child: AppBar(
-          leadingWidth: 20.w,
+          leadingWidth: 75,
           leading: FadeInLeft(
               delay: const Duration(milliseconds: 800),
               duration: const Duration(milliseconds: 900),
               child: Image.asset('assets/Images/Logo.png')),
           actions: <Widget>[
             SizedBox(
-              width: 80.w,
+              width: 150,
               child: Center(
                 child: FadeInRight(
                   delay: const Duration(milliseconds: 800),
@@ -41,25 +41,29 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Container(
                         padding: const EdgeInsets.only(top: 10),
-                        child: Text(
+                        // ignore: prefer_const_constructors
+                        child: const Text(
                           'Hi, Shady Mohamed',
                           style: TextStyle(
                               fontFamily: 'Satoshi',
-                              fontSize: 15.sp,
+                              fontSize: 15,
                               fontWeight: FontWeight.w400),
                         ),
                       ),
-                      Text(
+                      const Text(
                         'Let\'s start your career life',
                         style: TextStyle(
                             fontFamily: 'Satoshi',
-                            fontSize: 10.sp,
+                            fontSize: 10,
                             fontWeight: FontWeight.w400),
                       ),
                     ],
                   ),
                 ),
               ),
+            ),
+            const SizedBox(
+              width: 60,
             ),
             FadeInRight(
               delay: const Duration(milliseconds: 800),
@@ -133,7 +137,7 @@ class _HomePageState extends State<HomePage> {
           ]),
       body: Column(
         children: [
-          SizedBox(height: 3.h),
+          const SizedBox(height: 5),
           Expanded(
             flex: 6,
             child: SingleChildScrollView(
@@ -207,12 +211,12 @@ class _HomePageState extends State<HomePage> {
                           FadeInLeft(
                             delay: const Duration(milliseconds: 800),
                             duration: const Duration(milliseconds: 900),
-                            child: Text(
+                            child: const Text(
                               "Top Jobs",
                               style: TextStyle(
                                 fontFamily: 'Satoshi',
                                 fontWeight: FontWeight.w900,
-                                fontSize: 15.sp,
+                                fontSize: 20,
                               ),
                             ),
                           ),
@@ -259,27 +263,27 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ],
                       ),
-                      SizedBox(
-                        height: 2.h,
+                      const SizedBox(
+                        height: 20,
                       ),
                       FadeInUp(
                           delay: const Duration(milliseconds: 800),
                           duration: const Duration(milliseconds: 900),
                           child: const TopJobListView()),
-                      SizedBox(
-                        height: 3.h,
+                      const SizedBox(
+                        height: 30,
                       ),
                       Row(
                         children: [
                           FadeInLeft(
                             delay: const Duration(milliseconds: 800),
                             duration: const Duration(milliseconds: 900),
-                            child: Text(
+                            child: const Text(
                               "Companies",
                               style: TextStyle(
                                 fontFamily: 'Satoshi',
                                 fontWeight: FontWeight.w900,
-                                fontSize: 15.sp,
+                                fontSize: 20,
                               ),
                             ),
                           ),
@@ -354,12 +358,12 @@ class _HomePageState extends State<HomePage> {
                           FadeInLeft(
                             delay: const Duration(milliseconds: 800),
                             duration: const Duration(milliseconds: 900),
-                            child: Text(
+                            child: const Text(
                               "My Resumes",
                               style: TextStyle(
                                 fontFamily: 'Satoshi',
                                 fontWeight: FontWeight.w900,
-                                fontSize: 15.sp,
+                                fontSize: 20,
                               ),
                             ),
                           ),

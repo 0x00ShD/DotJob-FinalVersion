@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:untitled1/Screens/UserDirection/HomePage/home_page.dart';
 import 'package:untitled1/Screens/UserDirection/ForgetPassword/forget_password.dart';
-import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up_photo.dart';
+import 'package:untitled1/Screens/UserDirection/SignUpView/sign_up_user.dart';
 import 'package:untitled1/Screens/UserDirection/user_direction.dart';
 
 class LoginUSerPage extends StatelessWidget {
@@ -208,7 +208,7 @@ class LoginUSerPage extends StatelessWidget {
                                     builder: (context) => Sizer(
                                       builder:
                                           (context, orientation, deviceType) =>
-                                              const SignUpPhoto(),
+                                              const SignUpUser(),
                                     ),
                                   ),
                                 );

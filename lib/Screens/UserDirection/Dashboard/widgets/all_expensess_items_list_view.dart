@@ -19,6 +19,8 @@ class _AllExpensessItemsListViewState extends State<AllExpensessItemsListView> {
         title: 'No. of Meetings', number: r'75.000', type: 'Users'),
     const AllExpensessItemModel(
         title: 'No. of hirings', number: r'25.000', type: 'Users'),
+    const AllExpensessItemModel(
+        title: 'Total Companies Redisted', number: r'500', type: 'Company'),
   ];
 
   int selectedIndex = 0;
@@ -27,36 +29,43 @@ class _AllExpensessItemsListViewState extends State<AllExpensessItemsListView> {
     return FadeInRight(
       delay: const Duration(milliseconds: 800),
       duration: const Duration(milliseconds: 900),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Expanded(
+                child: GestureDetector(
+                  onTap: () {
+                    updateIndex(0);
+                  },
+                  child: AllExpensessItem(
+                    isSelected: selectedIndex == 0,
+                    itemModel: items[0],
+                  ),
+                ),
+              ),
+              const SizedBox(width: 20,),
+              Expanded(
+                child: GestureDetector(
+                  onTap: () {
+                    updateIndex(1);
+                  },
+                  child: AllExpensessItem(
+                    isSelected: selectedIndex == 1,
+                    itemModel: items[1],
+                  ),
+                ),
+              ),
+              
+            ],
+          ),
+          const SizedBox(height: 20,),
+
+          FadeInRight(
+      delay: const Duration(milliseconds: 800),
+      duration: const Duration(milliseconds: 900),
       child: Row(
         children: [
-          Expanded(
-            child: GestureDetector(
-              onTap: () {
-                updateIndex(0);
-              },
-              child: AllExpensessItem(
-                isSelected: selectedIndex == 0,
-                itemModel: items[0],
-              ),
-            ),
-          ),
-          const SizedBox(
-            width: 8,
-          ),
-          Expanded(
-            child: GestureDetector(
-              onTap: () {
-                updateIndex(1);
-              },
-              child: AllExpensessItem(
-                isSelected: selectedIndex == 1,
-                itemModel: items[1],
-              ),
-            ),
-          ),
-          const SizedBox(
-            width: 8,
-          ),
           Expanded(
             child: GestureDetector(
               onTap: () {
@@ -67,10 +76,27 @@ class _AllExpensessItemsListViewState extends State<AllExpensessItemsListView> {
                 itemModel: items[2],
               ),
             ),
-          )
+          ),
+          const SizedBox(width: 20,),
+          Expanded(
+            child: GestureDetector(
+              onTap: () {
+                updateIndex(3);
+              },
+              child: AllExpensessItem(
+                isSelected: selectedIndex == 3,
+                itemModel: items[3],
+              ),
+            ),
+          ),
+          
+        ],
+      ),
+    ),
         ],
       ),
     );
+    
   }
 
   void updateIndex(int index) {
