@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:untitled1/Screens/CompanyDirection/PaymentPage/payment_methods_list_view.dart';
+import 'package:untitled1/Screens/CompanyDirection/PlanPage/payment_methods_list_view_standard.dart';
 
-class PaymentMethodsBottomSheet extends StatelessWidget {
-  const PaymentMethodsBottomSheet({super.key});
+class PaymentMethodsBottomSheetStandard extends StatelessWidget {
+  const PaymentMethodsBottomSheetStandard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class PaymentMethodsBottomSheet extends StatelessWidget {
           SizedBox(
             height: 16,
           ),
-          PaymentMethodsListView(),
+          PaymentMethodsListViewStandard(),
         ],
       ),
     );

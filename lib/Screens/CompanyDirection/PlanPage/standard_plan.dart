@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled1/Screens/CompanyDirection/PlanPage/payment_methods_bottom_sheet.dart';
+import 'package:untitled1/Screens/CompanyDirection/PlanPage/payment_methods_bottom_sheet_standerd.dart';
 
 class StandardPlan extends StatelessWidget {
   const StandardPlan({super.key});
@@ -53,7 +53,7 @@ class StandardPlan extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular((16))),
                       builder: (context) {
-                        return const PaymentMethodsBottomSheet();
+                        return const PaymentMethodsBottomSheetStandard();
                       });
                 },
                 color: Colors.black,

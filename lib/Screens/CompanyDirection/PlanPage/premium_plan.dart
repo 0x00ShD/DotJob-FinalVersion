@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-import 'package:untitled1/Screens/CompanyDirection/PaymentPage/payment_details.dart';
+import 'package:untitled1/Screens/CompanyDirection/PlanPage/payment_methods_bottom_sheet_premium.dart';
 
 class PremiumPlan extends StatelessWidget {
   const PremiumPlan({super.key});
@@ -49,15 +49,13 @@ class PremiumPlan extends StatelessWidget {
                 minWidth: 20,
                 height: 60,
                 onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Sizer(
-                        builder: (context, orientation, deviceType) =>
-                            const PaymentDetailsView(),
-                      ),
-                    ),
-                  );
+                  showModalBottomSheet(
+                      context: context,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular((16))),
+                      builder: (context) {
+                        return const PaymentMethodsBottomSheetPremium();
+                      });
                 },
                 color: Colors.black,
                 elevation: 0,

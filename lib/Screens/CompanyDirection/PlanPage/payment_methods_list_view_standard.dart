@@ -7,14 +7,16 @@ import 'package:untitled1/Screens/CompanyDirection/PlanPage/API_keys/api_key.dar
 import 'package:untitled1/Screens/CompanyDirection/PlanPage/PaymobManager/paymob_manager.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class PaymentMethodsListView extends StatefulWidget {
-  const PaymentMethodsListView({super.key});
+class PaymentMethodsListViewStandard extends StatefulWidget {
+  const PaymentMethodsListViewStandard({super.key});
 
   @override
-  State<PaymentMethodsListView> createState() => _PaymentMethodsListViewState();
+  State<PaymentMethodsListViewStandard> createState() =>
+      _PaymentMethodsListViewStandardState();
 }
 
-class _PaymentMethodsListViewState extends State<PaymentMethodsListView> {
+class _PaymentMethodsListViewStandardState
+    extends State<PaymentMethodsListViewStandard> {
   int activeIndex = 0;
 
   @override
@@ -77,19 +79,6 @@ class _PaymentMethodsListViewState extends State<PaymentMethodsListView> {
                   ));
                 },
                 child: SvgPicture.asset('assets/Images/paypal.svg')),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          SizedBox(
-            width: 300,
-            height: 50,
-            child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                ),
-                onPressed: () {},
-                child: SvgPicture.asset('assets/icons/google-pay-2.svg')),
           ),
           const SizedBox(
             height: 20,
