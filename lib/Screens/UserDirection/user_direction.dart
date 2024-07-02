@@ -110,7 +110,7 @@ class _UserDirectionState extends State<UserDirection> {
                                     builder: (context) => Sizer(
                                       builder:
                                           (context, orientation, deviceType) =>
-                                            const LoginUSerPage(),
+                                              const LoginUSerPage(),
                                     ),
                                   ),
                                 );

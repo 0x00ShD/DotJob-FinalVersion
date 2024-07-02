@@ -16,7 +16,6 @@ class SignUpUser extends StatefulWidget {
 }
 
 class _SignUpUserState extends State<SignUpUser> {
-
   final firstName = TextEditingController();
   final secondName = TextEditingController();
   final password = TextEditingController();
@@ -39,17 +38,24 @@ class _SignUpUserState extends State<SignUpUser> {
     Uint8List? ima = await pickImage(ImageSource.gallery);
     setState(() {
       _image = ima;
-    }); 
+    });
   }
-  String? validateEmail(String? email)
-    {
-      RegExp emailRegex= RegExp(r"(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'"r'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-'r'\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*'r'[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4]'r'[0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9]'r'[0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\'r'x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])');
-      final isEmailValid =emailRegex.hasMatch(email??'');
-      if(!isEmailValid){
-        return "please enter a valid email";
-      }
-      return null;
+
+  String? validateEmail(String? email) {
+    RegExp emailRegex = RegExp(
+        r"(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'"
+        r'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-'
+        r'\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*'
+        r'[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4]'
+        r'[0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9]'
+        r'[0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\'
+        r'x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])');
+    final isEmailValid = emailRegex.hasMatch(email ?? '');
+    if (!isEmailValid) {
+      return "please enter a valid email";
     }
+    return null;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -122,37 +128,38 @@ class _SignUpUserState extends State<SignUpUser> {
                       height: 5.h,
                     ),
                     FadeInDown(
-                        delay: const Duration(milliseconds: 900),
-                        duration: const Duration(milliseconds: 1000),
-                        child: Form(
-                          key: formKey,
-                          child: Center(
-                            child: Stack(
-                              children: [
-                                _image != null
-                                    ? CircleAvatar(
-                                        radius: 50,
-                                        backgroundImage: MemoryImage(_image!))
-                                    : const CircleAvatar(
-                                        radius: 50,
-                                        backgroundImage: NetworkImage(
-                                            'https://t4.ftcdn.net/jpg/05/49/98/39/360_F_549983970_bRCkYfk0P6PP5fKbMhZMIb07mCJ6esXL.jpg'),
-                                      ),
-                                Positioned(
-                                  bottom: -10,
-                                  left: 55,
-                                  child: IconButton(
-                                    onPressed: selectImage,
-                                    icon: const Icon(
-                                      Icons.add_a_photo,
-                                      size: 40,
+                      delay: const Duration(milliseconds: 900),
+                      duration: const Duration(milliseconds: 1000),
+                      child: Form(
+                        key: formKey,
+                        child: Center(
+                          child: Stack(
+                            children: [
+                              _image != null
+                                  ? CircleAvatar(
+                                      radius: 50,
+                                      backgroundImage: MemoryImage(_image!))
+                                  : const CircleAvatar(
+                                      radius: 50,
+                                      backgroundImage: NetworkImage(
+                                          'https://t4.ftcdn.net/jpg/05/49/98/39/360_F_549983970_bRCkYfk0P6PP5fKbMhZMIb07mCJ6esXL.jpg'),
                                     ),
+                              Positioned(
+                                bottom: -10,
+                                left: 55,
+                                child: IconButton(
+                                  onPressed: selectImage,
+                                  icon: const Icon(
+                                    Icons.add_a_photo,
+                                    size: 40,
                                   ),
-                                )
-                              ],
-                            ),
+                                ),
+                              )
+                            ],
                           ),
-                        ),),
+                        ),
+                      ),
+                    ),
                     SizedBox(
                       height: 5.h,
                     ),
@@ -269,8 +276,7 @@ class _SignUpUserState extends State<SignUpUser> {
                                   Container(
                                     height: 50,
                                     decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(20),
+                                        borderRadius: BorderRadius.circular(20),
                                         color: const Color(0xFF139487)
                                             .withOpacity(.2)),
                                     child: TextFormField(
@@ -284,7 +290,8 @@ class _SignUpUserState extends State<SignUpUser> {
                                         border: InputBorder.none,
                                         hintText: "E-mail",
                                       ),
-                                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                                      autovalidateMode:
+                                          AutovalidateMode.onUserInteraction,
                                     ),
                                   ),
                                 ],
@@ -529,7 +536,6 @@ class _SignUpUserState extends State<SignUpUser> {
                               minWidth: double.infinity,
                               height: 60,
                               onPressed: () {
-                                
                                 Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
@@ -576,7 +582,6 @@ class _SignUpUserState extends State<SignUpUser> {
                           ),
                           TextButton(
                               onPressed: () {
-                                
                                 Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(

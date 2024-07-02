@@ -23,11 +23,13 @@ class _PaymentDetailsViewBodyState extends State<PaymentDetailsViewBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        FadeInLeft(delay: const Duration(milliseconds: 800),
-              duration: const Duration(milliseconds: 900),child: const PaymentMethodsListView()),
+        FadeInLeft(
+            delay: const Duration(milliseconds: 800),
+            duration: const Duration(milliseconds: 900),
+            child: const PaymentMethodsListView()),
         FadeInRight(
           delay: const Duration(milliseconds: 800),
-              duration: const Duration(milliseconds: 900),
+          duration: const Duration(milliseconds: 900),
           child: CustomCreditCard(
             formkey: formkey,
             autovalidatemode: autovalidatemode,
@@ -38,7 +40,7 @@ class _PaymentDetailsViewBodyState extends State<PaymentDetailsViewBody> {
         ),
         FadeInLeft(
           delay: const Duration(milliseconds: 800),
-              duration: const Duration(milliseconds: 900),
+          duration: const Duration(milliseconds: 900),
           child: Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
@@ -67,5 +69,3 @@ class _PaymentDetailsViewBodyState extends State<PaymentDetailsViewBody> {
     );
   }
 }
-
-

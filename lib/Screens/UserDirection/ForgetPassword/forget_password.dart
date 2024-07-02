@@ -37,7 +37,7 @@ class ForgetPassword extends StatelessWidget {
             MaterialPageRoute(
               builder: (context) => Sizer(
                 builder: (context, orientation, deviceType) =>
-                  const LoginUSerPage(),
+                    const LoginUSerPage(),
               ),
             ),
           );

@@ -1,5 +1,11 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:untitled1/Screens/CompanyDirection/PlanPage/API_keys/api_key.dart';
+import 'package:untitled1/Screens/CompanyDirection/PlanPage/PaymobManager/paymob_manager.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class PaymentMethodsListView extends StatefulWidget {
   const PaymentMethodsListView({super.key});
@@ -9,18 +15,12 @@ class PaymentMethodsListView extends StatefulWidget {
 }
 
 class _PaymentMethodsListViewState extends State<PaymentMethodsListView> {
-  final List<String> paymentMothodsItems = const [
-    'assets/Images/paypal.svg',
-    'assets/icons/google-pay-2.svg',
-    'assets/icons/2iZjgjXqM39bNeL6aRi8USG40ge.svg',
-  ];
-
   int activeIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(5),
+      padding: const EdgeInsets.all(5),
       child: Column(
         children: [
           SizedBox(
@@ -30,10 +30,55 @@ class _PaymentMethodsListViewState extends State<PaymentMethodsListView> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => PaypalCheckoutView(
+                      sandboxMode: true,
+                      clientId: ApiKeys.clientID,
+                      secretKey: ApiKeys.paypalSecretKey,
+                      transactions: const [
+                        {
+                          "amount": {
+                            "total": '49.99',
+                            "currency": "USD",
+                            "details": {
+                              "subtotal": '49.99',
+                              "shipping": '0',
+                              "shipping_discount": 0
+                            }
+                          },
+                          "description": "The payment transaction description.",
+                          "item_list": {
+                            "items": [
+                              {
+                                "name": "Standard",
+                                "quantity": 1,
+                                "price": '49.99',
+                                "currency": "USD"
+                              },
+                            ],
+                          }
+                        }
+                      ],
+                      note: "Contact us for any questions on your order.",
+                      onSuccess: (Map params) async {
+                        log("onSuccess: $params");
+                        Navigator.pop(context);
+                      },
+                      onError: (error) {
+                        log("onError: $error");
+                        Navigator.pop(context);
+                      },
+                      onCancel: () {
+                        print('cancelled:');
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ));
+                },
                 child: SvgPicture.asset('assets/Images/paypal.svg')),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           SizedBox(
@@ -46,7 +91,7 @@ class _PaymentMethodsListViewState extends State<PaymentMethodsListView> {
                 onPressed: () {},
                 child: SvgPicture.asset('assets/icons/google-pay-2.svg')),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           SizedBox(
@@ -56,12 +101,21 @@ class _PaymentMethodsListViewState extends State<PaymentMethodsListView> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
                 ),
-                onPressed: () {},
+                onPressed: () async => _pay(),
                 child: SvgPicture.asset(
                     'assets/icons/2iZjgjXqM39bNeL6aRi8USG40ge.svg')),
           ),
         ],
       ),
     );
+  }
+
+  Future<void> _pay() async {
+    PaymobManager().getPaymentKey(4835, "EGP").then((String paymentKey) {
+      launchUrl(
+        Uri.parse(
+            "https://accept.paymob.com/api/acceptance/iframes/854235?payment_token=$paymentKey"),
+      );
+    });
   }
 }

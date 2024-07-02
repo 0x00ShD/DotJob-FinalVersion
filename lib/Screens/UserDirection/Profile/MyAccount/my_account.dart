@@ -212,4 +212,3 @@ class _MyAccountPageState extends State<MyAccountPage> {
 }
 
 // we will be creating a widget for text field
-

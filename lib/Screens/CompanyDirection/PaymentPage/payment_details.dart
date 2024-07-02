@@ -59,7 +59,6 @@ class PaymentDetailsView extends StatelessWidget {
           ),
         ),
       ),
-      
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -73,5 +72,3 @@ class PaymentDetailsView extends StatelessWidget {
     );
   }
 }
-
-

@@ -90,10 +90,8 @@ class PlanPage extends StatelessWidget {
                 );
               },
             ),
-            
             IconButton(
-              icon: const Icon(Icons.apartment,
-                  size: 30, color: Colors.white),
+              icon: const Icon(Icons.apartment, size: 30, color: Colors.white),
               onPressed: () {
                 Navigator.push(
                   context,
@@ -113,18 +111,24 @@ class PlanPage extends StatelessWidget {
             SizedBox(
               height: 2.h,
             ),
-            FadeInLeft(delay: const Duration(milliseconds: 800),
-              duration: const Duration(milliseconds: 900),child: const BasicPlan()),
+            FadeInLeft(
+                delay: const Duration(milliseconds: 800),
+                duration: const Duration(milliseconds: 900),
+                child: const BasicPlan()),
             SizedBox(
               height: 2.h,
             ),
-            FadeInRight(delay: const Duration(milliseconds: 800),
-              duration: const Duration(milliseconds: 900),child: const StandardPlan()),
+            FadeInRight(
+                delay: const Duration(milliseconds: 800),
+                duration: const Duration(milliseconds: 900),
+                child: const StandardPlan()),
             SizedBox(
               height: 2.h,
             ),
-            FadeInLeft(delay: const Duration(milliseconds: 800),
-              duration: const Duration(milliseconds: 900),child: const PremiumPlan()),
+            FadeInLeft(
+                delay: const Duration(milliseconds: 800),
+                duration: const Duration(milliseconds: 900),
+                child: const PremiumPlan()),
             SizedBox(
               height: 2.h,
             ),
@@ -134,5 +138,3 @@ class PlanPage extends StatelessWidget {
     );
   }
 }
-
-

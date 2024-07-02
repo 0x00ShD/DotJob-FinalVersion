@@ -96,7 +96,6 @@ class ProfileScreenCompany extends StatelessWidget {
               },
               child: const Icon(Icons.payment, size: 30, color: Colors.white),
             ),
-            
             MaterialButton(
               onPressed: () {
                 Navigator.push(
@@ -111,7 +110,6 @@ class ProfileScreenCompany extends StatelessWidget {
               },
               child: const Icon(Icons.home, size: 30, color: Colors.white),
             ),
-            
             const Icon(Icons.apartment, size: 30, color: Colors.white),
           ]),
       body: SingleChildScrollView(

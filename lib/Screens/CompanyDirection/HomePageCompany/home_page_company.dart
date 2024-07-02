@@ -83,8 +83,6 @@ class _HomePageCompanyState extends State<HomePageCompany> {
           color: const Color(0xFF139487),
           animationDuration: const Duration(milliseconds: 300),
           items: [
-            
-            
             IconButton(
               icon: const Icon(Icons.payment, size: 30, color: Colors.white),
               onPressed: () {

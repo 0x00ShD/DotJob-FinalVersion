@@ -44,7 +44,9 @@ class _AllExpensessItemsListViewState extends State<AllExpensessItemsListView> {
                   ),
                 ),
               ),
-              const SizedBox(width: 20,),
+              const SizedBox(
+                width: 20,
+              ),
               Expanded(
                 child: GestureDetector(
                   onTap: () {
@@ -56,47 +58,47 @@ class _AllExpensessItemsListViewState extends State<AllExpensessItemsListView> {
                   ),
                 ),
               ),
-              
             ],
           ),
-          const SizedBox(height: 20,),
-
+          const SizedBox(
+            height: 20,
+          ),
           FadeInRight(
-      delay: const Duration(milliseconds: 800),
-      duration: const Duration(milliseconds: 900),
-      child: Row(
-        children: [
-          Expanded(
-            child: GestureDetector(
-              onTap: () {
-                updateIndex(2);
-              },
-              child: AllExpensessItem(
-                isSelected: selectedIndex == 2,
-                itemModel: items[2],
-              ),
+            delay: const Duration(milliseconds: 800),
+            duration: const Duration(milliseconds: 900),
+            child: Row(
+              children: [
+                Expanded(
+                  child: GestureDetector(
+                    onTap: () {
+                      updateIndex(2);
+                    },
+                    child: AllExpensessItem(
+                      isSelected: selectedIndex == 2,
+                      itemModel: items[2],
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                Expanded(
+                  child: GestureDetector(
+                    onTap: () {
+                      updateIndex(3);
+                    },
+                    child: AllExpensessItem(
+                      isSelected: selectedIndex == 3,
+                      itemModel: items[3],
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
-          const SizedBox(width: 20,),
-          Expanded(
-            child: GestureDetector(
-              onTap: () {
-                updateIndex(3);
-              },
-              child: AllExpensessItem(
-                isSelected: selectedIndex == 3,
-                itemModel: items[3],
-              ),
-            ),
-          ),
-          
-        ],
-      ),
-    ),
         ],
       ),
     );
-    
   }
 
   void updateIndex(int index) {
